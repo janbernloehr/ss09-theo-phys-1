@@ -1,0 +1,1520 @@
+\section{Spezielle Relativitätstheorie}
+
+Bei der Beschreibung der Elektrodynamik mittels den Maxwell-Gleichungen ergibt
+sich ein Problem mit der Klassischen Mechanik, da die Maxwell-Gleichungen nicht
+forminvariant unter Galilei-Transformationen sind. Aus der Sicht der
+Klassischen Mechanik kann daher die Maxwell Theorie nicht korrekt sein.
+
+Auf der anderen Seite wissen wir aus dem Experiment, dass sich
+elektromagnetische Wellen mit Lichtgeschwindigkeit ausbreiten,
+\begin{align*}
+c = 299792458 \mathrm{m/s}.
+\end{align*}
+Bei Abstrahlung in Ruhe breiten sie sich kugelförmig aus. Bewegt sich die
+Quelle, ist nach der Klassischen Mechanik die Ausbreitung nicht mehr
+kugelförmig, es kommt zum Dopplereffekt.
+\begin{figure}[!htbp]
+\centering
+\begin{pspicture}(-0.1,-1.2)(2.3,1.2)
+\psline{->}(0.74,-0.49046874)(0.74,0.9895313)
+\psline{->}(0.62,-0.37046874)(2.08,-0.37046874)
+\pscircle[linecolor=yellow](0.74,-0.39046875){0.24}
+\pscircle[linecolor=yellow](0.74,-0.39046875){0.5}
+\pscircle[linecolor=yellow](0.74,-0.39046875){0.74}
+
+\rput(0.5878125,1.0795312){\color{gdarkgray}$y$}
+\rput(2.0854688,-0.54046875){\color{gdarkgray}$x$}
+\end{pspicture}
+\begin{pspicture}(-0.1,-1.24)(4.1,1.24)
+\psline{->}(0.2378125,-1.0)(0.2378125,0.94)
+\psline{->}(0.0778125,-0.88)(3.7178125,-0.88)
+
+\psdots[linecolor=darkblue](2.0378125,0.0)
+\psbezier[linecolor=yellow](1.5178125,0.0)(1.5178125,-0.88)(3.0378125,-0.66)(3.0378125,0.0)(3.0378125,0.66)(1.5178125,0.88)(1.5178125,0.0)
+\psbezier[linecolor=yellow](1.6978126,0.0)(1.6978126,-0.58)(2.7178125,-0.46)(2.7378125,0.0)(2.7578125,0.46)(1.6978126,0.58)(1.6978126,0.0)
+\psbezier[linecolor=yellow](1.2978125,0.0)(1.3178124,-1.22)(3.3378124,-0.78)(3.3378124,0.0)(3.3378124,0.78)(1.2778125,1.22)(1.2978125,0.0)
+\psline[linecolor=darkblue]{->}(1.1778125,-0.04)(0.3578125,-0.04)
+\psline[linecolor=darkblue]{->}(3.4378126,-0.04)(3.9178126,-0.04)
+
+\rput(0.085625,0.95){\color{gdarkgray}$y$}
+\rput(3.6032813,-1.05){\color{gdarkgray}$x$}
+\rput(0.7603125,0.23){\color{gdarkgray}$v+c$}
+\rput(3.7,0.23){\color{gdarkgray}$v-c$}
+\end{pspicture} 
+\caption{Wellenausbreitung im ruhenden und bewegten Bezugssystem.}
+\end{figure}
+
+Da elektromagnetische Wellen eine endliche Ausbreitungsgeschwindigkeit haben,
+müsste so die Lichtgeschwindigkeit vom Bezugssystem abhängen. Insbesondere
+würde ein absolutes Ruhesystem existieren, in dem Licht sich mit $c_0$
+ausbreitet. Es wurden zahlreiche Experimente durchgeführt, um die
+Relativbewegung des Laborsystems zu diesem absoluten Bezugssystem
+nachzuweisen, darunter auch das berühmte Michelson-Morley Experiment, welches
+schließlich das experimentelle Ergebnis lieferte, dass kein absolutes
+Bezugssystem existiert und die Lichtgeschwindigkeit vom Bezugssystem unabhängig
+ist. Die Klassische Mechanik bricht also bei Lichtgeschwindigkeit zusammen.
+ 
+Einstein löste diesen Widerspruch, indem er davon ausging, dass sowohl die
+Klassische Mechanik als auch die Maxwell Theorie korrekt sind, jedoch eine
+experiementell nicht verifizierbare Annahme, die absolute Gleichzeitigkeit
+aufgab. In der Klassischen Mechanik gingen wir bisher von einer absoluten
+Zeitskala aus, die in allen relativ zueinander bewegten Koordinatensystem verwendet
+werden kann. Die Aussage, zwei Ereignisse finden gleichzeitig statt, hat so
+absolute Bedeutung. Einstein forderte nun, dass jedem Bezugssystem eine
+eigene von anderen Bezugssystem unabhängige Zeitskala zuzuordnen ist.
+
+\begin{bsp}
+Geht man von absoluter Gleichzeitigkeit aus, nehmen ruhender und bewegter
+Beobachter dieselben Ereignisse als ``gleichzeitig'' wahr (Siehe
+Abb. \ref{figure:5:AbsGleichzeitigkeit}).
+
+Dies führt jedoch dazu, dass ruhender und bewegter Beobachter eine
+unterschiedliche Lichtgeschwindigkeit wahrnehmen ($v_1\neq v_2$), was
+im Wiederspruch zur Konstanz der Lichtgeschwindigkeit steht.
+
+\begin{figure}[H]
+\centering
+\begin{pspicture}(0.2,-1.4)(5.6,2.035)
+%\psgrid
+\psline{->}(0.3,-0.495)(4.48,-0.475)
+\psline{->}(2.14,-0.575)(2.14,1.305)
+\psline[linecolor=yellow](0.32,1.025)(2.12,-0.475)
+\psline[linecolor=yellow](3.94,1.005)(2.12,-0.475)
+\psline[linecolor=yellow]{<-}(3.44,0.585)(2.12,-0.475)
+
+\psbezier(2.2,-0.595)(2.34,-1.095)(2.94,-0.715)(3.08,-1.095)
+
+\psdots[linecolor=darkblue,dotsize=0.2](2.14,-0.495)
+\psline[linecolor=darkblue]{->}(1.16,-1.995)(3.4,1.425)
+\psbezier(3.48,1.485)(3.66,1.805)(4.04,1.325)(4.44,1.665)
+
+\psline[dotsep=0.06cm]{<->}(0.84,0.665)(2.82,0.665)
+\psline[dotsep=0.06cm]{<->}(2.96,0.665)(3.48,0.665)
+
+\psbezier(3.58,0.625)(3.72,0.125)(4.32,0.505)(4.46,0.125)
+
+\rput(0.76671875,0.175){\small\color{gdarkgray}Licht}
+\rput(3.73,-1.285){\small\color{gdarkgray}ruhender Beobachter}
+\rput(4.1,1.855){\small\color{gdarkgray}bewegter Beobachter}
+\rput(4.3,-0.0050){\small\color{gdarkgray}Ereignis}
+
+\rput(1.8909374,0.855){\small\color{gdarkgray}$v_2$}
+\rput(3.2964063,0.855){\small\color{gdarkgray}$v_1$}
+
+\rput(1.9685937,1.415){\small\color{gdarkgray}$t$}
+\rput(4.445469,-0.645){\small\color{gdarkgray}$x$}
+\end{pspicture} 
+\begin{pspicture}(0.2,-1.4)(5.6,2.035)
+%\psgrid
+\psline{->}(0.3,-0.495)(4.48,-0.475)
+\psline{->}(2.14,-0.575)(2.14,1.305)
+\psline[linecolor=yellow](0.32,1.025)(2.12,-0.475)
+\psline[linecolor=yellow](3.94,1.005)(2.12,-0.475)
+\psline[linecolor=yellow]{<-}(3.44,0.585)(2.12,-0.475)
+
+\psbezier(2.2,-0.595)(2.34,-1.095)(2.94,-0.715)(3.08,-1.095)
+
+\psdots[linecolor=darkblue,dotsize=0.2](2.14,-0.495)
+\psline[linecolor=darkblue]{->}(1.16,-1.995)(3.4,1.425)
+\psbezier(3.48,1.485)(3.66,1.805)(4.04,1.325)(4.44,1.665)
+
+\psline[dotsep=0.06cm]{<->}(2.42,-0.015)(1.94,-0.255)
+\psline[dotsep=0.06cm]{<->}(2.94,0.245)(2.52,0.0050)
+
+%\psbezier(3.58,0.625)(3.72,0.125)(4.32,0.505)(4.46,0.125)
+
+\psbezier(3.0325,0.165)(3.2725,-0.195)(3.3325,0.185)(3.6125,-0.095)
+
+%\psbezier(0.5125,1.325)(0.6325,0.865)(0.8925,1.2154762)(0.9725,0.865)
+\psbezier(0.86,1.525)(0.9,1.125)(1.26,1.305)(1.28,0.945)
+
+\psline{<->}(0.8325,0.725)(3.5725,0.725)
+
+\rput(0.76671875,0.175){\small\color{gdarkgray}Licht}
+\rput(3.73,-1.285){\small\color{gdarkgray}ruhender Beobachter}
+\rput(4.1,1.855){\small\color{gdarkgray}bewegter Beobachter}
+\rput(4.6,-0.205){\small\color{gdarkgray}Ereignis bew.}
+
+\rput(1.9309375,0.095){\small\color{gdarkgray}$v_2$}
+\rput(2.9764063,0.435){\small\color{gdarkgray}$v_1$}
+
+\rput(1.9685937,1.415){\small\color{gdarkgray}$t$}
+\rput(4.445469,-0.645){\small\color{gdarkgray}$x$}
+
+\rput(1.2,1.795){\small\color{gdarkgray}Ereignis ruh.}
+
+\end{pspicture} 
+
+\caption{Gleichzeitige Ereignisse in der KM (links) und der SRT (rechts).}
+\label{figure:5:AbsGleichzeitigkeit}
+\end{figure}
+
+Gibt man die absolute Gleichzeitigkeit auf und fordert dagegen, dass die
+Lichtgeschwindigkeit eine universelle konstante für alle Bezugssysteme ist,
+nehmen ruhender und bewegter Beobachter unterschiedliche
+Ereignisse als ``gleichzeitig'' wahr. Ein bewegter
+Beobachter hat eine ``verschobene Idee'' davon, was Gleichzeitigkeit
+bedeutet.\bsphere
+\end{bsp}
+
+\addtocounter{subsection}{-1}
+\subsection{Mathematische Formulierung}
+Einstein baut seine ``Spezielle Relativitätstheorie'' auf zwei Axiomen auf.
+\begin{enumerate}[label=(\roman{*})]
+  \item\label{prop:5:SRT:1} \textit{Spezielles Relativitätsprinzip.}\\
+Alle Naturgesetze haben in allen Inertialsystemen die selbe Form.
+  \item\label{prop:5:SRT:2} \textit{Konstanz der Lichtgeschwindigkeit.}\\
+$c$ ist eine universelle Konstante für alle Inertialsysteme.
+\end{enumerate}
+
+Zur mathematischen Formulierung dieser Theorie bietet es sich an, \emph{4-er
+Ortsvektoren} einzuführen,
+\begin{align*}
+\rvec{x}^\mu =
+\begin{pmatrix}
+ct\\\vec{x}              
+\end{pmatrix} = 
+\begin{pmatrix}
+x^0 \\ x^1 \\ x^2 \\ x^3
+\end{pmatrix},\quad \text{d.h. } x_0 = ct,
+\end{align*}
+die ein Ereignis, welches in einem System $K$ stattfindet, durch Angabe von
+Zeit und Ort des Geschehens charakterisieren. Indem man die Zeit $t$ mit
+der Lichtgeschwindigkeit multipliziert, haben alle Komponenten des 4-er Vektors
+die Dimension einer Länge. Die 4-er Vektoren sind Elemente des
+\emph{Minkowski-Raums}, ein vierdimensionaler Vektorraum, der nicht mehr mit
+der euklidischen Metrik versehen ist. Wir werden uns später damit ausführlicher
+befassen.
+
+\begin{bemn}[Bemerkung zur Notation.]
+Für einen 4-er Vektor verwenden wir das Symbol $\rvec{x}^\mu$ bzw.
+$\rvec{x}$. Die $\mu$-te Komponente des 4-er Vektors bezeichnen wir mit
+$x^\mu$, wobei $\mu=0,\ldots,3$.
+
+Die \emph{Einstein'sche Summennotation} erlaubt eine kompakte Schreibweise für
+Summen,
+\begin{align*}
+&x_\mu x^\mu\equiv\sum_\mu x_\mu x^\mu,\\
+&A_{\mu\nu} x^\mu x^\nu\equiv\sum_{\mu,\nu} A_{\mu\nu} x^\mu x^\nu. 
+\end{align*}
+Wann immer der gleiche Index oben ${}^\mu$ und unten ${}_\mu$ in einem Ausdruck
+auftritt, wird darüber summiert.\maphere
+\end{bemn}
+Es lassen sich nun Transformationen definieren, die ein Inertialsystem
+bezüglich dieser Darstellung in ein anderes überführen. Homogenität und
+Isotropie des Raumes verlangen, dass diese Transformationen affine Abbildungen
+sind
+\begin{align*}
+\rvec{x}' = \Lambda \rvec{x} + \rvec{a},
+\end{align*}
+wobei $\Lambda$ eine $4\times 4$-Matrix und $\rvec{a}$ einen konstanten 4-er
+Vektor beschreibt.
+
+Zur Beschreibung dieser Transformationen genügt es, sich zunächst auf einen
+Boost eines Inertialsystems $K'$, dessen Ursprung sich mit konstanter
+Geschwindigkeit entlang der $x$-Achse relativ zu $K$ bewegt, zu beschränken
+($\rvec{a}=0$). Die Transformation hat daher die Form,
+\begin{align*}
+&\begin{rcases}
+{x^0}' = a(v)x^0 + b(v)x^1\\
+{x^1}' = d(v)x^1 + e(v)x^0\\
+{x^2}' = x^2\\
+{x^3}' = x^3
+\end{rcases}
+\Rightarrow\Lambda =
+\begin{pmatrix}
+a & b & 0 & 0\\
+e & d & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+\end{align*}
+Homogenität und Isotropie des Raumes erfordern, dass die Koeffizienten
+lediglich von $v$ abhängen können. Kehren wir die Richtung der $x$-Achse in $K$
+und $K'$ sowie $v$ um,
+\begin{align*}
+&{x^0}' = a(-v)x^0 - b(-v)x^1,\\
+&-{x^1}' = -d(-v)x^1 + e(-v)x^0,\\
+&{x^2}' = x^2,\\
+&{x^3}' = x^3.
+\end{align*}
+ erzwingt die Isotropie, dass sich die
+Transformationsformel nicht ändert, d.h.
+\begin{align*}
+&a(-v) = a(v),\qquad b(v) = -b(-v),\\
+&d(v) = d(-v),\qquad e(-v) = -e(v).
+\end{align*}
+Betrachten wir nun den Nullvektor im $K'$ zum Zeitpunkt $t$, ergibt sich
+\begin{align*}
+{x^1}' = 0 = d(v)vt + e(v)ct \Rightarrow \frac{e(v)}{d(v)} = -\frac{v}{c} \equiv
+-\beta.
+\end{align*}
+Wir sehen, dass die Koeffizienten der Matrix $\Lambda$ bereits durch die Art
+der Bewegung eingeschränkt werden.
+
+Da es unabhängig ist, ob sich $K'$ mit der Geschwindigkeit $v$ zu $K$ oder $K$
+sich mit der Geschwindigkeit $-v$ zu $K'$ bewegt, hat die Rücktransformation
+die Form,
+\begin{align*}
+&x^0 = a(-v){x^0}' + b(-v){x^1}' = a(v){x^0}' - b(v){x^1}'\\
+&x^1 = d(-v){x^1}' + e(-v){x^0}' = d(v){x^1}' - e(v){x^0}'\\
+&x^2 = {x^2}'\\
+&x^3 = {x^3}'\\
+\Rightarrow\;&\Lambda^{-1} =
+\begin{pmatrix}
+a & -b & 0 & 0\\
+-e & d & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+\end{align*}
+$\Lambda$ und $\Lambda^{-1}$ sind invers zueinander, d.h.
+$\Lambda^{-1} \Lambda = \Id$,
+woraus sich folgendes Gleichungssystem ergibt,
+\begin{align*}
+&a^2 -be = 1, && -ab + bd = 0,\\
+&-ae + de = 0, && -be +d^2 = 1.
+\end{align*}
+Wählen wir $\kappa\in\R$ als freien Parameter, so besitzt das System eine
+eindeutige Lösung. Setzen wir
+\begin{align*}
+b = -a\beta \kappa^2,
+\end{align*}
+ergibt sich für die Transformationen die Form
+\begin{align*}
+&{x^0}' = \gamma x^0 - \gamma\beta\kappa^2x^1\\
+&{x^1}' = -\gamma\beta\kappa^2 x^0 + \gamma x^1\\
+&{x^2}' = x^2\\
+&{x^3}' = x^3
+\end{align*}
+wobei $\beta = \dfrac{v}{c}$, $\gamma=\dfrac{1}{\sqrt{1-\kappa^2\beta^2}}$.
+\begin{bemn}
+Für $\kappa = 0$ ist $\gamma=1$ und wir erhalten die
+Galilei-Transformation für einen boost.
+
+Prinzip \ref{prop:5:SRT:1} kann also auch auf die Gallilei-Transformationen
+führen. Diese sind jedoch nicht mit \ref{prop:5:SRT:2} verträglich. Wählt man
+$\kappa = 1$, so sind \ref{prop:5:SRT:1} und \ref{prop:5:SRT:2} erfüllt. Die
+Größe $\frac{c}{\kappa}$ spielt die Rolle einer maximalen
+Signalgeschwindigkeit. Für $\kappa=0$ werden alle Wechselwirkungen instantan,
+für $\kappa=1$ ist die Ausbreitungsgeschwindigkeit die
+Lichtgeschwindigkeit.\maphere
+\end{bemn}
+
+Wir erhalten für $\kappa=1$ die \emph{Lorentz-Transformationen}, welche die
+Lichtgeschwindigkeit bei Transformation zwischen Inertialsystemen invariant
+lassen. Die Lorenz-Transformation für einen Boost in $x$-Richtung ist gegeben
+durch,
+\begin{align*}
+\begin{rcases}
+{x^0}' = \gamma x^0 - \gamma\beta x^1\\
+{x^1}' = -\gamma\beta x^0 + \gamma x^1\\
+{x^2}' = x^2\\
+{x^3}' = x^3
+\end{rcases}
+\Rightarrow \Lambda = 
+\begin{pmatrix}
+\gamma & -\gamma\beta & 0 & 0\\
+-\gamma\beta & \gamma & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+\end{align*}
+\begin{figure}[!htbp]
+\begin{pspicture}(-0.1,-1.151875)(3.0834374,1.151875)
+
+\psline[linecolor=darkblue]{->}(0.3,-0.85)(1.0078125,-0.44703126)
+
+\psline{->}(0.3078125,-0.971875)(0.3078125,0.968125)
+\psline{->}(0.1478125,-0.851875)(3.0078125,-0.851875)
+\psline{->}(1.0278125,-0.451875)(1.4878125,0.928125)
+\psline{->}(0.9478125,-0.391875)(2.4878125,-0.151875)
+
+\rput(0.11203125,0.998125){\color{gdarkgray}$ct$}
+\rput(2.9532812,-1.001875){\color{gdarkgray}$x$}
+\rput(1.2365625,0.978125){\color{gdarkgray}$ct'$}
+\rput(2.5703125,-0.321875){\color{gdarkgray}$x'$}
+
+\rput(1.5,-0.65703124){\color{gdarkgray}$(ct,vt)$}
+\end{pspicture} 
+\caption{Lorentztransformation im Minkowski-Raum}
+\end{figure}
+
+\begin{bemn}
+Die Lorentz-Transformation lässt die Größe
+\begin{align*}
+(x^0)^2 - \vec{x}^2 = ct^2-(x^1)^2-(x^2)^2-(x^3)^2 = g_{\mu\nu}x^\nu x^\mu
+\end{align*} 
+unverändert. $g_{\mu\nu}$ bezeichnet hier den metrischen Tensor,
+\begin{align*}
+(g_{\mu\nu}) =
+\begin{pmatrix}
+1 & 0& 0 & 0\\
+0 & -1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & -1
+\end{pmatrix}.
+\end{align*}
+\begin{proof}
+Wir betrachten nur den Spezialfall des $x$-Richtung Boost, die übrigen folgen
+analog.
+\begin{align*}
+(x'^0)^2 - \vec{x}^{'2} &=
+(\gamma x^0 - \gamma\beta x^2)^2 - (-\gamma\beta x^0 + \gamma x^1) - (x^2)^2 +
+(x^3)^2 \\
+&= \gamma^2(x^0)^2 + \gamma^2\beta^2(x^1)^2 - \gamma^2\beta^2(x^0)^2 -
+\gamma^2(x^1)^2 - (x^2)^2 - (x^3)^2\\
+&= (x^0)^2\underbrace{\gamma^2(1-\beta^2)}_{=1} +
+(x^1)^2\underbrace{\gamma^2(\beta^2)-1}_{=-1} - (x^2)^2 - (x^3)^2\\
+&= (x^0)^2 - (x^1)^2 - (x^2)^2 - (x^3)^2\qedhere\maphere
+\end{align*}
+\end{proof}
+\end{bemn}
+
+\subsubsection{Die Lichtgeschwindigkeit als universelle Konstante}
+
+Wir wollen nun zeigen, dass die Lichtgeschwindigkeit $c$ unabhängig vom
+Inertialsystem ist.
+\begin{proof}
+Bewege sich ein Teilchen in einem Ineratialsystem $K$ konstant mit
+Geschwindigkeit $c$ in Richtung $\vec{n}$ ($\vec{n}$ Einheitsvektor). Die
+Bewegungsgleichung ist dann gegeben durch,
+\begin{align*}
+&\vec{x}(t) = ct\vec{n},\qquad \abs{\dvec{x}} = c.
+\end{align*} 
+Transformieren wir nun in Ineratialsystem $K'$, das sich relativ zu $K$ mit
+Geschwindigkeit $v$ bewegt, so erhalten wir die Gleichungen
+\begin{align*}
+&ct' = \gamma (x^0) -\gamma\beta (x^1) = \gamma ct - \gamma\beta ctn^1 = \gamma
+ct(1-\beta n^1),\\
+&(x^1)' = -\gamma\beta (x^0) + \gamma (x^1) = -\gamma\beta ct + \gamma ct n^1 =
+\gamma ct(n^1-\beta) = ct'\frac{n^1-\beta}{1-\beta n^1},\\
+&(x^2)' = (x^2) = ctn^2 = \frac{1}{\gamma}\frac{ct'}{1-\beta n^1}n^2,\\
+&(x^3)' = (x^3) = ctn^3 = \frac{1}{\gamma}\frac{ct'}{1-\beta n^1}n^3.
+\end{align*}
+Um die Geschwindigkeit des Teilchens in $K'$ zu erhalten, müssen wir die
+Bewegungsgleichung in $K'$ aufstellen,
+\begin{align*}
+\vec{x}'(t') = ct'
+\begin{pmatrix}
+\frac{n^1-\beta}{1-\beta n^1}\\
+\frac{1}{\gamma}\frac{n^2}{1-\beta n^1}\\
+\frac{1}{\gamma}\frac{n^3}{1-\beta n^1}
+\end{pmatrix}
+= ct'\vec{n}'
+\end{align*}
+Nun ist $\abs{\dvec{x}'} = c\abs{\vec{n}'}$. Wir müssen also zeigen $\abs{n}' =
+1$. Dazu betrachten wir den Spezialfall
+\begin{align*}
+\vec{n} = 
+\begin{pmatrix}
+1 \\ 0\\ 0
+\end{pmatrix}
+\Rightarrow
+\vec{n}' =
+\begin{pmatrix}
+\frac{1-\beta}{1-\beta}\\
+\frac{1}{\gamma}0\\
+\frac{1}{\gamma}0
+\end{pmatrix}
+= \begin{pmatrix}
+  1 \\ 0\\ 0
+  \end{pmatrix}.\qedhere
+\end{align*}
+\end{proof}
+
+% Gilt
+% \begin{align*}
+% &(x^0)' = \gamma x^0 - \gamma\beta x^1 = \const,\\
+% \Leftrightarrow & ct - \beta x^1 = \const,
+% \end{align*}
+% so treten die Ereignisse gleichzeitig ein. Ist
+% \begin{align*}
+% &(x^1)' = -\gamma\beta x^0 + \gamma x^1 = \const,\\
+% \Leftrightarrow & ct = \const + \beta x^1,
+% \end{align*}
+% so finden die Ereignisse am gleichen Ort statt. 
+
+\subsection{Einfache Folgerungen aus der SRT}
+
+Die Lorenztransformationen zeigen, dass es nicht möglich ist, sich schneller
+als das Licht zu bewegen.
+
+\begin{defnn}
+Sei $\rvec{x}^\nu$ ein $4$-er Vektor. Wir bezeichnen Ergeignisse abhängig vom
+Skalarpodukt als
+\begin{align*}
+&g_{\mu\nu}x^\mu x^\nu > 0 \qquad: \text{\emph{zeitartig}},\\
+&g_{\mu\nu}x^\mu x^\nu = 0 \qquad: \text{\emph{lichtartig}},\\
+&g_{\mu\nu}x^\mu x^\nu < 0 \qquad: \text{\emph{raumartig}}.\fishhere
+\end{align*}
+\end{defnn}
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-2.2939062)(4.8934374,2.2939062)
+\psline[linecolor=yellow](0.0,-2.1560917)(3.9798,1.8239063)
+\psline[linecolor=yellow](3.9798,-2.1560917)(0.0,1.8239063)
+\psline{->}(0.0,-0.15609375)(4.0,-0.15609375)
+\psline{->}(1.98,-2.2160938)(1.98,1.9239062)
+
+\psbezier{->}(3.9,-1.2760937)(3.46,-1.6960938)(3.68,-0.99609375)(3.24,-1.2560937)
+
+\psdots[dotstyle=x](3.26,-0.57609373)
+\psdots[dotstyle=x](3.12,-2.0360937)
+\psdots[linecolor=darkblue,dotsize=0.2](1.98,-0.15609375)
+
+%\psbezier[linecolor=darkblue]{<-}(2.74,1.9439063)(3.2,1.4039062)(3.0,0.86390626)(2.46,0.80390626)(1.92,0.74390626)(2.2457285,0.2946278)(1.98,-0.17609376)(1.7142714,-0.6468153)(1.94,-1.1760937)(1.48,-1.2560937)(1.02,-1.3360938)(1.12,-1.6760937)(1.74,-2.0160937)
+
+\psbezier[linecolor=darkblue]{<-}(2.745889,1.92)(2.9258888,1.22)(2.705889,1.08)(2.46,0.8058889)(2.214111,0.5317778)(2.2457285,0.29661044)(1.98,-0.17411113)(1.7142715,-0.6448327)(1.9058889,-0.82)(1.4858888,-1.28)(1.0658889,-1.74)(0.4858889,-1.84)(0.44588888,-2.22)
+
+\rput(3.665625,0.25390625){\small\color{gdarkgray}raumartig}
+
+\rput(0.923125,1.7476562){\small\color{gdarkgray}zeitartig}
+
+\rput(4.231406,-1.0660938){\small\color{gdarkgray}lichtartig}
+
+\rput(1.6065625,-0.00609375){\small\color{gdarkgray}A}
+
+\rput(3.4871874,-0.66609377){\small\color{gdarkgray}B}
+
+\rput(3.3271875,-2.1260939){\small\color{gdarkgray}C}
+
+\rput(3.2885938,2.1139061){\small\color{gdarkgray}Teilchen mit $v<c$}
+\end{pspicture}
+
+\caption{Lichtkegel mit ruhendem Punkt $A$, raumartigen Punkt $B$ und
+zeitartigem Punkt $C$.}
+\end{figure}
+
+Als Beobachter im Punkt $A$ zur Zeit $t=0$ können wir nur zeitartige
+Ereignisse, die sich im unteren Lichtkegel befinden, wahrnehmen bzw. von ihnen
+beeinflusst werden. Zeitartige Ereignisse, die sich im oberen Lichtkegel
+befinden, können beeinflusst werden. Sind zwei Ereignisse raumartig getrennt,
+können sie sich gegenseitig weder wahrnehmen noch beeinflussen.
+% Lichtartige
+%Ereignisse können von Beobachtern, die sich mit Lichtgeschwindigkeit bewegen,
+%wahrgenommen bzw. beeinflusst werden.
+
+Gilt in einem Bezugssystem für zwei zeitartige Ereignisse $A$ und $C$, dass $C$
+vor $A$ stattfindet, d.h. $x_A^0 > x_C^0$, so gilt dies in jedem Bezugssystem.
+Um dies einzusehen betrachte $\rvec{x}^\mu = \rvec{x}_A^\mu - \rvec{x}_C^\mu$,
+% =\begin{pmatrix} x_A^0-x_C^0\\\vec{x}_A -\vec{x}_C\end{pmatrix}$, 
+wobei $\rvec{x}_\mu\rvec{x}^\mu  = (x_A^0-x_C^0)^2-(\vec{x}_A-\vec{x}_C)^2 > 0$.
+Angenommen es gibt ein Bezugssystem mit $x_A^0=x_C^0$, dann ist
+$\rvec{x}_\mu\rvec{x}^\mu < 0$, das Skalarprodukt ist jedoch invariant unter
+Lorentz-Transformationen, d.h. es kann kein solches Bezugssystem geben.
+Es gibt also eine absolute Vergangenheit und Zukunft für zeitartige Ereignisse.
+Für raumartige Ereignisse ist die zeitliche Folge jedoch relativ und nicht
+absolut. Raumartig getrennte Ereignisse können also nicht kausal verknüpft sein.
+
+Die Lichtgeschwindigkeit $c$ ist daher die maximale Geschwindigkeit für
+Informationen und Teilchen.
+
+\subsubsection{Relativität der Gleichzeitigkeit}
+
+Für einen ruhenden Beobachter finden zwei Ereignisse $A$ und $B$ gleichzeitig
+statt, wenn
+\begin{align*}
+x_A^0 = x_B^0.
+\end{align*}
+Für einen gleichförmig mit der Geschwindigkeit $v$ bewegten Beobachter finden
+sie gleichzeitig statt, wenn
+\begin{align*}
+{x_A^0}' = {x_B^{0}}' = c\tau.
+\end{align*}
+Für den ruhenden Beobachter entspricht dies den Ereignissen
+\begin{align*}
+&c\tau = \gamma x^0 - \beta\gamma x^1\\
+&x^0 = \frac{c\tau + \beta\gamma x^1}{\gamma} = \frac{c\tau}{\gamma} +
+\beta x^1,
+\end{align*}
+die auf einer Geraden mit Steigung $\beta$ liegen.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0.8,-1.011875)(4.5,2.131875)
+\psarc(1.39,-0.641875){1.39}{69.17911}{88.60282}
+\rput{-90.0}(2.111875,0.708125){\psarc(1.41,-0.701875){1.39}{91.39718}{110.82089}}
+\psline[linecolor=darkblue]{->}(1.42,-0.671875)(2.24,1.668125)
+\psline[linecolor=darkblue]{->}(1.42,-0.671875)(3.76,0.148125)
+\psline{->}(1.42,-0.831875)(1.42,1.668125)
+\psline{->}(1.25,-0.661875)(3.75,-0.661875)
+
+\rput(1.593125,0.538125){\color{gdarkgray}$\alpha$}
+\rput(2.553125,-0.441875){\color{gdarkgray}$\alpha$}
+\rput(1.22125,1.798125){\color{gdarkgray}$x^0$}
+\rput(3.925625,-0.681875){\color{gdarkgray}$x^1$}
+\rput(4.0925,0.278125){\color{gdarkgray}${x^1}'$}
+\rput(2.4725,1.958125){\color{gdarkgray}${x^0}'$}
+\rput(2.011875,1.578125){\color{gdarkgray}$K'$}
+\rput(1.2685938,-0.861875){\color{gdarkgray}$K$}
+
+\rput(2.6265626,0.458125){\color{gdarkgray}$A$}
+\rput(3.5471876,0.858125){\color{gdarkgray}$B$}
+\rput(2.9471874,1.058125){\color{gdarkgray}$C$}
+
+\psline[linecolor=yellow](1.42,0.048125)(3.96,1.328125)
+\psdots[dotstyle=x](2.64,0.668125)
+\psdots[dotstyle=x](3.36,1.028125)
+\psdots[dotstyle=x](3.0,0.848125)
+
+\end{pspicture} 
+
+\caption{Ereignisse $A$ und $B$ mit Detektor $C$.}
+\end{figure}
+
+Die allgemeine Definition von Gleichzeitigkeit lautet daher,
+\begin{defnn}
+Zwei Ereignisse $A$ und $B$ heißen \emph{gleichzeitig}, wenn von $A$ und $B$
+zur gleichen Zeit ausgesendtes Licht bei einem in der Mitte ruhenden Detektor
+zur gleichen Zeit eintrifft.\fishhere
+\end{defnn}
+
+\subsubsection{Längenkontraktion}
+
+Betrachte einen Stab mit der Länge $L_0$, der im Bezugsystem $K'$ ruht. Das
+Bezugsystem $K'$ bewege sich relativ zu $K$ mit der Geschwindigkeit $v$.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.1,-2.1)(5.625,2.061875)
+\psline{->}(0.3553125,-1.841875)(0.3553125,0.658125)
+\psline{->}(0.1853125,-1.671875)(2.6853125,-1.671875)
+\psline{->}(2.8353126,-0.741875)(2.8353126,1.758125)
+\psline{->}(2.6653125,-0.571875)(5.1653123,-0.571875)
+
+\rput(0.1565625,0.788125){\color{gdarkgray}$x^0$}
+\rput(2.8609376,-1.691875){\color{gdarkgray}$x^1$}
+\rput(0.20390625,-1.871875){\color{gdarkgray}$K$}
+
+\rput(2.6678126,1.888125){\color{gdarkgray}${x^0}'$}
+\rput(5.3878126,-0.591875){\color{gdarkgray}${x^1}'$}
+\rput(2.6271875,-0.771875){\color{gdarkgray}$K'$}
+
+\psline(0.8753125,-1.681875)(1.3953125,-0.581875)
+\psline(1.7753125,-1.681875)(2.2953124,-0.581875)
+
+\psframe[linecolor=darkblue,fillstyle=solid,fillcolor=darkblue](4.9,-0.521875)(3.1553125,-0.601875)
+\psframe[linecolor=darkblue,fillstyle=solid,fillcolor=darkblue](2.1153126,-0.901875)(1.2353125,-0.981875)
+\rput(0.8609375,-1.891875){\color{gdarkgray}$x_L^1$}
+\rput(1.7809376,-1.911875){\color{gdarkgray}$x_R^1$}
+\rput(3.1809375,-0.891875){\color{gdarkgray}${x_L^1}'$}
+\rput(4.85,-0.891875){\color{gdarkgray}${x_R^1}'$}
+
+\psline{->}(3.2153125,1.298125)(4.0153127,1.298125)
+
+\rput(3.5620313,1.488125){\color{gdarkgray}$v$}
+\end{pspicture} 
+
+\caption{Längenkontraktion eines Stabes.}
+\end{figure}
+
+Um die Länge $L=\left(x_R^1- x_L^1\right)$ in $K$ zu messen, müssen linkes und
+rechtes Ende zur gleichen Zeit lokalisiert werden ($x_R^0-x_L^0=0$),
+\begin{align*}
+L_0 &= {x_R^1}'-{x_L^1}' = 
+\gamma \left(x_R^1-\beta x_R^0 \right)
+- \gamma \left(x_L^1-\beta x_L^0 \right)
+= \gamma\left(x_R^1- x_L^1\right)=\gamma L\\
+\Rightarrow L &=\sqrt{1-\frac{v^2}{c^2}}L_0 < L_0.
+\end{align*}
+Die Länge des Stabes ist also in jedem relativ zum Ruhesystem bewegten System
+\textit{kleiner}. Diesen Effekt nennt man \emph{Lorentzkontraktion}.
+
+\subsubsection{Zeitdilatation}
+
+Betrachte eine Uhr, die im Koordinatenursprung von $K$ ruht. Ein Zeitintervall
+$\tau=t_A-t_B$, das wir im Ruhesystem $K$ ablesen, heißt \emph{Eigenzeit}. Lesen
+wir nun zusätzlich die Zeit in einem Bezugssystem $K'$ ab, das sich relativ zu $K$
+mit der Geschwindigkeit $v$ bewegt.
+
+\begin{figure}[H]
+  \centering
+\begin{pspicture}(-0.1,-1.6)(3.18375,1.5017188)
+\psline{->}(0.4878125,-1.3017187)(0.4878125,1.1982813)
+\psline{->}(0.3178125,-1.1317188)(2.8178124,-1.1317188)
+
+\psline[linecolor=yellow]{->}(0.4878125,-1.1417187)(2.0078125,0.93828124)
+
+\psline(1.6078125,0.37828124)(1.6078125,-1.1217188)
+\psline(1.6278125,0.39828125)(0.4878125,0.39828125)
+
+\psdots[linecolor=darkblue](0.4878125,-1.1417187)
+\psdots[linecolor=darkblue](1.6078125,0.37828124)
+
+\rput(0.20203125,0.40828124){\color{gdarkgray}$c\Delta t$}
+\rput(0.2890625,1.3282813){\color{gdarkgray}$x^0$}
+
+\rput(2.9934375,-1.1517187){\color{gdarkgray}$x^1$}
+\rput(1.625625,-1.3517188){\color{gdarkgray}$x_B^1$}
+
+\rput(2.3,0.96828127){\color{gdarkgray}${x^0}'$}
+\rput(0.334375,-1.3317188){\color{gdarkgray}$A$}
+\rput(1.855,0.22828124){\color{gdarkgray}$B$}
+
+\end{pspicture} 
+
+\caption{Zeitdilatation einer bewegten Uhr.}
+\end{figure}
+
+Mit den bekannten Transformationsformeln ergibt sich in $K'$,
+\begin{align*}
+&{x_A^0}'-{x_B^0}' = \gamma \left({x_A^0} + \beta {x_A^1}\right) -
+\gamma\left({x_B^0} - \beta {x_B^1}\right) =
+\gamma\left({x_B^0}-{x_A^0}\right)\\
+\Rightarrow &\tau' =  \gamma \tau > \tau.
+\end{align*}
+Von $K'$ aus betrachtet vergeht,
+bis auf der Uhr das Zeitintervall $\tau$ verstrichen ist, in $K'$ tatsächlich \textit{mehr Zeit}.
+Eine bewegte Uhr geht also um den konstanten Faktor
+\begin{align*}
+\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{align*}
+``langsamer'' als in ihrem Ruhesystem.
+
+\begin{bemn}
+Das Differential der Eigenzeit ist
+\begin{align*}
+\dtau = \frac{1}{\gamma}\dt = \sqrt{1-\frac{v^2}{c^2}}\dt.
+\end{align*}
+Messen wir im Laborsystem die Zeitdifferenz $t_2-t_1$, erhalten wir für 
+eine allgemeine Bewegung die Zeitdifferenz der bewegten Uhr in ihrem
+Ruhesystem
+\begin{align*}
+\tau_2 - \tau_1 = \int\limits_{t_1}^{t_2} \dt\sqrt{1-\frac{v^2}{c^2}}.\maphere
+\end{align*}
+\end{bemn}
+
+\begin{bsp}
+\textit{Die Lichtuhr}. Zwischen zwei in $K'$ ruhenenden Spiegeln mit Abstand $l$
+wird ein Lichtstrahl hin- und hergesandt. Immer wenn der Lichtstrahl auf einem
+der Spiegel registriert wird, wird die Lichtuhr um eine Zeiteinheit weitergestellt.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-0.643)(4.279568,0.622)
+\psline(0.0,-0.198)(1.7805682,-0.198)
+\psline(0.0,0.603)(1.7805682,0.603)
+
+\psline(2.48,-0.198)(4.260568,-0.198)
+\psline(2.48,0.603)(4.260568,0.603)
+
+\psline[linecolor=yellow]{<->}(0.9,-0.078)(0.9,0.522)
+\psline[linecolor=yellow]{<-}(3.4,-0.138)(2.88,0.542)
+\psline[linecolor=yellow]{->}(3.36,-0.11)(3.88,0.562)
+
+\psline(3.38,-0.138)(3.38,-0.318)
+\psline(2.88,-0.138)(2.88,-0.318)
+
+\rput(0.1009375,0.232){\color{gdarkgray}$l$}
+\rput(2.5809374,0.232){\color{gdarkgray}$l$}
+\rput(3.10875,-0.488){\color{gdarkgray}$v\Delta t$}
+\end{pspicture} 
+
+\caption{Lichtuhr in ruhendem (links) und bewegtem (link) Zustand.}
+\end{figure}
+
+Im Ruhesystem $K'$ benötigt der Lichtstrahl, um von einem Spiegel zum anderen zu
+gelangen, die Zeit $\Delta\tau' = l/c$. Nun bewege sich $K'$ relativ zu $K$ mit
+der Geschwindigkeit $v$ entlang der Spiegelachse. Aus der Sicht von $K$ hat das
+Licht zwischen zwei Spiegeln eine größere Distanz zurückzulegen, die
+Lichtgeschwindigkeit ist aber in allen Inertialsystem gleich, d.h. in $K$
+vergeht zwischen zwei Spiegeln die Zeit
+\begin{align*}
+&\Delta\tau =  \frac{\sqrt{l^2 + v^2\Delta\tau^2}}{c}\\
+&\Delta\tau^2 = \frac{l^2 + v^2\Delta\tau^2}{c^2} = {\Delta\tau'}^2 +
+\frac{v^2}{c^2}\Delta\tau^2\\
+&\Delta\tau = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}\Delta\tau' > \Delta\tau'.
+\end{align*}
+Liest man in $K$ ab, geht die in $K'$ ruhende Uhr langsamer, als eine in $K$
+ruhende Uhr, da mehr Zeit vergeht, bis die Lichtuhr um ein Zeitintervall
+weitergestellt wird.
+
+Andersherum würde ein in $K'$ ruhender Beobachter aufgrund der selben
+Überlegung sehen, dass eine zu ihm bewegte Lichtuhr in $K$ langsamer geht, als
+seine in $K'$ ruhende. Dies ist die Symmetrie der Zeitdilatation, jeder misst, dass die
+Uhr des anderen langsamer geht.\bsphere
+\end{bsp}
+
+\begin{bemn}
+Betrachten wir die Trajektorie eines bewegten Teilchens, so muss diese so
+geformt sein, dass sie sich in jedem Punkt innerhalb des von dort ausgehenden
+Lichtkegels befindet.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.2941111)(4.034111,1.3)
+\psline[linecolor=yellow](2.005889,-1.08)(3.9998,0.9058889)
+\psline[linecolor=yellow](1.9858888,-1.08)(0.0,0.9058889)
+\psline{->}(0.02,-1.0741111)(4.02,-1.0741111)
+\psline{->}(1.9858888,-1.28)(2.0,1.0058888)
+
+\psline(2.5647683,0.2)(2.3458889,0.52)
+\psline(2.5816052,0.2)(2.785889,0.52)
+\psline(1.1647682,0.44)(0.9458889,0.76)
+\psline(1.1816051,0.44)(1.3858889,0.76)
+
+\psbezier[linecolor=darkblue]{->}(1.9858888,-1.08)(2.3858888,-0.48)(2.185889,-0.36)(2.485889,0.04)(2.785889,0.44)(2.485889,0.92)(2.8858888,1.28)
+\psbezier[linecolor=darkblue](1.5058889,-0.28)(1.3658888,0.28)(1.2858889,-0.14)(1.1658889,0.44)(1.0458889,1.02)(1.4858888,0.2)(1.745889,0.82)
+
+\psellipse(2.5647683,0.53103274)(0.22600006,0.06896515)
+\psellipse(1.1647683,0.7710327)(0.22399993,0.06896515)
+
+\psdots(2.5698888,0.2)
+\psdots(1.1738889,0.44)
+\end{pspicture} 
+\caption{Trajektore innerhalb und außerhalb der zulässigen Geschwindigkeit.}
+\end{figure}
+\end{bemn}
+
+\begin{bsp}
+\textit{Der Myon-Zerfall.}
+In ca. 10km Höhe werden aufgrund der Wechselwirkung von Protonen aus dem
+Weltraum mit unserer Atmosphäre Myonen gebildet. Sie haben eine sehr hohe
+Geschwindigkeit $v\sim 0.998c\Rightarrow\gamma\approx 16$. Die Teilchen sind
+nicht stabil und haben eine Lebensdauer von wenigen $\mathrm{\mu s}$. Mögliche
+Myon-Zerfälle sind,
+\begin{align*}
+&\mu^+ \longrightarrow e^+ + \nu_e  + \overline{\nu}_\mu,\\
+&\mu^- \longrightarrow e^- + \nu_\mu  + \overline{\nu}_e.
+\end{align*}
+Im Ruhesystem der Myonen kann der Zerfall beschrieben werden durch,
+\begin{align*}
+N(t) = N_0 e^{-\frac{t}{\tau}},\qquad \tau = 2.2\mathrm{\mu s}\quad
+\text{mittlere Lebensdauer}.
+\end{align*}
+
+Rechnet man klassisch, benötigen die Myonen bis zum Erreichen der Erde die Zeit,
+\begin{align*}
+t_{\text{Flug}} = \frac{10\mathrm{km}}{0.998c} \approx 30 \mathrm{\mu s}.
+\end{align*}
+Es sind also kaum Myonen auf der Erde zu erwarten, man kann jedoch eine sehr
+große Anzahl von eintreffenden Myonen messen.
+
+Aufgrund der hohen Geschwindigkeit der Myonen kommen relativistische Effekte
+zu tragen. Wir müssen die Eigenzeit der Myonen betrachten,
+\begin{align*}
+\tau_{\text{Flug}} = \frac{1}{\gamma}t_{\text{Flug}} \approx
+\frac{1}{16}30\mathrm{\mu s} = 1.9\mathrm{\mu s}.
+\end{align*}
+Dies ist einer von vielen experimentellen Befunden, der die Korrektheit der SRT
+bestätigt.\bsphere
+\end{bsp}
+
+\subsubsection{Zwillingsparadoxon}
+
+Betrachtet man die Zwillingsbrüder $A$ und $B$. $A$ befinde sich in Ruhe,
+während $B$ eine längere Reise mit $v\approx c$ macht. Trifft $B$ wieder auf der
+Erde ein, ist er viel jünger als $A$.
+\begin{figure}[H]
+  \centering
+\begin{pspicture}(0,-1.3717188)(4.2418265,1.3717188)
+\psline[linecolor=yellow](2.005889,-1.0317187)(3.9998,0.95417017)
+\psline[linecolor=yellow](1.9858888,-1.0317187)(0.0,0.95417017)
+\psline{->}(0.02,-1.0258299)(4.02,-1.0258299)
+\psline{->}(1.9858888,-1.2317188)(1.9858888,1.0541701)
+\psbezier[linecolor=darkblue](1.9858888,-1.0117188)(2.305889,-0.31171876)(2.305889,-0.07171875)(1.9858888,0.50828123)
+\psdots(1.9858888,0.48828125)
+\psdots(1.9858888,-1.0117188)
+
+\rput(2.2530763,0.49828124){\color{gdarkgray}$B$}
+\rput(1.8124514,-1.2217188){\color{gdarkgray}$A$}
+\rput(1.8671389,1.1982813){\color{gdarkgray}$x^0$}
+\rput(4.0515137,-1.2017188){\color{gdarkgray}$x^1$}
+\end{pspicture} 
+\caption{Reise von $B$ im Minkowski-Raum.}
+\end{figure}
+Man kann dies mit der Zeitdilatation erklären,
+\begin{align*}
+\tau_2 - \tau_1 = \int\limits_{t_1}^{t_2}
+\underbrace{\sqrt{1-\frac{v^2}{c^2}}}_{<1}\dt < t_2-t_1.
+\end{align*}
+Die für $B$ vergangene Zeit ist kleiner als die für $A$ vergangene.
+\begin{bsp}
+Betrachten wir den exotischen Fall der instantanen Beschleunigung.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.3717188)(4.2418265,1.3717188)
+\psline[linecolor=yellow](2.005889,-1.0317187)(3.9998,0.95417017)
+\psline[linecolor=yellow](1.9858888,-1.0317187)(0.0,0.95417017)
+\psline{->}(0.02,-1.0258299)(4.02,-1.0258299)
+\psline{->}(1.9858888,-1.2317188)(1.9858888,1.0541701)
+\psline[linecolor=darkblue](1.9858888,-1.0117188)(2.4058888,-0.15171875)(1.9858888,0.48828125)
+\psdots(1.9858888,0.48828125)
+\psdots(1.9858888,-1.0117188)
+
+\rput(2.2530763,0.49828124){\color{gdarkgray}$B$}
+\rput(1.8124514,-1.2217188){\color{gdarkgray}$A$}
+\rput(1.8671389,1.1982813){\color{gdarkgray}$x^0$}
+\rput(4.0515137,-1.2017188){\color{gdarkgray}$x^1$}
+\end{pspicture}
+\caption{Reise mit instantaner Beschleunigung.}
+\end{figure}
+
+Sei $v=0.8c$ und $t_2-t_1=10\text{ Jahre}$, so ergibt sich für die
+Zeitdilatation,
+\begin{align*}
+\tau_2 -\tau_1 = 6\text{ Jahre}.
+\end{align*}
+Dies scheint paradox, da die Situation auf den ersten Blick Symmetrisch
+erscheint, d.h. aus der Sicht von $B$ müsste ebenfalls weniger Zeit vergangen sein, als aus der
+Sicht von $A$. Die Situation kann jedoch nicht symmetrisch sein, denn während
+$A$ sich stets im selben Inertialsystem befindet, wechselt $B$ das
+Inertialsystem. Es handelt sich hier also um kein Paradoxon.
+
+Aus der Sicht von $B$ ist die in der Raumzeit zurückzulegende Strecke
+``Lorentz-kontrahiert'', d.h. er benötigt weniger Zeit als $A$.\bsphere
+\end{bsp}
+\begin{bsp}
+Um Auszuschließen, dass die Beschleunigungsphase von $B$ den entscheidenden
+Unterschied macht, sollen nun $A$ und $B$ eine Reise machen und dabei identisch
+beschleunigen, $B$ soll nur länger mit der hohen Geschwindigkeit fliegen.
+$A$ komme nach $10$ Jahren auf die Erde zurück, $B$ nach $30$.
+
+Für $A$ ist zwischen Abflug und $B$s Ankunft die Zeit
+\begin{align*}
+(\text{Beschleunigungsbeitrag}) + \frac{1}{\gamma}\left(10 \text{
+Jahre}\right) + 20\text{ Jahre}
+\end{align*}
+vergangen. Für $B$ ist zwischen Abflug und Ankunft die Zeit
+\begin{align*}
+(\text{Beschleunigungs Beitrag}) + \frac{1}{\gamma}\left(30 \text{
+Jahre}\right)
+\end{align*}
+vergangen. Für die Differenz ergibt sich,
+\begin{align*}
+\Delta T_A - \Delta T_B &=  \frac{1}{\gamma}\left(10 \text{
+Jahre}\right) + 20\text{ Jahre} - \frac{1}{\gamma}\left(30 \text{
+Jahre}\right) \\ 
+&= \left(1-\frac{1}{\gamma}\right)\underbrace{\left(20\text{
+Jahre}\right)}_{\text{Reisezeit diff.}}.
+\end{align*}
+Bei $v=0.8c$ beträgt die Differenz $\left(1-\frac{3}{5}\right)20\text{ Jahre} =
+8\text{ Jahre}$.\bsphere
+\end{bsp}
+
+\subsection{Lorentztransformation}
+
+In der Speziellen Relativitätstheorie werden die Galilei Transformationen, die
+in der Klassischen Mechanik ein Inertialsystem in ein anderes überführen,
+durch Poincaretransformationen ersetzt. Diese Transformationen bilden ebenfalls
+eine Gruppe, die \emph{Poincare-Gruppe}, die die Galilei Gruppe ersetzt. Eine
+Poincaretransformation hat die Form
+\begin{align*}
+\rvec{x}' = \Lambda\rvec{x}+\rvec{a},
+\end{align*}
+d.h. sie setzt sich aus einer Lorentztransformation $\rvec{\Lambda}$ und einer
+Translation $\rvec{a}$ zusammen. Dabei ist die Lorentztransformation eine
+lineare Abbildung
+\begin{align*}
+{x^\mu}' = \Lambda_\nu^\mu x^\nu,
+\end{align*}
+die dadurch charakterisiert ist, dass sie die Minkovski Metrik
+\begin{align*}
+g=g_{\alpha\beta} = g^\mu\nu = \begin{pmatrix}
+                               1 & \\
+                               & -1 \\
+                               && -1 \\
+                               &&& -1
+                               \end{pmatrix}
+\end{align*}
+invariant lässt, d.h. $\lin{\Lambda \rvec{x},\Lambda \rvec{x}}_g =
+\lin{\rvec{x},\rvec{x}}_g$.
+
+Somit ist auch der Betrag des $4$-er Vektors $\rvec{x}^\nu$ invariant,
+\begin{align*}
+g_{\mu\nu}x^\mu x^\nu = (x^0)^2 - (\vec{x})^2 = \const.
+\end{align*}
+\begin{proof}[Beweis der Invarianz.]
+Mit $y^\mu = \Lambda_\nu^\mu x^\nu$ erhalten wir,
+\begin{align*}
+g_{\mu\nu}y^\mu y^\nu = g_{\mu\nu}\Lambda_{\alpha}^\mu x^\alpha
+\Lambda_\beta^\nu x^\beta = \left(\Lambda_\alpha^\mu
+g_{\mu\nu}\Lambda_\beta^\nu\right)x^\alpha x^\beta = g_{\alpha\beta}x^\alpha
+x^\beta.\qedhere
+\end{align*}
+\end{proof}
+
+Für jeden 4-er Vektor $\rvec{x}^\mu$ ist daher die Größe
+\begin{align*}
+g_{\mu\nu}x^\mu x^\nu = {x^0}^2 - \vec{x}^2 = \const 
+\end{align*}
+eine feste Größe in allen Inertialsystemen. Insbesondere wird der Lichtkegel mit
+\begin{align*}
+g_{\mu\nu}x^\mu x^\nu = 0
+\end{align*}
+auf sich selbst abgebildet.
+
+Eine spezielle Lorentztransformation haben wir bereits kennen gelernt, den
+Boost in $x$-Richtung,
+\begin{align*}
+\Lambda_\mu^\nu = \begin{pmatrix}
+                  \gamma & -\gamma\beta\\
+                  -\gamma\beta & \gamma\\
+                  && 1\\
+                  &&& 1
+                  \end{pmatrix}
+= \begin{pmatrix}
+\cosh\psi & -\sinh\psi\\
+-\sinh\psi & \cosh\psi\\
+&& 1\\
+&&& 1
+\end{pmatrix}
+\end{align*}
+mit der \emph{Rapidität} $\psi$ und den Relationen
+\begin{align*}
+\tanh \psi = \frac{v}{c},\quad \gamma =
+\frac{1}{\sqrt{1-\frac{v^2}{c^2}}},\quad \beta = \frac{v}{c}.
+\end{align*}
+Rotationen haben die Form,
+\begin{align*}
+\Lambda_\mu^\nu = \begin{pmatrix}
+                  1 & 0 & 0 & 0\\
+                  0 & \\
+                  0 & & \vec{R}\\
+                  0 
+                  \end{pmatrix}
+\end{align*}
+mit einer $3\times 3$-Rotationsmatrix $\vec{R}$.
+
+Analog zur klassischen Mechanik gibt es auch die zwei diskreten
+Transformationen Raumspiegelung und Zeitumkehr
+\begin{align*}
+P =
+\begin{pmatrix}
+1 &\\
+& -1\\
+&& -1\\
+&&& -1
+\end{pmatrix},\qquad 
+T=\begin{pmatrix}
+-1 &\\
+& 1\\
+&& 1\\
+&&& 1
+\end{pmatrix}.
+\end{align*}
+\begin{bemn}
+Man kann zeigen, dass sich jede Lorentztransformation als Produkt dieser
+einfachen Transformationen schreiben lässt.\maphere
+\end{bemn}
+
+\subsubsection{Addition von Geschwindigkeiten}
+
+In der Speziellen Relativitätstheorie ist die Geschwindigkeitsaddition nicht
+mehr linear wie in der Newtonschen Mechanik.
+
+\begin{figure}[!htbp]
+  \centering
+
+\begin{pspicture}(-0.1,-1.491875)(3.5175,1.491875)
+\psline{->}(0.3478125,-1.331875)(0.3478125,0.968125)
+\psline{->}(0.2478125,-1.191875)(2.4878125,-1.191875)
+\psline{->}(1.3878125,-0.471875)(1.3878125,1.128125)
+\psline{->}(1.2678125,-0.371875)(3.1078124,-0.371875)
+\psline{->}(2.3278124,0.288125)(2.3278124,1.248125)
+\psline{->}(2.2478125,0.408125)(3.2878125,0.408125)
+\psline[linecolor=darkblue]{->}(0.3478125,-1.191875)(1.3478125,-0.431875)
+\psline[linecolor=darkblue]{->}(1.3878125,-0.371875)(2.3078125,0.348125)
+
+\rput(1.71875,0.198125){\color{gdarkgray}$v_2$}
+\rput(0.7242187,-0.621875){\color{gdarkgray}$v_1$}
+\rput(2.4332812,-1.341875){\color{gdarkgray}$x$}
+\rput(0.11203125,1.018125){\color{gdarkgray}$ct$}
+\rput(3.0903125,-0.541875){\color{gdarkgray}$x'$}
+\rput(1.1765625,1.198125){\color{gdarkgray}$ct'$}
+\rput(3.3303125,0.258125){\color{gdarkgray}$x''$}
+\rput(2.1965625,1.318125){\color{gdarkgray}$ct''$}
+\end{pspicture} 
+\caption{Relativbewegung von drei Koordinatensystemen.}
+\end{figure}
+
+
+ Um die genaue Form herzuleiten, betrachten wir die
+Intertialsysteme $K$, $K'$ und $K''$ wobei sich $K'$ mit $v_1$ relativ zu $K$
+und $K''$ mit $v_2$ relativ zu $K'$ bewegt.
+Die Transformation von $K$ nach $K''$ erhalten wir, indem wir die einzelnen
+Transformationen hintereinanderausführen,
+\begin{align*}
+\Lambda(v_2)\Lambda(v_1) &= 
+\begin{pmatrix}
+\cosh\chi_2 & -\sinh\chi_2\\
+-\sinh\chi_2 & \cosh\chi_2\\
+&& 1\\
+&&& 1
+\end{pmatrix}\\
+&\quad \cdot
+\begin{pmatrix}
+\cosh\chi_1 & -\sinh\chi_1\\
+-\sinh\chi_1 & \cosh\chi_1\\
+&& 1\\
+&&& 1
+\end{pmatrix}\\
+% &=
+% \begin{pmatrix}
+% \tiny\cosh\chi_2 \cosh\chi_1 + \sinh\chi_1\sinh\chi_2 & -\sinh\chi_1\cosh\chi_2
+% - \sinh\chi_2\cosh\chi_1\\
+% \cosh\chi_2 \cosh\chi_1 + \sinh\chi_1\sinh\chi_2 &-\sinh\chi_1\cosh\chi_2 -
+% \sinh\chi_2\cosh\chi_1\\
+% && 1\\ 
+% &&& 1
+% \end{pmatrix}\\
+&=
+\begin{pmatrix}
+\cosh(\chi_1+\chi_2) & -\sinh(\chi_1+\chi_2)\\
+-\sinh(\chi_1+\chi_2) & \cosh(\chi_1+\chi_2)\\
+&& 1\\
+&&& 1
+\end{pmatrix}
+\end{align*}
+Es werden also nicht die Geschwindigkeiten sondern die Rapiditäten addiert,
+\begin{align*}
+\chi_3 = \chi_1+\chi_2\Rightarrow v_3 = c\tanh \chi_3 =
+\frac{v_1+v_2}{1+\frac{v_1v_2}{c^2}}.
+\end{align*}
+
+\begin{bemn}
+$v_3$ ist stets kleiner als die Lichtgeschwindigkeit $c$.\maphere
+\end{bemn}
+
+\subsection{Energie und Impuls}
+
+Das Differential
+\begin{align*}
+\ds^2 = c^2\dt^2 - \diffd\vec{x}^2 =
+c^2\left(1-\frac{\vec{v}^2}{c^2}\right)\dt^2 \equiv c^2\dtau^2
+\end{align*}
+ist lorentzinvariant und somit ist die Eigenzeit
+\begin{align*}
+\dtau = \frac{\ds}{c} = \sqrt{1-\frac{v^2}{c^2}}\dt
+\end{align*}
+eine lorentzinvariante skalare Größe.
+
+Somit erhalten wir aus dem $4$-er Vektor $\rvec{x} = \begin{pmatrix}ct \\
+\vec{x}\end{pmatrix}$ einen neuen Vektor,
+\begin{align*}
+&\rvec{u} = \frac{\diffd}{\dtau}\rvec{x} = \gamma \frac{\diffd}{\dt}\rvec{x} =
+\gamma\begin{pmatrix}c \\ \vec{v}\end{pmatrix} = \begin{pmatrix} \gamma c \\
+\gamma\vec{v}\end{pmatrix},\\
+&\rvec{x} \mapsto \Lambda\rvec{x},\\
+&\rvec{u} \mapsto \Lambda \rvec{u} = \Lambda \frac{\diffd}{\dtau}\rvec{x} =
+\Lambda \frac{\diffd}{\dtau}\Lambda^{-1}\Lambda \rvec{x} =
+\frac{\diffd}{\dtau}\Lambda\rvec{x}.
+\end{align*}
+\begin{bemn}[Bemerkungen.]
+\begin{enumerate}[label=\arabic{*}.)]
+  \item $\rvec{u}g\rvec{u} = \gamma^2c^2 - \gamma^2\vec{v}^2 =
+c^2\gamma^2\left(1-\frac{v^2}{c^2}\right) = c^2$, d.h. 
+ die Minkowski Metrik ist eine Konstante für alle Bewegungen.
+  \item  Die Geschwindigkeit $\vec{v}$ ist kein Anteil eines 4-er
+  Vektors.\maphere
+\end{enumerate}
+\end{bemn}
+
+Wir definieren den $4$-er Impuls
+\begin{align*}
+&\rvec{p} = m\rvec{u} = m\frac{\diffd}{\dtau}\rvec{x},\\
+&\rvec{p}^\mu = \begin{pmatrix}mc\gamma \\ m\vec{v}\gamma\end{pmatrix},\quad
+\rvec{p}_\mu = g_{\mu\nu}\rvec{p}^\nu \begin{pmatrix}mc\gamma \\
+-m\vec{v}\gamma\end{pmatrix}
+\end{align*}
+In der modernen Physik sieht man davon ab, die Masse geschwindigkeitsabhängig
+zu definieren, sondern fasst sie als skalare lorentzinvariante Größe auf.
+Es ist oft viel geschickter so vorzugehen, auch wenn in Deutschen Lehrbüchern -
+historisch bedingt - oftmals von einer geschwindigkeitsabhängigen Masse
+ausgegangen wird.
+
+Mit dem so definierten Impuls erhalten wir,
+\begin{align*}
+p^\mu p_\mu =g_{\mu\nu} p^\mu p^\nu = m^2c^2.
+\end{align*}
+Für ein abgeschlossenes System ist daher $\rvec{p}^\mu$ eine
+Erhaltungsgröße. Die Zeitkomponente von $\rvec{p}$ übernimmt die Rolle einer Energie,
+\begin{align*}
+\rvec{p}  = \begin{pmatrix}\frac{E}{c}\\ \vec{p}\end{pmatrix}.
+\end{align*}
+Für kleine Geschwindigkeiten $\frac{v}{c} << c$ erhalten wir so 
+\begin{align*}
+E &= mc^2\gamma = mc^2\left(\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}\right)
+= mc^2 \left( 1+ \frac{v^2}{2c^2} + \frac{3}{8}\frac{v^4}{c^4} + \ldots\right)\\
+&\approx mc^2 + \frac{1}{2}mv^2. 
+\end{align*}
+\begin{bemn}[Bemerkungen.]
+\begin{enumerate}[label=\arabic{*}.)]
+  \item Der 4-er Impuls eines Elementarteilchens ist eine kovariante Größe
+  $\rvec{p}^\mu$ und seine Masse der Skalar $p^\mu p_\mu = c^2m^2$.
+  \item Für Photonen gilt $m=0$ und daher $\frac{E}{c} = \abs{\vec{p}}$, was
+  auf die Dispersion führt $\frac{\omega}{c} = \abs{\vec{k}}$.\maphere
+\end{enumerate}
+\end{bemn}
+\begin{bsp}
+\textit{Elektron-Positron-Kollision}.
+\begin{align*}
+e^- + e^+ \longrightarrow 2\gamma.
+\end{align*}
+Es gilt die relativistische Energie und Impulserhaltung,
+\begin{align*}
+\rvec{p}_A + \rvec{p}_B = \rvec{p}_C + \rvec{p}_D.
+\end{align*} 
+Wir gehen davon aus, dass sich $e^-$ und $e^+$ in Ruhe befinden.
+\begin{align*}
+\Rightarrow 2mc^2 = E_c+ E_D
+\end{align*}
+Nach dem Stoß muss der Gesamtimpuls Null sein,
+\begin{align*}
+\Rightarrow &\rvec{p}_C = -\rvec{p}_D\\
+\Rightarrow &E_C = E_D = mc^2.
+\end{align*}
+Wir sehen somit, dass die relativistische Energie-Impulserhaltung die Erzeugung
+und die Annihilation von Teilchen ermöglicht.\bsphere
+\end{bsp}
+\begin{bsp}
+Die Sonne strahlt Energie in Form von Photonen ab. Durch diesen Energieverlust
+verliert sie auch stetig an Masse.\bsphere
+\end{bsp}
+
+\subsubsection{Weitere 4-er Vektoren}
+
+Nachdem wir $4$-er Vektoren für Ort, Geschwindigkeit und Impuls eingeführt
+haben, wollen wir prüfen, welche Größen sich außerdem so darstellen lassen.
+Betrachten wir zunächst die Beschleunigung,
+\begin{align*}
+\rvec{a} &= \frac{\diffd}{\dtau}\rvec{u} = \frac{\diffd^2}{\dtau^2}\rvec{x} =
+\gamma\frac{\diffd}{\dt}\gamma\begin{pmatrix}c\\ \vec{v}\end{pmatrix}
+= \gamma^2 \begin{pmatrix}0\\ \vec{a}\end{pmatrix} +
+\gamma\left(\frac{-2\vec{v}\vec{a}}{c^2}\right)\gamma^3\left(-\frac{1}{2}\right)
+\begin{pmatrix}c \\ \vec{v}\end{pmatrix}\\
+&= \gamma^2 \begin{pmatrix}0\\\vec{a}\end{pmatrix} + \gamma^4
+\frac{\vec{v}\vec{a}}{c^2}\begin{pmatrix}c\\\vec{v}\end{pmatrix}.
+\end{align*}
+\begin{bemn}
+Beschleunigung und Impuls stehen senkrecht aufeinander
+\begin{align*}
+a^\mu p_\mu =
+\frac{1}{2}\frac{\diffd}{\dtau}p^\mu p_\mu = 0.\maphere
+\end{align*}
+\end{bemn}
+Der Vorteil der Darstellung durch $4$er-Vektoren ist, dass eine solche Größe
+``trivial'' unter Lorentztransformationen transformiert. D.h. sie transformiert
+so wie $\rvec{x}$ oder $\rvec{p}$,
+\begin{align*}
+{A^\mu}' = \Lambda_\nu^\mu A^\nu.
+\end{align*}
+Wir wollen nun weitere Größen betrachten, die sich durch $4$er-Vektoren
+darstellen lassen:
+\begin{itemize}[label=\labelitem]
+\item Wellenvektor des Lichts,
+\begin{align*}
+&\rvec{k}^\mu = 
+\begin{pmatrix}\frac{\omega}{c}\\\vec{k}\end{pmatrix},\quad\rvec{k}_\mu = 
+\begin{pmatrix}\frac{\omega}{c}\\-\vec{k}\end{pmatrix}.
+\end{align*}
+Somit ist auch die Phase
+\begin{align*}
+\Rightarrow & e^{ix^\mu k_\mu} = e^{i\left(\omega t -
+\vec{k}\vec{x}\right)}
+\end{align*}
+eine skalare Größe. $\omega t - \vec{k}\vec{x}$ ist hierbei lorentzinvariant.
+\item Elektromagnetisches Potential mit dem Skalarpotential $\phi$ und dem
+Vektorpotential $\vec{A}$,
+\begin{align*}
+\rvec{A}^\mu = \begin{pmatrix}\phi\\\vec{A}\end{pmatrix}.
+\end{align*}
+\item Ableitungsoperatoren
+\begin{align*}
+&\rvec{\partial_\mu} = %TODO: Bold \partial?
+\begin{pmatrix}
+\frac{\partial_t}{c}\\
+\vec{\nabla}
+\end{pmatrix},\\
+&\rvec{\partial^\mu} = 
+\begin{pmatrix}
+\frac{\partial_t}{c}\\
+-\vec{\nabla}
+\end{pmatrix}.
+\end{align*}
+\item D'Alembertoperator (Wellengleichung $\square E = 0$)
+\begin{align*}
+\rvec{\square} = \partial_\mu\partial^\mu = g_{\mu\nu}\partial^\mu\partial^\nu
+= \frac{\partial_t^2}{c^2}-\Delta. %TODO: Bold \square?
+\end{align*}
+\item Stromdichte mit Ladungsstromdichte $\rho$ und Teilchenstromdichte
+$\vec{j}$,
+\begin{align*}
+\rvec{j}^\mu =
+\gamma\begin{pmatrix} \rho\\ \vec{j}\end{pmatrix}.
+\end{align*}
+\item Für das $E$- und $B$-Feld erhalten wir den elektromagnetischen
+Feldtensor, einen Tensor 2. Stufe,
+\begin{align*}
+\rvec{F}^{\mu\nu} 
+= \rvec{\partial^\mu} \rvec{A}^\nu - \rvec{\partial^\nu} \rvec{A}^\mu.
+\end{align*}
+In karthesischen Koordinaten mit Minkowski-Metrik ist die Matrixdarstellung des
+Tensors gegeben durch
+\begin{align*}
+\rvec{F}^{\mu\nu}  = 
+\begin{pmatrix}
+0 & -E_x & -E_y & -E_z\\
+E_x & 0 & -B_z & B_y\\
+E_y & B_z & 0 & -B_x\\
+E_z & -B_y & B_x & 0
+\end{pmatrix}.
+\end{align*}
+Wenden wir eine Lorentztransformation an, so ergibt sich
+\begin{align*}
+(F^{\mu\nu})' &= (\partial^\mu)'(A^\nu)' - (\partial^\nu)'(A^\mu)'
+= \Lambda_\alpha^\mu \Lambda_\beta^\mu \left[\partial^\alpha A^\beta -
+\partial^\beta A^\alpha\right] \\ &= \Lambda_\alpha^\mu\Lambda_\beta^\nu
+F^{\alpha\beta}.
+\end{align*}
+Die Maxwellgleichungen haben nun die Form,
+\begin{align*}
+&\rvec{\partial_\mu} \rvec{F}^{\mu\nu} = -\frac{4\pi}{c}\rvec{j}^\nu,\\
+&\rvec{\partial^\alpha} \rvec{F}^{\mu\nu} + \rvec{\partial^\mu}
+\rvec{F}^{\nu\alpha} + \rvec{\partial^\nu} \rvec{F}^{\alpha\mu} = 0,
+\end{align*}
+sie sind lorentzinvariant.
+\end{itemize}
+
+\subsection{Relativistischer Dopplereffekt}
+
+Betrachte ein Inertialsystem $K'$, das sich mit der Geschwindigkeit $v$ in
+$z$-Richtung relativ zu $K$ bewegt.
+
+\begin{figure}[H]
+  \centering
+\begin{pspicture}(0,-1.501875)(3.92,1.541875)
+\psline[linecolor=darkblue]{->}(0.44,-1.061875)(2.12,-0.261875)
+\psline{->}(0.44,-1.201875)(0.44,1.098125)
+\psline{->}(0.34,-1.061875)(2.58,-1.061875)
+\psline{->}(2.18,-0.301875)(2.18,1.298125)
+\psline{->}(2.06,-0.201875)(3.9,-0.201875)
+\pscircle[linecolor=yellow](0.43,-1.071875){0.43}
+\pscircle[linecolor=yellow](0.43,-1.071875){0.27}
+\pscircle[linecolor=yellow](0.43,-1.071875){0.14}
+
+\rput(1.5764062,-0.271875){\color{gdarkgray}$v$}
+%\rput(2.5254688,-1.211875){\color{gdarkgray}$v_1$}
+\rput(0.20859376,1.148125){\color{gdarkgray}$K$}
+\rput(1.971875,1.368125){\color{gdarkgray}$K'$}
+
+\end{pspicture} 
+\caption{Transformation der Lichtausbreitung.}
+\end{figure}
+
+Der Wellenvektor $\rvec{k}^\mu = \begin{pmatrix}\omega/c\\\vec{k}\end{pmatrix}$
+transformiert trivial unter Lorentztransformationen, wir erhalten daher für ${\rvec{k}^\mu}'$,
+\begin{align*}
+%&{k^\mu}' = \Lambda_\nu^\mu k^\nu,\\
+&k_x' = k_x,\quad
+k_y' = k_y,\quad
+k_z' = \gamma\left(k_z - \beta\frac{\omega}{c}\right),\\
+&\omega' = \gamma\left(\omega - vk_z\right)
+%= \gamma\omega\left(1-\frac{v}{c}\cos\th\right),
+\end{align*}
+Stellen wir $\vec{k}$ und $\vec{k}'$ in Kugelkoordinaten dar mit $\omega/c =
+\abs{\vec{k}}$ und $\omega'/c = \abs{\vec{k}'}$, so folgt
+\begin{align*}
+\omega' = \gamma\omega\left(1-v/c\cos\th\right)
+\end{align*}
+und dies ist gerade der relativistische Dopplereffekt.
+
+Für eine Ausbreitung entlang des boost, d.h. $\th = 0$ ergibt sich,
+\begin{align*}
+&\omega' = \omega\sqrt{\frac{1-\beta}{1+\beta}},\qquad\lambda' =
+\lambda\sqrt{\frac{1+\beta}{1-\beta}}.
+\end{align*}
+% 
+% \begin{bsp}
+% Lichtquelle im bewegten Bezugssystem.
+
+
+% Wenden wir einen Lorentzboost in $z$-Richtung an,
+% \begin{align*}
+% &{k^\mu}' = \Lambda_\nu^\mu k^\nu,\\
+% &k_x' = k_x,\quad
+% k_y' = k_y,\quad
+% k_z' = \gamma\left(k_z - \beta\frac{\omega}{c}\right),\\
+% &\omega' = \gamma\left(\omega - vk_z\right)
+% = \gamma\omega\left(1-\frac{v}{c}\cos\th\right),
+% \end{align*}
+% so erhalten wir gerade den relativistischen Dopplereffekt.\bsphere
+% \end{bsp}
+
+\subsection{Relativistische Kraftgesetze}
+
+Für $v\to 0$ gilt das Newtonsche Gesetz
+\begin{align*}
+\vec{F} = m\frac{\diffd^2\vec{r}}{\dt^2}.
+\end{align*}
+Wir können dies auch als $4$er-Vektor schreiben,
+\begin{align*}
+&m\frac{\diffd^2 }{\dtau^2} \rvec{x}^\alpha= \rvec{f}^\alpha \Leftrightarrow
+\frac{\diffd}{\dtau} \rvec{p}^\alpha= \rvec{f}^\alpha,
+\end{align*}
+wobei die Kraft im Ruhesystem zwangsläufig die Form haben muss,
+\begin{align*}
+&\rvec{f}_0 = \begin{pmatrix}0\\\vec{F}\end{pmatrix},
+\end{align*}
+mit der nicht relativistischen Kraft $\vec{F}$ für $\vec{v} = 0$.
+
+Die Idee ist nun, in das Ruhesystem des Teilchens ($t=\tau$) zu transformieren,
+dort das Newtonsche Gesetz zu verwenden und anschließend zurückzutransformieren.
+\begin{align*}
+\frac{\diffd^2}{\dtau^2}\begin{pmatrix}ct\\\vec{x}\end{pmatrix}
+= \frac{\diffd^2}{\dt^2}\begin{pmatrix}ct\\\vec{r}\end{pmatrix}
+= \begin{pmatrix}0\\\frac{\diffd^2}{\dt^2}\vec{r}\end{pmatrix}
+\end{align*}
+Im Laborsystem wirkt somit die $4$er-Kraft,
+\begin{align*}
+&f^\alpha = \Lambda_\beta^\alpha(-\vec{v})f_0^\beta,\qquad
+\rvec{f} = \rvec{\Lambda}\rvec{f_0},
+\end{align*}
+wobei hier die Rücktransformation ins Laborsystem $\Lambda_\beta^\alpha$ von
+$-\vec{v}$ abhängt.
+\begin{align*}
+\Rightarrow
+\rvec{f} = \begin{pmatrix}f^0\\\vec{f}\end{pmatrix}
+= 
+\begin{pmatrix}
+\gamma\frac{\vec{v}}{c}\vec{F}\\
+\vec{F} + (\gamma-1)\frac{\vec{v}\vec{F}}{v^2}\vec{v}
+\end{pmatrix}.
+\end{align*}
+$f_0$ beschreibt hier die Änderung der Energie.
+\begin{bsp}
+Wir können nun die relativistische Kraftgleichung der Elektrodynamik
+angeben,
+\begin{align*}
+&\frac{\diffd}{\dtau}\rvec{p}^\alpha =
+\frac{e}{c}\rvec{F}^{\alpha\beta}\rvec{u}_\beta,\\
+&\frac{\diffd}{\dtau}\rvec{p}_\alpha =
+\frac{e}{c}\rvec{F}_{\alpha\beta}\rvec{u}^\beta.
+\end{align*}
+In Komponenten geschrieben,
+\begin{align*}
+&\frac{\diffd}{\dt}(\gamma m\vec{v}) = e\left(\vec{E} + \frac{1}{c}
+\vec{v}\times\vec{B}\right), && \text{Lorentzkraft},\\
+&\frac{\diffd}{\dt}(\gamma mc^2) = e\vec{E}\vec{v}, &&\text{geleistete
+Abreit}.
+\end{align*}
+\begin{proof}[Beweis der Darstellung.]
+Im Ruhesystem gilt die Elektrostatik
+\begin{align*}
+\vec{F} = e\vec{E},\qquad \vec{E}\text{ elektrisches Feld}.
+\end{align*}
+Mit dem elektromagnetischen Feldtensor im Ruhesystem
+\begin{align*}
+&\rvec{F}_0^{\alpha\beta} = 
+\begin{pmatrix}
+0 & -E_x & -E_y & -E_z\\
+E_x & 0 & -B_z & B_y\\
+E_y & B_z & 0 & -B_x\\
+E_z & -B_y & B_x & 0
+\end{pmatrix},
+\end{align*}
+folgt das relativistische Kraftgesetz,
+\begin{align*}
+\rvec{f}_0^\alpha =
+\begin{pmatrix}
+0\\\vec{F}
+\end{pmatrix}
+= \frac{e}{c}F_0^{\alpha\beta} u_\beta,
+\end{align*}
+wobei im Ruhesystem,
+\begin{align*}
+&\rvec{u}_\beta = \rvec{u}_\beta^0 = g_{\beta\nu}\rvec{u}_0^\nu =
+g_{\beta\nu}\frac{\diffd}{\dtau}\rvec{x}_0^\nu =
+\begin{pmatrix}c\\\vec{0}\end{pmatrix}.
+\end{align*}
+Rücktransformation ins Laborsystem ergibt
+\begin{align*}
+f^\alpha =
+\Lambda_\beta^\alpha f_0^\beta = \frac{e}{c}\Lambda_\beta^\alpha F_0^{\beta\nu}
+g_{\nu\mu} u_0^\mu = 
+\frac{e}{c}\underbrace{\Lambda_\beta^\alpha
+F_0^{\beta\nu}\Lambda_\nu^\gamma}_{F^{\alpha\gamma}} g_{\gamma\delta}
+\underbrace{\Lambda_{\mu}^\delta u_0^\mu}_{u^\delta}
+= \frac{e}{c}F^{\alpha\gamma}u_\gamma,
+\end{align*}
+wobei $F^{\alpha\gamma}$ den Feldtensor im Laborsystem und $u^\delta$ die
+Geschwindigkeit im Laborsystem beschreiben,
+\begin{align*}
+\rvec{u} = 
+\begin{pmatrix}
+c\gamma\\ -\gamma\vec{v}
+\end{pmatrix},\qquad \rvec{f}
+=
+\frac{e}{c}
+\begin{pmatrix}
+c\gamma \vec{E}\vec{v}\\
+c\gamma\vec{E} + \gamma \vec{v}\times\vec{B}
+\end{pmatrix}
+= \gamma\frac{\diffd}{\dt}m u^\alpha
+= \gamma\frac{\diffd}{\dt}
+\begin{pmatrix}
+\frac{E}{c}\\ m\gamma\vec{v}
+\end{pmatrix}.\qedhere\bsphere
+\end{align*}
+\end{proof}
+\end{bsp}
+
+\subsection{Variationsprinzip}
+Um den Lagrangeformalismus auch im relativistischen Fall anwenden zu können,
+ist es geschickt, die Trajektorien nicht mit $t$ sondern einem beliebigen
+Parameter $\lambda$ zu parametrisieren. Man erhält so die relativistische
+Wirkung
+\begin{align*}
+S_{\text{rel}} = \int \dlambda\ L,
+\end{align*}
+und den Lagrange
+\begin{align*}
+L\left(\rvec{x}^\mu(\lambda), \frac{\diffd \rvec{x}^\mu}{\dlambda} \right)
+= \underbrace{-mc\sqrt{g_{\mu\nu}\frac{\diffd
+x^\mu}{\dlambda}\frac{\diffd x^\nu}{\dlambda}}}_{\text{neue rel.
+Energie}} - \underbrace{\frac{e}{c}A_\mu (x^\nu(\lambda))\frac{\diffd x^\mu}{\dlambda}}_{\text{Wechsel zwischen
+Feldern}}.
+\end{align*}
+Die Wirkung ist lorentzinvariant und unabhängig von der Parametrisierung
+$\lambda$.
+
+Die Variationsrechnung liefert nun
+\begin{align*}
+\frac{\diffd}{\dlambda}\left(\frac{\partial L}{\partial \frac{\diffd
+x^\mu}{\dlambda}}\right) - \frac{\partial L}{\partial x^\mu} = 0,
+\end{align*}
+wobei
+\begin{align*}
+&\frac{\partial L}{\partial \frac{\diffd
+x^\mu}{\dlambda}} = 
+- 
+\frac{1}{2}\underbrace{\frac{mc}{\sqrt{g_{\mu\nu}\ldots}}}_{c}2\frac{\diffd}{\dlambda}x_\mu
+- \frac{e}{c}A_\mu = - m\frac{\diffd x_\mu}{\dlambda} - \frac{e}{c} A_\mu\\
+&\frac{\partial L}{\partial x^\mu} = 
+-\frac{e}{c}\partial_\mu A_\nu \frac{\diffd}{\dlambda}x^\nu\\
+&\frac{\diffd}{\dlambda}\left(\frac{\partial L}{\partial \frac{\diffd
+x^\mu}{\dlambda}}\right) =
+- m\frac{\diffd}{\dlambda} \frac{\diffd}{\dlambda} x_\mu -
+\frac{c}{c}\partial_\nu A_\mu \frac{\diffd}{\dlambda}x^\nu.
+\end{align*}
+Einsetzen in die Euler-Lagrange-Gleichungen ergibt,
+\begin{align*}
+m\frac{\diffd^2}{\dlambda^2}x_\mu = \frac{e}{c}\frac{\diffd}{\dlambda}x^\nu
+\underbrace{\left[\partial_\mu A_\nu - \partial_\nu A_\mu\right]}_{F_{\mu\nu}}.
+\end{align*}
+Setzte $\lambda=\tau$ der Eigenzeit, so folgt
+\begin{align*}
+\frac{\diffd}{\dtau} \rvec{p}_\mu = \frac{e}{c} \rvec{F}_{\mu\nu}\rvec{u}^\nu.
+\end{align*}
+\begin{bemn}
+Für $\lambda=t$ und kleine Geschwindigkeiten $v<<c$ erhalten wir die klassische
+Lagrangefunktion und Wirkung
+\begin{align*}
+&S_{\text{rel}} \longrightarrow \int\dt L\\
+&L\longrightarrow - \underbrace{mc^2}_{\text{irrelevante Konstante}} +
+\underbrace{\frac{m}{2}v^2}_{T} - \underbrace{e\rho}_{V} +
+\underbrace{\frac{e}{c}\vec{v}\vec{A}}_{\text{Anteil für Lorentzkraft}}.\maphere
+\end{align*}
+\end{bemn}

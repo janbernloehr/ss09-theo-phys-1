@@ -1,0 +1,559 @@
+\section{Grundprinzipien}
+
+Wir beginnen mit den wichtigsten experimentellen Fakten, auf denen die
+Klassische Mechanik aufbaut.
+
+\subsection{Raum und Zeit}
+
+Unser \emph{Raum} ist ein dreidimensionaler euklidischer Raum und die Zeit ist
+eindimensional. Ein \emph{Teilchen} beschreibt eine Kurve
+\begin{align*}
+t\mapsto\vec{r}(t),
+\end{align*}
+in diesem $(3+1)$-dimensionalen Raum.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-1,-1)(4.5,2.5)
+ \psaxes[labels=none,ticks=none]{->}%
+ 	(0,0)(-0.5,-0.5)(4,2)%
+ 	[\color{gdarkgray}$\vec{r}\in\R^3$,-90]%
+ 	[\color{gdarkgray}$t$,0]
+ \psyTick(0.5){\color{gdarkgray}t_0}
+ \psyTick(1.5){\color{gdarkgray}t_1}
+ 
+ \psline[linewidth=0.5pt](0,0.5)(4,0.5)
+ \psline[linewidth=0.5pt](0,1.5)(4,1.5)
+ 
+ \psbezier[linecolor=darkblue,arrows=->,linewidth=1.2pt]
+ (2.42,-0.6170833)(0.78,0.8229167)(4.18,0.42291668)(3.38,1.7829167)
+ 
+ \end{pspicture}
+  \caption{Teilchen Trajektorie.}
+\end{figure}
+
+Der Raum ist homogen und isotrop, d.h. kein Punkt und keine Richtung sind
+ausgezeichnet. Ebenso ist die Zeit homogen, das heißt kein Zeitpunkt ist
+ausgezeichnet.
+
+Die \emph{Geschwindigkeit} ist die Ableitung der Raumkurve nach der Zeit,
+\begin{align*}
+\vec{v}(t) =\frac{\diffd}{\dt} \vec{r}(t) = \dot{\vec{r}}(t),
+\end{align*}
+die \emph{Beschleunigung} ist die zweite Ableitung der Raumkurve,
+\begin{align*}
+\vec{a}(t) = \frac{\diffd^2}{\dt^2}\vec{r}(t) = \ddot{\vec{r}}(t).
+\end{align*}
+
+\subsubsection{Trägheitsgesetz (1. Newtonsche Gesetz)}
+Es gibt \emph{Inertialsysteme}, in denen alle Naturgesetze zu allen
+Zeiten gleich sind. Ein System, das sich gleichförmig zu einem Inertialsystem
+bewegt, ist selbst ein Inertialsystem.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.5,-0.5)(5.5,4.5)
+
+\psline{->}(-0.2,0)(3.5,0)
+\psline{->}(0,-0.2)(0,2)
+
+\psline{->}(1.3,2)(5,2)
+\psline{->}(1.5,1.8)(1.5,4)
+
+\psline[linestyle=dashed](0,0)(2.8,2.4)
+\psline[linestyle=dashed](1.5,2)(2.8,2.4)
+
+\psdot[linecolor=darkblue](2.8,2.4)
+
+\rput(-0.2,2){\color{gdarkgray}$y$}
+\rput(3.8,-0.2){\color{gdarkgray}$x$}
+
+\rput(1.3,4){\color{gdarkgray}$y'$}
+\rput(5.3,1.8){\color{gdarkgray}$x'$}
+ 
+ \rput(2,2.4){\color{gdarkgray}$\vec{r}'$}
+ \rput(1,1.1){\color{gdarkgray}$\vec{r}$}
+ 
+
+\end{pspicture} 
+  \caption{Zwei Inertialsysteme.}
+\end{figure}
+
+Die Beschleunigung, die ein Teilchen in einem Inertialsystem erfährt, ist somit
+in allen Inertialsystemen gleich. Insbesondere erfährt ein kräftefreies Teilchen
+keine Beschleunigung und bewegt sich gleichförmig,
+\begin{align*}
+\vec{r}(t) = \vec{r}_0 + \vec{v}t \Rightarrow \ddvec{r} = 0.
+\end{align*}
+
+Eine gute Approximation eines Inertialsystems erhalten wir, indem wir uns an
+den Fixsternen orientieren. Doch selbst hier gibt es noch Abweichungen, da sich
+auch unserer Galaxie dreht. Für die meisten Experimente genügt es jedoch, die
+Erdoberfläche als Ineratialsystem zu wählen. Für große Geschwindigkeiten und
+Strecken müssen jedoch Effekte wie die Corioliskraft, die durch die Erdrotation
+entstehen, berücksichtigt werden, was man am Foucaultsches Pendel oder an der
+Rotation von Wirbelstürmen beobachten kann.
+
+\subsubsection{Bewegungsgesetz (2. Newtonsche Gesetz)}
+Die \emph{Masse} $m$ eines Teilchens ist eine skalare Größe und daher vom
+Inertialsystem unabhängig. Sie ist eine Eigenschaft der Teilchen.
+
+Der \emph{Impuls} eines Teilchens ist gegeben durch,
+\begin{align*}
+\vec{p}(t) = m\vec{v}(t) = m\dot{\vec{r}}(t).
+\end{align*}
+Somit folgt die Bewegungsgleichung im Inertialsystem,
+\begin{align*}
+\frac{\diffd \vec{p}}{\dt} = m\ddvec{r} = \vec{F},
+\end{align*}
+wobei $\vec{F}$ die \emph{Kraft}, die auf das Teilchen wirkt, bezeichnet.
+Für $N$-Teilchen erhalten wir,
+\begin{align*}
+m_i \ddvec{r}_i = \vec{F}_i(\vec{r}_1,\ldots, \vec{r}_N,
+\vec{v}_1,\ldots,\vec{v}_N,t).
+\end{align*}
+Dies ist eine Differentialgleichung 2. Ordnung. Die Trajektorien $x_i(t)$ sind
+eindeutig durch Ort und Geschwindigkeit zur Anfangszeit $t_0$ bestimmt. Die
+klassische Mechanik beschreibt also ein vollkommen deterministisches Weltbild.
+
+Bisher lässt sich die Masse experimentell nicht absolut sondern nur in Relation
+zur Masse eines anderen Körpers bestimmen. Dies erfolgt durch den Vergleich der
+Beschleunigungen für eine feste Kraft,
+\begin{align*}
+&\ddot{r}_a = \frac{F}{m_a},\quad\ddot{r}_b = \frac{F}{m_b}\\
+\Rightarrow & \frac{\ddot{r}_a}{\ddot{r}_b} = \frac{m_b}{m_a}.
+\end{align*}
+
+%Es ist hier nicht auszuschließen, dass die Kraft, die auf ein Teilchen wirkt,
+%auch von den Geschwindigkeiten der $N$-Teilchen abhängt.
+
+\subsubsection{Actio = Reactio (3. Newtonsche Gesetz)}
+Die Kraft $\vec{F}_{21}$, die das zweite Teilchen auf das erste ausübt, ist
+entgegengesetzt zu der Kraft $\vec{F}_{12}$, die das erste Teilchen auf das
+zweite ausübt. $\vec{F}_{21}=-\vec{F}_{12}$.
+\begin{figure}[!htbp]
+\centering
+\begin{pspicture}(-0.1,-1.15)(2.5,1.2)
+
+\psline[linecolor=darkblue]{->}(2.14,0.74828124)(1.34,0.20828125)
+\psline[linecolor=yellow]{<-}(0.88,-0.11171875)(0.08,-0.65171874)
+
+\psdots[dotsize=0.12](0.06,-0.6717188)
+\psdots[dotsize=0.12](2.14,0.74828124)
+
+\rput(0.006875,-1.0017188){\color{gdarkgray}$1$}
+\rput(2.3785937,0.97828126){\color{gdarkgray}$2$}
+\rput(0.7496875,-0.48171875){\color{gdarkgray}$\vec{F}_{21}$}
+\rput(1.4296875,0.6382812){\color{gdarkgray}$\vec{F}_{12}$}
+\end{pspicture}
+
+\caption{Actio und Reactio.}
+\end{figure}
+
+Für zwei wechselwirkende Teilchen gilt daher die Beziehung,
+\begin{align*}
+\ddvec{r}_1 &= \frac{\vec{F}_{21}}{m_1} = - \frac{\vec{F}_{12}}{m_1} = -
+\frac{m_2}{m_1}\ddvec{r}_2,\\
+\frac{\ddvec{r}_1}{\ddvec{r}_2} &= -\frac{m_2}{m_1}.
+\end{align*}
+
+\subsubsection{Kraftgesetze}
+In der Natur kommen vier fundamentale Wechselwirkungen vor, nämlich Gravitation,
+Elektromagnetische Wechselwirkung, Starke und Schwache Wechselwirkung. In de
+Klassischen Mechanik spielen lediglich Gravitation und Elektromagnetismus 
+eine Rolle, die durch folgende Gesetze beschreiben werden.
+
+Das \emph{Coulombsche Gesetz} hat die Form,
+\begin{align*}
+\vec{F}_{12} = \frac{\vec{r}_1-\vec{r}_2}{\abs{\vec{r}_1-\vec{r}_2}}
+\frac{e_1 e_2}{\abs{\vec{r}_1-\vec{r}_2}^2},\qquad \text{im cgs-System},
+\end{align*}
+wobei die Ladung $e_i$ im Gegensatz zur Masse $m_i$ unabhängig vom Träger ist.
+
+Man kann die schwere Masse als Ladung bezüglich der Gravitation
+betrachten. Die entsprechende Beziehung stellt das \emph{Gravitationsgesetz}
+her
+\begin{align*}
+\vec{F}_{12} = -G \frac{\vec{r}_1-\vec{r}_2}{\abs{\vec{r}_1-\vec{r}_2}}
+\frac{\hat{m}_1 \hat{m}_2}{\abs{\vec{r}_1-\vec{r}_2}^2}.
+\end{align*}
+Es stellt sich nun die Fragem ob die schwere Masse $\hat{m}_i$ des
+Gravitationsgesetzes gleich der trägen Massen $m_i$ des Trägheitsgesetzes ist.
+Loránd Eötvös\footnote{Loránd Eötvös (* 27. Juli 1848 in Buda; † 8. April 1919
+in Budapest) war ein ungarischer Physiker. International bekannt war er als
+(Baron) Roland von Eötvös} erzielte 1909 das experimentelle Resultat,
+\begin{align*}
+\frac{\hat{m}}{m} = \text{universelle Konstante}.
+\end{align*}
+$G$ ist nun so bestimmt, dass die schwere Masse identisch zur trägen Masse ist.
+Diese Gleichheit ist auch eine der Grundannahmen in der allgemeinen
+Relativitätstheorie.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.1,-1.3)(3.2,1.2)
+
+\psline{->}(2.52,-0.71171874)(2.02,-0.21171875)
+\psline{->}(1.02,0.7682812)(1.52,0.26828125)
+\psline{->}(0.0,-1.2317188)(0.92,0.6482813)
+\psline{->}(0.0,-1.2317188)(2.4,-0.75171876)
+
+\psdots[linecolor=darkblue](2.52,-0.71171874)
+\psdots[linecolor=darkblue](1.0,0.78828126)
+
+\psdots(0,-1.2317188)
+
+\rput(2.686875,-1){\color{gdarkgray}$m_1,e_1$}
+\rput(0.75859374,1.0982813){\color{gdarkgray}$m_2,e_2$}
+
+\rput(0.3,-0.08171875){\color{gdarkgray}$\vec{r}_2$}
+\rput(1.46,-1.1217188){\color{gdarkgray}$\vec{r}_1$}
+\end{pspicture}
+  \caption{2-Teilchen Kraft.}
+\end{figure}
+
+
+
+\subsubsection{Galilei-Transformation}
+Eine \emph{Galilei-Transformation} beschreibt den Übergang von einem
+Inertialsystem in ein anderes.
+\begin{align*}
+&t' = t + a,\\
+&\vec{r}' = \mathrm{R}\vec{r} + \vec{v}t + \vec{b},
+\end{align*}
+dabei sind $a,\vec{b}$ und $\vec{v}$ konstant und $R$ eine Drehmatrix.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.5,-0.5)(5.5,4.5)
+
+\psline{->}(-0.2,0)(3.5,0)
+\psline{->}(0,-0.2)(0,2)
+
+\psline{->}(1.3,2)(5,2)
+\psline{->}(1.5,1.8)(1.5,4)
+
+\psline[linecolor=darkblue]{->}(0,0)(1.4,1.9)
+
+\rput(-0.2,2){\color{gdarkgray}$t$}
+\rput(3.8,-0.2){\color{gdarkgray}$\vec{r}$}
+
+\rput(1.3,4){\color{gdarkgray}$t'$}
+\rput(5.3,1.8){\color{gdarkgray}$\vec{r}'$}
+ 
+ \rput[tl](1.2,1.6){\color{gdarkgray}$(a,\vec{b})$}
+\end{pspicture} 
+  \caption{Galilei Transformation.}
+\end{figure}
+
+Im $(3+1)$ dimensionalen Raum hat die Transformation die Form
+\begin{align*}
+\begin{pmatrix}
+t'\\
+\vec{r}'
+\end{pmatrix}
+= \begin{pmatrix}
+  1 & 0 \\
+  \vec{v} & \mathrm{R} 
+  \end{pmatrix}
+\begin{pmatrix}
+t\\
+\vec{r}
+\end{pmatrix}
++ \begin{pmatrix}
+  a\\\vec{b}
+  \end{pmatrix}.
+\end{align*}
+Die Translation hat somit insgesamt 10 Parameter,
+\begin{itemize}[label=\labelitem]
+  \item Translation in Raum und Zeit $\vec{b}, a$ ($4$-Parameter)
+  \item Boost $\vec{v}$ ($3$-Parameter)
+  \item Rotationen im Raum $R\in\mathrm{SO}(3)$ ($3$-Parameter)
+\end{itemize}
+Unter $\mathrm{SO}(3)$ verstehen wir,
+\begin{align*}
+\mathrm{SO}(3) = \setdef{R\in M_{3\times 3}}{R^tR = RR^t = \Id\text{ und }\det
+R = 1}.
+\end{align*}
+\begin{bsp}
+Rotation um die $z$-Achse mit Winkel $\th$,
+\begin{align*}
+R = \begin{pmatrix}
+\cos \th & \sin \th & 0\\
+-\sin\th & \cos \th & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+Rotation um die $x$-Achse mit Winkel $\th$,
+\begin{align*}
+R = \begin{pmatrix}
+    1& 0 & 0 \\
+0 & \cos \th & \sin \th\\
+0 & -\sin\th & \cos \th
+\end{pmatrix}\bsphere
+\end{align*}
+\end{bsp}
+Die Menge der Galilei-Transformationen bildet eine 10-parametrige Gruppe, die
+\emph{Galilei-Gruppe} $\GG$.
+\begin{bemn}
+Die Galilei Transformationen $g\in\GG$ haben die Eigenschaften.
+\begin{itemize}[label=\labelitem]
+  \item $g_2\circ g_1\in G$,
+  \item $(g_3\circ g_2)\circ g_1 = g_3 \circ (g_2\circ g_1)$ Assoziativität,
+  \item $g\circ\Id = g = \Id \circ g$ Einselement,
+  \item Zu $g\in\GG$ existiert ein Inverses $g^{-1}$ mit $g^{-1}\circ g = \Id =
+  g \circ g^{-1}$,
+  \item $\GG$ ist nicht kommutativ.\maphere
+\end{itemize} 
+\end{bemn}
+ Neben den gewöhnlichen Transformationen gibt es
+noch zwei diskrete Transformationen
+\begin{itemize}[label=\labelitem]
+  \item Raumspiegelung $\vec{r}' = -\vec{r}$
+  \item Zeitumkehr $t' = -t$
+\end{itemize}
+
+Die 10 Parameter der Galilei-Transformation beschreiben 10 Symmetrien, aus
+denen wir 10 Erhaltungssätze herleiten können.
+
+\subsection{Symmetrien und Erhaltungssätze}
+
+Die Gesetze der Klassischen Mechanik für ein abgeschlossenes
+System\footnote{abgeschlossen bedeutet, dass keine Kräfte von Teilchen
+ausgehen, die sich außerhalb des Systems befinden.} sind forminvariant unter
+Galilei-Transformationen.
+
+\begin{bemn}
+Man sagt auch, dass die Galilei-Gruppe die Symmetrie-Gruppe der Klassischen
+Mechanik ist (abgesehen von der Zeitumkehr).\maphere
+\end{bemn}
+
+\begin{propn}[Homogenität des Raums]
+Kein Punkt des Raums ist ausgezeichnet, es sind daher nur Relativbewegungen von
+Bedeutung und der Nullpunkt kann frei gewählt werden.\fishhere
+\end{propn}
+Betrachten wir die Kraft $\vec{F}_{12}(\vec{r}_1,\vec{r}_2,t)$, dann
+bewirkt die Homogenität des Raums, dass die Kraft unter einer
+Galilei-Transformation mit $\vec{r}_1' = \vec{r}_1+\vec{a}$ und $\vec{r}_2' =
+\vec{r}_2+\vec{a}$ erhalten bleibt,
+\begin{align*}
+\vec{F}_{12}(\vec{r}_1',\vec{r}_2',t) =
+\vec{F}_{12}(\vec{r}_1,\vec{r}_2,t).
+\end{align*}
+
+\begin{propn}[Homogenität der Zeit]
+Es existiert kein ausgezeichneter Zeitpunkt, also sind alle Fundamentalkräfte
+zeitunabhängig.\fishhere
+\end{propn}
+
+\begin{propn}[Isotropie des Raumes]
+Der Raum hat keine ausgezeichnete Richtung, betrachtet man also zwei Teilchen,
+so ist die einzig verfügbare Richtung $\vec{r}_1-\vec{r}_2$.\fishhere
+\end{propn}
+
+\begin{propn}[Invarianz unter boost]
+Es gibt kein absolutes Ruhesystem, die Geschwindigkeit hat nur eine
+relative Bedeutung $\vec{v}_1-\vec{v}_2$.\fishhere
+\end{propn}
+
+\subsubsection{Folgerungen aus der Galilei-Invarianz}
+$2$-Teilchen Kräfte, die geschwindigkeitsunabhängig sind, können geschrieben
+werden als
+\begin{align*}
+\vec{F}_{ij} =
+\frac{\vec{r}_i-\vec{r}_j}{\abs{\vec{r}_i-\vec{r}_j}}f_{ij}\left(\abs{\vec{r}_i
+- \vec{r}_j}\right),
+\end{align*}
+da nur der Abstand $\abs{\vec{r}_i - \vec{r}_j}$ und die Richtung
+$\vec{r}_i-\vec{r}_j$ identifizierbar sind.
+\begin{bemn}
+\begin{enumerate}[label=\arabic{*}.)]
+  \item 
+Wir haben bereits gesehen, dass die Fundamentalkräfte Coulomb-Wechselwirkung
+und Gravitationskraft von dieser Gestalt sind. Jetzt sehen wir, dass es auch
+die einzig mögliche ist.
+\item Das 3. Newtonsche Gesetzt folgt direkt aus der
+Galilei-Invarianz.
+\item Fundamentale Kräfte, die von der Geschwindigkeit der Teilchen abhängen
+existieren in der Newtonschen Mechanik nicht.
+\item In einem $3$-Teilchen System könnte neben der $2$-Teilchen Wechselwirkung auch
+eine fundamentale $3$-Teilchen Wechselwirkung auftreten, also eine Kraft, die
+genau dann auftrit, wenn $3$ Teilchen vorhanden sind, und nicht das Ergebnis
+einer Überlagerung von $2$-Teilchen Wechselwirkungen ist. Das Experiment zeigt
+jedoch, dass alle bis jetzt bekannten fundamentalen Kräfte reine $2$-Teilchen
+Kräfte sind. 
+\end{enumerate}
+\end{bemn}
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.1,-1.2)(3,1.2)
+
+\psline{->}(2.6453125,-0.77953124)(2.1453125,-0.27953124)
+\psline{->}(1.1453125,0.7004688)(1.6453125,0.20046875)
+\psline{->}(0.3253125,-0.77953124)(1.1253124,-0.77953124)
+\psline{<-}(1.8453125,-0.77953124)(2.6453125,-0.77953124)
+\psline{<-}(0.8253125,0.12046875)(1.1253124,0.7004688)
+\psline{->}(0.3453125,-0.75953126)(0.6653125,-0.19953126)
+
+\psdots[linecolor=darkblue](2.6453125,-0.77953124)
+\psdots[linecolor=darkblue](1.1253124,0.72046876)
+\psdots[linecolor=darkblue](0.3253125,-0.7995312)
+
+\rput(2.8121874,-1.0295312){\color{gdarkgray}$1$}
+\rput(1.0439062,1.0304687){\color{gdarkgray}$2$}
+\rput(0.05296875,-1.0495312){\color{gdarkgray}$3$}
+
+\end{pspicture} 
+  \caption{3-Teilchen Kraft.}
+\end{figure}
+
+Für ein $N$-Teilchensystem gilt daher
+\begin{align*}
+\vec{F}_i(\vec{r}_1,\ldots,\vec{r}_N) = \sum_{j\neq i}
+\vec{F}_{ji}(\vec{r}_i-\vec{r}_j).
+\end{align*}
+
+Es folgen nun direkt die 10 klassischen Erhaltungssätze. Diese gelten auch in
+Theorien, die über die Klassische Mechanik hinausgehen.
+
+\begin{prop}[Impulserhaltung]
+Der \emph{totale Impuls} $\vec{p}_{\tot} = \sum_i \vec{p}_i$ mit $\vec{p}_i =
+m_i\vec{v}_i$ ist erhalten.\fishhere
+\end{prop}
+\begin{proof}
+Die Ableitung des totalen Impuls verschwindet, denn
+\begin{align*}
+\frac{\diffd}{\dt}  \sum_i \vec{p}_i &= \sum_i \frac{\diffd}{\dt} \vec{p}_i
+= \sum_{i\neq j} \vec{F}_{ij} = \frac{1}{2} \left[
+\sum_{i\neq j} \vec{F}_{ij} + \sum_{i\neq j} \vec{F}_{ij} \right] \\
+&\overset{!}{=} \frac{1}{2} \left[
+\sum_{i\neq j} \vec{F}_{ij} + \sum_{j\neq i}
+\underbrace{\vec{F}_{ji}}_{-\vec{F}_{ij}} \right]
+ = 0.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{prop}[Schwerpunktsatz]
+Der \emph{Schwerpunkt}
+\begin{align*}
+\vec{r}_\tot = \frac{1}{M}\sum_i m_i \vec{r}_i,\quad M = \sum_i m_i,
+\end{align*}
+bewegt sich gleichförmig,
+\begin{align*}
+\vec{r}_\tot = \vec{r}_0 + \frac{\vec{p}_\tot t}{M}.
+\end{align*}
+$\vec{r}_0$ ist eine Erhaltungsgröße.\fishhere
+\end{prop}
+
+\begin{prop}[Drehimpulserhaltung]
+Der \emph{totale Drehimpuls} $\vec{L}_\tot = \sum_i \vec{r}_i\times \vec{p}_i$
+ist erhalten.\fishhere
+\end{prop}
+\begin{proof}
+Der Beweis funktioniert analog zur Impulserhaltung,
+\begin{align*}
+\frac{\diffd}{\dt} \vec{L}_\tot &= \sum_i
+\frac{\diffd}{\dt}\left(\vec{r}_i\times\vec{p}_i \right)
+= \sum_i \left[\dvec{r}_i\times \vec{p}_i + \vec{r}_i \times\dvec{p}_i \right]
+= \sum_i\vec{r}_i \times\dvec{p}_i = \sum_{i\neq j} \vec{r}_i\times \vec{F}_{ji}
+\\ &= \frac{1}{2} \sum_{i\neq j} \left(\vec{r}_i-\vec{r}_j\right)\times
+\frac{\vec{r}_i-\vec{r}_j}{\abs{\vec{r}_i-\vec{r}_j}}
+f_{ji}(\abs{\vec{r}_i-\vec{r}_j}) = 0.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{prop}[Energieerhaltung]
+Die \emph{Arbeit}, die ein Teilchen entlang der Kurve $\gamma$ im Kraftfeld
+verrichtet, hat die Form,
+\begin{align*}
+A &= \int_\gamma \dvecs \vec{F}_i
+= \int_{t_1}^{t_2} \dt \frac{\diffd}{\dt} \vec{r}_i(t) m\ddvec{r}_i(t)
+= \int_{t_1}^{t_2} \dt \vec{v}_i \dvec{v}_i m_i
+\\ &= \frac{1}{2} \int_{t_1}^{t_2} \dt \frac{\diffd}{\dt} \left(m_i
+\vec{v}_i^2 \right) = T_2 - T_1,
+\end{align*}
+mit der kinetischen Energie $T = \dfrac{m_i}{2}\vec{v}_i^2 =
+\dfrac{\vec{p}_i^2}{2m_i}$.
+
+Ein Kraftfeld $\vec{F}_i$ heißt \emph{konservativ}, wenn das Integral
+\begin{align*}
+\int_\gamma \dvecs \vec{F}_i,
+\end{align*}
+unabhängig vom Weg ist.
+Für konservative Kraftfelder existiert ein \emph{Potential}
+$V(\vec{r})$, so dass
+\begin{align*}
+\vec{F} = -\nabla V.
+\end{align*}
+Somit gilt $A = T_1-T_0 = \int_\gamma \dvecs \vec{F} = V_0-V_1$.
+
+Konservative Kraftfelder erfüllen somit die
+Energieerhaltung,
+\begin{align*}
+H = T+V = \frac{\vec{p}^2}{2m} + V(\vec{r}) \equiv \text{const}.
+\end{align*}
+Die Summe der kinetischen und potentiellen Energie ist für alle
+Punkte gleich.\fishhere
+\end{prop}
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.1)(3,1.2)
+
+\psline{->}(0.0,-0.84428024)(2.8,-0.84428024)
+\psline{->}(0.2,-1.0442803)(0.2,1.1)
+\psbezier{<-}(2.4258888,-0.25016913)(1.245889,0.009830868)(2.445889,1.1898309)(0.70588887,0.86983085)
+\psbezier{->}(0.70588887,0.8898309)(0.6658889,0.24983087)(1.4258889,-0.47016913)(1.4258889,-0.09016913)(1.4258889,0.28983086)(0.9401748,0.23600471)(1.1858889,-0.47016913)(1.431603,-1.176343)(2.0837839,-1.1898309)(2.445889,-0.31016913)
+\psdots[linecolor=darkblue](0.70588887,0.8898309)
+\psdots[linecolor=darkblue](2.485889,-0.25016913)
+
+\rput(2.087295,0.35308692){\color{gdarkgray}$\gamma$}
+\rput(0.8808889,-0.04691308){\color{gdarkgray}$\sigma$}
+\end{pspicture} 
+  \caption{Äquivalente Wege in einem konservativen Kraftfeld.}
+\end{figure}
+
+\begin{bemn}[Bemerkungen.]
+\begin{enumerate}[label=\arabic{*}.)]
+\item 
+Ein konservatives Kraftfeld erfüllt $\rot \vec{F} = 0$.
+\item
+Aus der Galilei-Invarianz haben wir gefolgert, dass die Kraft zwischen zwei
+Teilchen die Form
+\begin{align*}
+\vec{F}_{ij} = \frac{\vec{r}_i -
+\vec{r}_j}{\abs{\vec{r}_i-\vec{r}_j}}f_{ji}\left(\abs{\vec{r}_i -
+\vec{r}_j}\right)
+\end{align*}
+hat und konservativ ist, d.h.
+\begin{align*}
+\vec{F}_{ij} &= -\nabla V\left(\abs{\vec{r}_i -
+\vec{r}_j}\right),\quad V_{ij}(r) = \int\dr f_{ij}(r).
+\end{align*}
+\item Im Vielteilchensystem gilt daher,
+\begin{align*}
+H = \sum_i \frac{\vec{p}_i^2}{2m_i} + \frac{1}{2}\sum_{i\neq j}
+V_{ij}\left(\abs{\vec{r}_i - \vec{r}_j}\right).
+\end{align*}
+\item Coulomb- und Gravitationspotential haben die Form,
+\begin{align*}
+V(\abs{\vec{r}_1-\vec{r}_2}) = \frac{e_1e_2}{\abs{\vec{r}_1-\vec{r}_2}}.\maphere
+\end{align*}
+\end{enumerate}
+\end{bemn}
+
+Die 10 Erhaltungssätze folgen direkt aus den 10 Symmetrie-Transformationen der
+Galilei-Gruppe. Es ist ein fundamentales Konzept, Erhaltungsgrößen aus
+Symmetrien zu gewinnen, das wir später mittels dem Noether Theorem elegant
+formulieren können.
+
+\subsubsection{Ausblick: Wann bricht die Klassische Mechanik zusammen?}
+\begin{itemize}[label=\labelitem]
+  \item Bei kleinen Distanzen wie dem Abstand
+  zwischen Elektron und Atomkern verliert die Klassische Mechanik ihre
+  Gültigkeit und man muss auf die Quantenmechanik ausweichen.
+  \item Bei hohen Geschwindigkeiten $\frac{v}{c} \sim 1$ müssen wir auf die
+  spezielle Relativitätstheorie.
+  \item Bei Gravitation mit hohen Geschwindigkeiten oder starken
+  Gravitationsfeldern stellt die allgemeine Relativitätstheorie den richtigen
+  Rahmen.
+\end{itemize}
+Die Klassischen Mechanik ist deshalb aber nicht falsch, sondern folgt aus diesen
+erweiterten Theorien immer als Spezialfall, wenn man zum Gültigkeitsbereich der
+Klassischen Mechanik übergeht.

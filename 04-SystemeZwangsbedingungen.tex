@@ -1,0 +1,594 @@
+\section{Systeme mit Zwangsbedingungen}
+
+In praktischen Anwendungen treten in vielen Fällen Nebenbedingungen auf, die
+den Konfigurationsraum des Problems einschränken. Die Idee ist nun, die
+Lagrangefunktion so zu transformieren, dass sie sich unter diesen
+Nebenbedingungen vereinfacht.
+
+\begin{bsp}
+Ein Pendel bestehe aus einer festen Stange der Länge $l$, an der eine Masse $m$
+angebracht ist. Die feste Länge $l$ der Stange ergibt hier die
+Zwangsbedingung.\bsphere
+\end{bsp}
+\begin{bsp}
+Ein Zylinder, der sich in der schiefen Ebene befindet, erfährt die
+Zwangsbedingungen dadurch, dass die Bewegung nur auf der Ebene stattfindet und
+durch die Rollbedingung $\ds=R\dph$.\bsphere
+\end{bsp}
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-0.88)(1.89,0.7)
+\psline(0.856875,0.37)(0.176875,-0.53)
+\psline[linestyle=dotted,dotsep=0.06cm](0.856875,0.37)(0.856875,-0.73)
+\psdots(0.856875,0.35)
+\psdots[linecolor=darkblue,dotstyle=square*](0.156875,-0.55)
+
+\psarc(0.846875,0.32){0.51}{231.78897}{271.97495}
+\psbezier(0.756875,0.01)(1.096875,0.37)(1.276875,-0.23)(1.536875,0.37)
+
+\rput(0.13453124,-0.8){\color{gdarkgray}$m$}
+\rput(0.4578125,0.14){\color{gdarkgray}$l$}
+\rput(1.7214062,0.58){\color{gdarkgray}$\ph$}
+\end{pspicture} \qquad
+\begin{pspicture}(0.7,-0.5)(3.7,1.4)
+\psline{->}(0.84,-0.4)(0.84,1.2471875)
+\psline{->}(0.84,-0.4)(3.32,-0.4)
+\psline(0.84,-0.4)(3.4,0.6271875)
+
+\pscircle[linecolor=darkblue](2.75,0.8171875){0.40}
+\psline[linestyle=dotted,dotsep=0.06cm]{->}(2.76,0.8271875)(2.76,-0.2728125)
+\psline(2.76,0.8271875)(2.44,0.5871875)
+
+\psdots(2.76,0.8271875)
+
+\psarc(0.87,-0.3828125){0.87}{0.0}{22}
+
+\psbezier(2.7,0.5071875)(3.1,1.1671875)(3.32,0.3671875)(3.54,0.9071875)
+
+\rput(2.5185938,0.8771875){\color{gdarkgray}$R$}
+\rput(3.0896876,0.0771875){\color{gdarkgray}$\vec{F}_g$}
+\rput(1.513125,-0.25){\color{gdarkgray}$\alpha$}
+\rput(3.5245314,1.1971875){\color{gdarkgray}$\ph$}
+\end{pspicture} 
+
+\caption{Pendel und Zylinder auf schiefer Ebene.}
+\end{figure}
+
+\subsubsection{Holonome Zwangsbedingungen}
+
+Es gibt verschiedene Arten von Zwangsbedingungen. Die einfachste und häufigste
+Art sind die \emph{holonomen Zwangsbedingungen}. Hier lässt sich die
+Zwangsbedingung durch einen Satz Gleichungen, die die Koordinaten $q^i$
+verknüpfen, darstellen.
+\begin{align*}
+f_j(q^1,\ldots,q^{3N},t) = 0,\qquad j = 1,\ldots,k.
+\end{align*}
+Bei $k$ Nebenbedingungen ist die Zahl der Freiheitsgrade auf $3N-k$ reduziert.
+\begin{bsp}
+Im Fall unseres Pendels ist
+\begin{align*}
+f_1(x,y) = x^2+y^2 - l^2 = 0.
+\end{align*}
+In Polarkoordinaten ist dadurch $r=l$ konstant.\bsphere
+\end{bsp}
+\begin{bsp}
+Ein Teilchen gleitet reibungsfrei auf einer Oberfläche,
+%TODO: Skizze
+\begin{align*}
+f(\vec{r}) = 0,
+\end{align*}
+wobei $f$ die Oberfläche beschreibt.\bsphere
+\end{bsp}
+\begin{bsp}
+Zwei Teilchen, die durch einen starren Stab verbunden sind.
+\begin{align*}
+f_1(\vec{r}_1,\vec{r}_2) = \abs{\vec{r}_1-\vec{r_2}} - l = 0.
+\end{align*}
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.1,-1)(2.52,0.9028125)
+\psline{->}(0.02,-0.86)(0.02,0.7771875)
+\psline{->}(0.02,-0.86)(2.5,-0.86)
+\psdots(0.7,0.5171875)
+\psdots(1.86,-0.1628125)
+\psline[linecolor=darkblue](0.78,0.4771875)(1.78,-0.1228125)
+\psline{->}(0.02,-0.86)(0.66,0.4371875)
+\psline{->}(0.02,-0.86)(1.76,-0.2228125)
+
+\rput(0.28,0.1471875){\color{gdarkgray}$\vec{r}_1$}
+\rput(1.18,-0.5928125){\color{gdarkgray}$\vec{r}_2$}
+\rput(0.65765625,0.8071875){\color{gdarkgray}$m_1$}
+\rput(2.2,-0.2128125){\color{gdarkgray}$m_2$}
+\rput(1.4009376,0.4471875){\color{gdarkgray}$l$}
+\end{pspicture}
+
+\caption{Starr verbundene Teilchen.}
+\end{figure}
+
+Eine Anwendung davon finden wir, wenn wir $O_2$-Moleküle bei tiefen
+Temperaturen betrachten. Falls $k_BT << E_\text{\tiny Vibration}$, bleiben dem
+Molekül nur noch die Translationsfreiheitsgrade.\bsphere
+\end{bsp}
+
+\begin{bemn}
+Holonome Zwangsbedingungen definieren eine Hyperfläche im Konfigurationsraum
+mit der Dimension $f=3N-k$.
+
+Im Fall des Pendels wäre die Hyperfläche ein Kreis mit Radius $l$, die
+verallgemeinerte Koordinate auf der Hyperfläche der Winkel $\ph$.\maphere
+\end{bemn}
+
+\subsubsection{Nichtholome Zwangsbedingungen}
+
+Holonome Zwangsbedingungen sind sehr gutartig, da sie Probleme durch die
+Reduktion von Freiheitsgraden vereinfachen. Es gibt jedoch auch
+\emph{nichtholonome Zwangsbedinungen}, das sind Zwangsbedingungen, die sich
+nicht auf die Form,
+\begin{align*}
+f_i(\vec{r},t) = 0,
+\end{align*}
+bringen lassen. In vielen Fällen verkomplizieren sie das Problem zusätzlich. Es
+kann passieren, dass ein analytisch lösbares System durch nichtholonome
+Zwangsbedingungen nicht mehr analytisch lösbar wird.
+
+\begin{bsp}
+Das Teilchen in der Box hat die Zwangsbedingungen,
+\begin{align*}
+&0\le x\le a,\\
+&0\le y\le b.
+\end{align*}
+Die Nebenbedingungen liegen hier in Form einer Ungleichung vor; sie reduzieren
+die Anzahl an Freiheitsgraden nicht.\bsphere
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.0117188)(2.7809374,0.99171877)
+\psline{->}(0.28,-0.69)(0.28,0.9717187)
+\psline{->}(0.26,-0.69)(2.7609375,-0.69)
+\psline{->}(0.28,-0.69)(1.5609375,0.15171875)
+\psdots[linecolor=darkblue](1.6209375,0.19171876)
+\psline[linestyle=dotted,dotsep=0.06cm](0.28,0.63)(2.28,0.63)
+\psline[linestyle=dotted,dotsep=0.06cm](2.28,-0.69)(2.28,0.63)
+\psdots[dotstyle=square*](2.28,0.63)
+
+\rput(2.2740624,-0.85828125){\color{gdarkgray}$a$}
+\rput(0.08515625,0.6617187){\color{gdarkgray}$b$}
+\rput(0.8409375,-0.03828125){\color{gdarkgray}$\vec{r}$}
+\end{pspicture} 
+
+\caption{Teilchen in der Box.}
+\end{figure}
+\end{bsp}
+
+\begin{bsp}
+Rollen eines Rades in der Ebene, mit dem Berührpunkt $(x,y)$, dem Winkel $\th$
+zur Orientierung der Achse zur $x$-Richtung und dem Rollwinkel $\ph$.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.02)(2.14,1.02)
+\psline{->}(0.0,-0.18)(0.76,0.6)
+\psline{->}(0.0,-0.18)(1.6,-1.0)
+\psbezier[linecolor=darkblue]{->}(0.68,0.2)(1.44,0.48)(0.92,-0.92)(2.12,-0.72)
+\psline{->}(0.0,-0.18)(0.98,0.18)
+\psbezier(1.1883721,0.6150961)(1.26,0.23019223)(0.9595349,0.0)(0.88976747,0.40851015)(0.82,0.8170203)(1.1167442,1.0)(1.1883721,0.6150961)
+\psline(1.02,0.5)(1.2,0.4)
+
+\rput(1.7585938,0.53){\color{gdarkgray}$R$}
+\psbezier[linewidth=0.02cm](1.1,0.5)(1.48,0.78)(1.26,0.18)(1.6,0.54)
+\end{pspicture} 
+\caption{Rollen eines Raeds in der Ebene.}
+\end{figure}
+
+Die Rollbedingung ist hier $\abs{\vec{v}} = R\dot{\ph}$, was auf
+\begin{align*}
+&\dot{x} = R\dot{\ph}\cos\th,\\
+&\dot{y} = R\dot{\ph}\sin\th,
+\end{align*}
+führt. Man kann diese Nebenbedingungen nicht auf holonome Form bringen, da
+$\th$ und $\ph$ vom Weg abhängen.\bsphere
+\end{bsp}
+
+Abgesehen von holonom und nicht-holonom gibt es noch weitere Möglichkeiten,
+Zwangsbedingungen zu charakterisieren. \emph{Skleronome} (``starre'')
+Zwangsbedingungen,
+\begin{align*}
+f_j(q^1,\ldots,q^{3N}) = 0,
+\end{align*}
+hängen nicht explizit von der Zeit ab. \emph{Rheonome} (``fließende'')
+Zwangsbedingungen,
+\begin{align*}
+f_j(q^1,\ldots,q^{3N},t) = 0,
+\end{align*}
+hängen hingegen explizit von der Zeit ab.
+
+\begin{bsp}
+Eine Schiefe Ebene mit zeitabhängigem Neigungswinkel.\bsphere
+\end{bsp}
+
+\subsection{Dynamik eines Systems mit holonomen Zwangsbedingungen}
+
+Im Folgenden wollen wir das Vorgehen zum Lösen von Problemen mit
+Zwangsbedingungen erarbeiten. Auf Beweise soll dabei zunächst verzichtet
+werden; die Korrektheit der Methode werden wir zum Schluss elegant mit dem
+d'Almbertschen Prinzip zeigen.
+
+\begin{enumerate}[label=\arabic{*}.)]
+  \item Bestimme den Konfigurationsraum des Systems und führe verallgemeinerte
+  Koordinaten ein, welche die Zwangsbedingungen erfüllen,
+\begin{align*}
+q^i,\qquad i = 1,\ldots,f.
+\end{align*}
+Die natürlichen Koordinaten lassen sich dann mit Hilfe der verallgemeinerten
+ausdrücken,
+\begin{align*}
+\vec{r}(q^1,\ldots,q^f).
+\end{align*}
+\item Drücke die kinetische Energie in diesen verallgemeinerten Koordinaten aus,
+\begin{align*}
+T = \sum_i \frac{m_i}{2}\dvec{r}_i^2 \longrightarrow T =
+\frac{1}{2}\sum\limits_{i\neq j}^f A_{ij}(q^k)\dot{q}^i\dot{q}^j.
+\end{align*}
+Verfahre analog mit dem Potential,
+\begin{align*}
+V(\vec{r}_1,\ldots,\vec{r}_N) \longrightarrow V(q^1,\ldots,q^f).
+\end{align*}
+\item Wir erhalten so die Lagrangefunktion in den verallgemeinerten Koordinaten,
+\begin{align*}
+L(q^i,\dot{q}^i,t) = T-V.
+\end{align*}
+Die Bewegungsgleichungen folgen anschließend aus den Euler-Lagrange-Gleichungen,
+\begin{align*}
+\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{q}^i} - \frac{\partial
+L}{\partial q^i} = 0,\qquad i=1,\ldots,f.
+\end{align*}
+\end{enumerate}
+
+\begin{bsp}
+Wir wollen nun das Problem unseres Pendels unter Zwangsbedingungen lösen.
+%TODO: Skizze
+Sei $m$ die Masse und $\vec{r} = \begin{pmatrix}x\\y\end{pmatrix}$ die
+Koordiante, sowie
+\begin{align*}
+&x^2+y^2 = l^2\\
+&z = 0
+\end{align*}
+die Zwangsbedingung.
+\begin{enumerate}[label=\arabic{*}.)]
+  \item Durch die Einführung von Polarkoordinaten wird die Zwangsbedingung zu
+  $r=l$. Wir erhalten damit
+\begin{align*}
+&x = l\sin\ph,\\
+&y = -l\cos\ph,\\
+&z = 0
+\end{align*} 
+wobei $\ph$ die verallgemeinerte Koordinate des Problems ist.
+\item Um die kinetische Energie zu bestimmen, benötigen wir die Ableitungen,
+\begin{align*}
+&\dot{x} = l\dot{\ph}\cos\ph,\\
+&\dot{y} = l\dot{\ph}\sin\ph.
+\end{align*}
+Die kinetische Energie hat somit die Form,
+\begin{align*}
+T = \frac{1}{2}m\left(\dot{x}^2+\dot{y}^2\right) = \frac{1}{2}m l^2\dot{\ph}^2.
+\end{align*}
+Das Potential ist gegeben durch,
+\begin{align*}
+V = mgy = -mgl\cos\ph.
+\end{align*}
+\item Die Lagrangefunktion hat damit in verallgemeinerten Koordinaten die
+Gestalt,
+\begin{align*}
+L(\ph,\dot{\ph}) = \frac{1}{2}ml^2\dot{\ph}^2+mgl\cos\ph.
+\end{align*}
+Die Bewegungsgleichungen erhalten wir somit durch
+\begin{align*}
+&\ddot{\ph} = -\frac{g}{l}\sin\ph.
+\end{align*}
+Für $\dot{\ph}=0$ und $\ph=0,\pi,2\pi$ erhalten wir stationäre Lösungen.
+Für $\dot{\ph}$ klein ergibt sich in $\ph=0,2\pi,4\pi,\ldots$ eine harmonische
+Schwingung, während das Gleichgewicht in $\pi,3\pi,\ldots$ instabil ist.\bsphere
+%TODO: Phasendiagramm.
+\end{enumerate}
+\end{bsp}
+
+\begin{bemn}
+In einem System mit holonomen Zwangsbedingungen müssen zusätzliche Kräfte
+wirken, die die Teilchen auf die Hyperfläche zwängen. Die Newtonschen Gleichungen haben die
+Form,
+\begin{align*}
+m_i \ddvec{r}_i = -\nabla_i V + \vec{Z}_i,
+\end{align*}
+wobei $\vec{Z}_i$ die zusätzliche Kraft beschreibt.\maphere
+\end{bemn}
+
+\begin{defnn}
+Die Größen,
+\begin{align*}
+\vec{Z}_i = m_i\ddvec{r}_i - \vec{F}_i = m_i\ddvec{r}_i + \nabla_i V,\qquad i =
+1,\ldots,N
+\end{align*}
+heißen \emph{Zwangskräfte}. Diese Kräfte sind apriori unbekannt, können aber
+aus der Lösung des Problems berechnet werden.\fishhere
+\end{defnn}
+
+\begin{bsp}
+%TODO: Pendel Ruhelage
+Durchquert das Pendel die Ruhelage, so ist
+\begin{align*}
+\ddvec{r} = 0 \Rightarrow \vec{Z} = -\vec{F}_g.\bsphere
+\end{align*}
+\end{bsp}
+
+\begin{defnn}
+Eine \emph{virtuelle Verrückung} $\delta \vec{r}_i$ oder $\delta q^i$ ist eine
+infinitesimale Änderung der Lagekoordinaten, welche mit den Zwangsbedingungen
+verträglich ist.\fishhere
+\end{defnn}
+%TODO: Bild Virtuelle Verrückung
+
+\subsubsection{Prinzip von d'Alembert}
+\begin{propn}[Prinzip von d'Alembert]
+In einem System mit Zwangsbedingungen erfüllt die Bewegungsgleichung,
+\begin{align*}
+\sum\limits_{i=1}^N \left(m_i\ddvec{r}_i - \vec{F}_i \right)\delta\vec{r}_i = 0,
+\end{align*}
+für alle virtuellen Verrückungen $\delta\vec{r}_i$.\fishhere
+\end{propn}
+
+Diese Aussage ist äquivalent dazu, dass Zwangskräfte unter einer virtuellen
+Verrückung keine Arbeit leisten,
+\begin{align*}
+\delta A = \vec{Z}_i \cdot \delta\vec{r}_i = \left(m_i\ddvec{r}_i -
+\vec{F}_i\right) \delta\vec{r}_i = 0.
+\end{align*}
+In einigen Lehrbüchern wird das Prinzip von d'Alembert als Axiom festgelegt,
+für alle Standardprobleme der klassischen Mechanik leisten die Zwangskräfte
+jedoch keine Arbeit.
+%\begin{bsp}
+%TODO: Zwangskraft = Normalkraft
+%\end{bsp}
+
+\begin{bemn}
+Im statischen Fall reduziert sich das Prinzip von d'Almebert auf eine Bedingung
+für die Gleichgewichtslage,
+\begin{align*}
+\sum_i \vec{F}_i\delta\vec{r}_i = 0.\maphere
+\end{align*}
+\end{bemn}
+
+\begin{bsp}
+Betrachten wir einen Flaschenzug.
+%TODO: Flaschenzug
+Es gilt $\delta h_1 = -2 \delta h_2$ und
+\begin{align*}
+&\vec{F}_1 \delta\vec{h}_1 + \vec{F}_2\delta\vec{h}_2 = 0\\
+\Rightarrow & m_1 g \delta h_1 - m_2 g \frac{\delta h_1}{2} = 0 \Leftrightarrow
+ \delta h_1 g \left(m_1 - \frac{m_2}{2}\right) = 0.
+ \end{align*}
+Für ein Gleichgewicht muss gelten
+\begin{align*}
+&\frac{m_2}{m_1} = 2.\bsphere
+\end{align*}
+\end{bsp}
+
+Wir wollen nun zeigen, dass aus dem Prinzip von d'Alembert das Hamiltonsche
+Variationsprinzip folgt und somit unser Lösungsschema für holonome
+Zwangsbedingungen äquivalent zum Prinzip von d'Alembert ist.
+
+\begin{proof}[Beweis der Äquivalenz.]
+Wir führen dazu geeignete Koordinaten ein, die die holonomen Zwangsbedingungen
+erfüllen,
+\begin{align*}
+&\vec{r}_i(q^1,\ldots,q^f,t).
+\end{align*}
+Eine virtuelle Verrückung hat somit die Form,
+\begin{align*}
+&\delta\vec{r}_i = \sum\limits_{j=1}^f \frac{\partial \vec{r}_i}{\partial
+q^j}\delta q^j.
+\end{align*}
+Betrachten wir nun das Prinzip von d'Alembert
+\begin{align*}
+0 = \sum_i \left(m_i \ddvec{r}_i - \vec{F}_i\right)\delta\vec{r}_i,
+\end{align*}
+so erhalten wir für die Summanden:
+\begin{itemize}
+  \item 
+\begin{align*}
+\sum_i \vec{F}_i \delta \vec{r}_i = \sum_{i,j} \vec{F}_i \frac{\partial
+\vec{r}_i}{\partial q^j}\delta q^j
+= \sum_j \underbrace{\left(\sum_i \vec{F}_i \frac{\partial\vec{r}_i}{\partial
+q^j}\right)}_{:=\vec{Q}_j}\delta q^j.
+\end{align*}
+Wobei wir $\vec{Q}_j$ als verallgemeinerte Kraft bezeichnen. Es gilt
+\begin{align*}
+\vec{Q}_j = \sum_i \vec{F}_i \frac{\partial\vec{r}_i}{\partial q^j}
+= - \sum_i \nabla_i V \frac{\partial\vec{r}_i}{\partial q^j}
+= -\frac{\diffd}{\diffd q^j}V(q^1,\ldots,q^f).
+\end{align*}
+\item
+\begin{align*}
+\sum_i m_i\ddvec{r}_i \delta\vec{r}_i  &= \sum_i\sum_j m_i\ddvec{r}_i 
+\frac{\partial \vec{r}_i}{\partial q^j}\delta q^j = 
+\sum_j \left(\sum_i m_i\ddvec{r}_i 
+\frac{\partial \vec{r}_i}{\partial q^j}\right)\delta q^j\\
+&= \sum_j \delta q^j \left[\sum_i \frac{\diffd}{\dt}\left( m_i\dvec{r}_i 
+\frac{\partial \vec{r}_i}{\partial q^j}\right) -
+m_i\dvec{r}_i\frac{\diffd}{\dt}\frac{\partial \vec{r}_i}{\partial q^j}\right]
+\end{align*}
+Nun ist
+\begin{align*}
+\frac{\partial
+\dvec{r}_i}{\partial\dot{q}^j} = \frac{\partial}{\partial \dot{q}^j} \left[
+\sum\limits_k \frac{\partial \vec{r}_i}{\partial q^k}\dot{q}^k +
+\frac{\partial}{\partial t}\vec{r}_i \right] = \frac{\partial
+\vec{r}_i}{\partial q^j}
+\end{align*}
+und daher gilt,
+\begin{align*}
+\sum_i m_i\ddvec{r}_i \delta\vec{r}_i = \sum_j \delta q^j \left[\sum_i
+\frac{\diffd}{\dt}\underbrace{\left( m_i\dvec{r}_i \frac{\partial
+\dvec{r}_i}{\partial \dot{q}^j}\right)}_{=\frac{\partial T}{\partial \dot{q}^j}}
+- \underbrace{m_i\dvec{r}_i \frac{\partial \dvec{r}_i}{\partial
+q^j}}_{\frac{\partial T}{\partial q^j}}\right]
+\end{align*}
+\end{itemize}
+Zusammengefasst gilt also,
+\begin{align*}
+0 = \sum_j \left[\frac{\diffd}{\dt}\frac{\partial T}{\partial
+\dot{q}^j}-\frac{\partial T}{\partial q^j} + \frac{\partial V}{\partial
+q^j} \right]\delta q^j,
+\end{align*}
+und da das Potential nicht geschwindigkeitsabhängig ist, erhalten wir
+\begin{align*}
+0 = \sum_j \left[\frac{\diffd}{\dt}\frac{\partial L}{\partial
+\dot{q}^j}-\frac{\partial L}{\partial q^j}\right]\delta q^j,
+\end{align*}
+für alle Variationen $\delta q^j$. Da die Variationen unabhängig sind, ist
+somit der Ausdruck in der Klammer Null und wir erhalten die
+Euler-Lagrange-Gleichungen.\qedhere
+\end{proof}
+
+Das Prinzip vn d'Alembert ist also äquivalent zum Hamiltonischen Prinzip
+angewandt auf die Lagrange Funktion mit verallgemeinerten Koordianten.
+
+\begin{bemn}
+Ein freies Teilchen, das sich unter Zwangsbedingungen auf einer Fläche bewegt,
+bewegt sich auf einer Geodäte, d.h. entlang der kürzesten Verbindungen zwischen
+zwei Punkten.\maphere
+\end{bemn}
+\begin{bsp}
+Ein käftefreies Teilchen das sich durch Zwangsbedingungen auf einer
+Kugeloberfläche bewegt, bewegt sich entlang eines Großkreises.
+\begin{proof}
+Für ein allgemeines kräftefreies Teilchen ist der Lagrange
+\begin{align*}
+L = T = \frac{1}{2}m\dvec{r}^2.
+\end{align*}
+Die Euler-Lagrange-Gleichungen haben die Form,
+\begin{align*}
+\frac{\diffd}{\dt}\frac{\partial T}{\partial \dot{q}^i} - \frac{\partial
+T}{\partial q^i}  = 0.
+\end{align*}
+Für eine Geodäte ist der Ausdruck,
+\begin{align*}
+\int\dt \sqrt{\dvec{r}^2} = \int\dt \sqrt{\frac{2}{m}T}
+\end{align*}
+extremal. Ableiten dieses Ausdrucks ergibt,
+\begin{align*}
+\frac{1}{2}\frac{\diffd}{\dt}\frac{\partial T}{\partial
+\dot{q}^i}\frac{1}{\sqrt{T}} - \frac{1}{2}\frac{\partial T}{\partial
+q^i}\frac{1}{\sqrt{T}} = 0.
+\end{align*}
+Die Energie ist erhalten, also ist $T=\const$ und wir erhalten die
+Euler-Lagrange-Gleichung,
+\begin{align*}
+\frac{\diffd}{\dt}\frac{\partial T}{\partial \dot{q}^i} - \frac{\partial
+T}{\partial q^i}  = 0.\qedhere\bsphere
+\end{align*}
+\end{proof}
+\end{bsp}
+
+\subsection{Mathematische Struktur}
+
+Wir wollen noch kurz auf die mathematische Struktur der Probleme mit holonomen
+Zwangsbedingungen eingehen.
+
+Die Zwangsbedingungen
+\begin{align*}
+f_i(\vec{r}_1,\ldots,\vec{r}_N) = 0,\qquad i = 1,\ldots,k,
+\end{align*}
+definieren eine \emph{Mannigfaltigkeit} $M\subseteq\R^{3N}$, durch $M =
+\bigcap_i f_i^{-1}(0)$ der Dimension $3N-k$.
+
+Die verallgeminerten Koordinaten $q^i$, $i=1,\ldots,f$ stellen \emph{Karten} zu
+dieser Mannigfaltigkeit $M$ dar.
+%TODO: Bild Karte
+
+An jedem Punkt $p$ der Mannigfaltigkeit haben wir eine Tangentialfläche $TM_p$.
+Diese bildet im Gegensatz zur Mannigfaltigkeit einen Vektorraum. Die
+Tangentialvektoren sind alle möglichen $\dot{q}^i$ in $p$, d.h. $TM_p$ ist
+die Menge der Geschwindigkeitsvektoren der Kurven in $M$ durch $p$.
+
+Für eine Mannigfaltigkeit, die sich in den $\R^n$ einbetten lässt, kann ein
+Skalarprodukt definiert werden. Eine solche Mannigfaltigkeit heißt
+\emph{Riemannsche Mannigfaltigkeit}. Durch holonome Zwangsbedingungen werden
+also immer Riemannsche Mannigfaltigkeiten definiert. Das Skalarprodukt auf $M$ ist die
+\emph{kinetische Energie} gegeben durch,
+\begin{align*}
+T: TM_p\times TM_p \to \R,\quad \dot{q}^i,\dot{q}^j \mapsto
+\lin{\dot{q}^i,\dot{q}^j} = \sum\limits_{i,j} a_{ij}(q^k)\dot{q}^i\dot{q}^j,
+\end{align*}
+wobei $a_{ij}(q^k)$ einen metrischen Tensor bezeichnet.
+Die \emph{potentielle Energie} ist eine rellwerte Funktion auf $M$,
+\begin{align*}
+V: M\to \R,\quad q^i \mapsto V(q^i).
+\end{align*}
+Die Vereinigung aller Tangentialräume an $M$ heißt \emph{Tangentialbündel},
+\begin{align*}
+TM = \bigcup\limits_{p\in M} TM_p.
+\end{align*}
+Die Lagrangefunktion ist somit eine skalare Funktion auf dem Tangentialbündel,
+\begin{align*}
+L : TM\to\R,\quad \dot{q}^i,q^i  \mapsto L(\dot{q}^i,q^i).
+\end{align*} 
+Die verallgemeinerten Impulse
+\begin{align*}
+p_j = \frac{\partial L}{\partial \dot{q}^j}
+\end{align*}
+sind Elemente aus dem \emph{Dualraum} von $TM_p$, d.h. eine Abbildung von
+$TM_p$ in die reellen Zahlen,
+\begin{align*}
+p_i : TM_p \to \R,\quad q^i\mapsto \sum_i p_i q^i,\qquad p_i\in TM_p^*.
+\end{align*}
+Analog ist auch $\frac{\partial L}{\partial q^i}$ ein Element aus dem Dualraum.
+
+Eine virtuelle Verrückung $\delta q^i$ ist ein Vektor im Tangentialraum, d.h.
+ein Geschwindigkeitsvektor einer Kurve $q^i(t)$ am Punkt $p$.
+
+Betrachten wir nun eine Variablentransformation,
+\begin{align*}
+q^i \mapsto q^i(\xi^1, \ldots, \xi^f),
+\end{align*}
+so transformieren die $\dot{q}^i$ \emph{kontravariant}
+\begin{align*}
+\dot{q}^i = \sum_j \frac{\partial q^i}{\partial \xi^j}\dot{\xi}^j,
+\end{align*}
+und die verallgemeinerten Impulse \emph{kovariant}
+\begin{align*}
+p_i = \frac{\partial L}{\partial \dot{q}^i} = \sum_j \frac{\partial
+\eta_j}{\partial \dot{q}^i}\frac{\partial L}{\partial \eta^j}.
+\end{align*}
+Beim Prinzip von d'Alembert muss beachtet werden, dass 
+Vektoren und Impulse unterschiedlich transformieren.
+Die Euler-Lagrange-Gleichung ist jedoch vollständig kontravariant. Beim
+Übergang von Geschwindigkeiten zu Impulsen müssen wir den metrischen Tensor
+berücksichtigen,
+\begin{align*}
+p_i = \sum\limits_j a_ij(q^i)\dot{q}^j.
+\end{align*}
+
+\begin{bemn}
+Ein kräftefreies Teilchen, das sich auf einer Hyperfläche bewegt, folgt einer
+Geodäte. Die Distanz wird dabei von der durch das Skalarprodukt (kinetische
+Energie) induzierten Metrik gemessen.\maphere
+\end{bemn}
+
+\begin{bsp}
+Die Bewegung auf einer rotationssymmetrischen Fläche in Zylinderkoordinaten
+($r,\ph,z$) wird durch die holonome Zwangsbedingung $z=f(r)$ beschrieben. Die
+kinetische Energie ist
+\begin{align*}
+T = \frac{m}{2}\left[\dot{r}^2 + r^2\dot{\ph}^2 + (f'(r)\dot{r})^2\right] =
+L(r,\ph,\dot{r},\dot{\ph}).
+\end{align*}
+Die Drehimpulserhaltung liefert $p_\ph = r^2\dot{\ph} = \const =
+r\abs{v}\sin\alpha$. Die Energieerhaltung $T=\frac{1}{2}\abs{v}^2 = \const
+\Rightarrow \abs{v}  = \const$.
+\begin{align*}
+\Rightarrow &r \sin\alpha = \const\\
+\Rightarrow &r = \frac{p_\rho}{\abs{v} \sin\alpha} > \const. 
+\end{align*}
+Die Bewegung ist auf ein Band eingeschränkt.\bsphere
+%TODO: Bild des Bandes
+\end{bsp}

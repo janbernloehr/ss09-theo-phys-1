@@ -1,0 +1,779 @@
+\section{Starre Körper}
+
+\subsection{Bewegung im beschleunigten Bezugssystem und Scheinkräfte}
+
+Ein Punktteilchen wird in einem Inertialsystem vollständig durch den Lagrange
+\begin{align*}
+L(\vec{q},\dvec{q}) = T-V
+\end{align*}
+beschrieben und folgt der Newtonschen Gleichung,
+\begin{align*}
+m\ddvec{q} = -\nabla V = \vec{F}.
+\end{align*}
+
+In einem beschleunigten Bezugssystem treten zusätzliche Terme auf, die wir als
+\emph{Scheinkräfte} bezeichnen.
+
+Im Inertialsystem $K$ habe das Teilchen die Koordinate $\vec{q}$, im bewegten
+System $K'$ die Koordinate $\vec{Q}$. Der Übergang von $K$ in $K'$ findet durch
+Translationen und Rotationen statt,
+\begin{align*}
+\vec{q} = B\vec{Q} + \vec{r}(t),
+\end{align*}
+wobei $B\in\SO(3)$ eine Rotationsmatrix und $\vec{r}(t)$ den Translationsvektor
+beschreibt.
+
+\begin{figure}[htbp]
+\centering
+\begin{pspicture}(0,-1.215)(3.125,1.25)
+\psline{->}(0.3,-1.21)(0.3,1.09)
+\psline{->}(0.1,-1.01)(3.12,-1.01)
+\psline{->}(1.98,0.01)(2.46,0.93)
+\psline{->}(1.94,0.19)(2.94,-0.33)
+\psline{->}(0.3,-1.01)(2.0,0.11)
+\psdots(1.76,0.87)
+\psline[linecolor=yellow]{->}(2.04,0.15)(1.82,0.77)
+\psline[linecolor=darkblue]{->}(0.3,-1.01)(1.7,0.75)
+
+\rput(1.52,-0.4){\color{gdarkgray}$r$}
+\rput(0.99,0.295){\color{gdarkgray}$q$}
+\rput(2.08,0.655){\color{gdarkgray}$Q$}
+\rput(0.14,1.075){\color{gdarkgray}$K$}
+\rput(2.62,0.895){\color{gdarkgray}$K'$}
+\end{pspicture} 
+\caption{Intertialsystem $K$ und bewegtes System $K'$}
+\end{figure}
+
+Die Geschwindigkeit $\vec{v} = \frac{\diffd}{\dt}\vec{q}$ lässt
+sich somit schreiben als
+\begin{align*}
+\dvec{q} = \dot{B}\vec{Q} + B\dvec{Q} + \dvec{r}(t).
+\end{align*}
+Wir betrachten zunächst zwei Spezialfälle:
+\begin{enumerate}[label=\arabic{*})]
+  \item \textit{Translationsbewegung}.
+\begin{align*}
+&B = \Id,\\
+\Rightarrow & \dvec{q} = \dvec{Q} + \dvec{r}(t).
+\end{align*}
+Der Lagrange hat daher im bewegten System die Form,
+\begin{align*}
+L(\vec{Q},\dvec{Q}) &= \frac{m}{2}\left(\dvec{Q}+\dvec{r}\right)^2 - V =
+\frac{m}{2}\dvec{Q}^2 + m\dvec{Q}\dvec{r} + \frac{m}{2}\dvec{r}^2-V\\
+&= \frac{m}{2}\dvec{Q}^2 - m\vec{Q}\ddvec{r} - V +
+\underbrace{\frac{m}{2}\dvec{r}^2 +
+\frac{\diffd}{\dt}\left(m\vec{Q}\dvec{r}\right)}_{(*)}.
+\end{align*}
+(*) ist für die Bewegung irrelevant, da sie den Lagrange nur um eine Konstante
+und eine totale Ableitung ändert.
+\begin{align*}
+L(\vec{Q},\dvec{Q}) = \frac{m}{2}\dvec{Q}^2 -
+\left(V+m\vec{Q}\vec{a}_s(t)\right),
+\end{align*}
+wobei $\vec{a}_s(t)$ die Beschleunigung des bewegten Systems beschreibt.
+Mittels Euler-Lagrange-Gleichungen erhalten wir so,
+\begin{align*}
+m\ddvec{Q} = -\frac{\partial V}{\partial \vec{Q}} -
+\underbrace{m\vec{a}_s(t)}_{\text{Scheinkraft durch beschl. Bewegung des
+Systems}}
+\end{align*}
+Ein Beobachter im bewegten Bezugssystem nimmt die Scheinkraft als Kraft wahr,
+die zusätzlich auf den Kröper wirkt.
+\item \textit{Rotationen}.
+\begin{align*}
+&\vec{r} = 0,\\
+\Rightarrow & \dvec{q} = \dot{B}\vec{Q} + B\dvec{Q}.
+\end{align*}
+Für beliebige Rotationen lässt sich $\dot{B}\vec{Q}$ schreiben als
+\begin{align*}
+\dot{B}\vec{Q} = \dot{B}B^{-1}\vec{q} = \vec{\omega}\times\vec{q},\tag{**}
+\end{align*}
+wobei $\vec{\omega}$ die Winkelgeschwindigkeit darstellt.
+\begin{bemn}
+$\vec{\omega}$ ist die Winkelgeschwindigkeit im Ruhesystem,
+$\vec{\Omega}=B^{-1}\vec{\omega}$ ist die Winkelgeschwindigkeit im
+beschleunigten System,
+\begin{align*}
+B^{-1}\dot{B}\vec{Q} = B^{-1}(\vec{\omega}\times \vec{q}) =
+(B^{-1}\vec{\omega}\times B^{-1}\vec{q}) = \vec{\Omega}\times\vec{Q}.\maphere
+\end{align*}
+\end{bemn}
+\begin{proof}[Beweis der Darstellung (**).]
+Es gilt $\dot{B}\vec{Q} = \dot{B}B^{-1}\vec{q}$. $B$ ist eine Rotation, d.h.
+\begin{align*}
+B B^\top = B^\top B = \Id \Leftrightarrow B^\top = B^{-1}.
+\end{align*}
+Die Ableitung der Identität verschwindet, d.h.
+\begin{align*}
+&\frac{\diffd}{\dt}(B B^{-1}) = \dot{B}B^\top  + B\dot{B}^\top = 0,\\
+\Leftrightarrow & \dot{B}B^\top  + \left(\dot{B}B^{-1}\right)^\top = 0,
+\end{align*}
+und daher ist $\dot{B} B^\top$ eine schiefe (antisymmetrische) Matrix. Sie hat
+die Form,
+\begin{align*}
+&\dot{B}B^\top = 
+\begin{pmatrix}
+0 & -\omega_3 & \omega_2\\
+\omega_3 & 0 & -\omega_1\\
+-\omega_2 & \omega_1 & 0
+\end{pmatrix},\qquad \omega_1,\omega_2,\omega_3\in\R.\\
+&\dot{B}B^{-1}\vec{q} = 
+\begin{pmatrix}
+\omega_2 q_3 - \omega_3 q_2\\
+\omega_3 q_1 - \omega_1 q_3\\
+\omega_1 q_2 - \omega_2 q_1
+\end{pmatrix}
+= \vec{\omega}\times \vec{q},\qquad \vec{\omega} =
+\begin{pmatrix}\omega_1\\\omega_2\\\omega_3\end{pmatrix}.\qedhere
+\end{align*}
+\end{proof}
+Für die Geschwindigkeit erhalten wir also,
+\begin{align*}
+\dvec{q} = \vec{\omega}\times\vec{q} + B\dvec{Q}.
+\end{align*}
+Damit können wir die kinetische Energie angeben,
+\begin{align*}
+T &= \frac{1}{2}m\left(\vec{\omega}\times \vec{q} + B\dvec{Q} \right)^2
+= \frac{m}{2} \left(\left(B\vec{\Omega}\times B\vec{Q}\right) + B\dvec{Q}
+\right)^2\\
+&= \frac{m}{2} \left(B\left(\vec{\Omega}\times\vec{Q} +
+\dvec{Q} \right)\right)^2 = 
+\frac{m}{2} \lin{B\left(\vec{\Omega}\times\vec{Q} +
+\dvec{Q} \right),B\left(\vec{\Omega}\times\vec{Q} +
+\dvec{Q} \right)}
+\\
+&= \frac{m}{2} \left(\vec{\Omega}\times\vec{Q} + \dvec{Q}\right)^2
+= \frac{m}{2} \dvec{Q}^2 + m\dvec{Q}\left(\vec{\Omega}\times\vec{Q}\right) +
+\frac{m}{2}\left(\vec{\Omega}\times\vec{Q}\right)^2.
+\end{align*}
+Einsetzen in die Lagrangefunktion ergibt,
+\begin{align*}
+L(\vec{Q},\dvec{Q}) = \frac{m}{2}\dvec{Q}^2 + m\dvec{Q}\left(\vec{\Omega}\times\vec{Q}\right) +
+\frac{m}{2}\left(\vec{\Omega}\times\vec{Q}\right)^2 - V,
+\end{align*}
+die Euler-Lagrange-Gleichungen liefern,
+\begin{align*}
+m\ddvec{Q} = -\frac{\partial V}{\partial \vec{Q}} +
+\underbrace{m\vec{\Omega}\times \left(
+\vec{Q}\times\vec{\Omega}\right)}_{\text{Zentrifugalkraft}} +
+\underbrace{2m\dvec{Q}\times\vec{\Omega}}_{\text{Corioliskraft}} +
+m\vec{Q}\times\dvec{\Omega}.
+\end{align*}
+\end{enumerate}
+
+\begin{bsp}
+Die durch die Erddrehung ``wirkende'' Zentrifugalkraft ändert das
+Gravitationsfeld der Erde.
+\begin{figure}[htbp]
+\centering
+\begin{pspicture}(0,-1.51)(6.76,1.51)
+\pscircle[linecolor=darkblue](1.5,-0.01){0.9}
+\psline{->}(1.5,1.49)(1.5,0.97)
+\psline{->}(3.0,-0.01)(2.46,-0.01)
+\psline{->}(1.5,-1.49)(1.5,-0.97)
+\psline{->}(0.0,-0.01)(0.52,-0.01)
+\psline{->}(2.62,1.11)(2.2,0.69)
+\psline{->}(2.62,-1.13)(2.2,-0.71)
+\psline{->}(0.4,-1.11)(0.82,-0.69)
+\psline{->}(0.38,1.09)(0.8,0.67)
+
+\pscircle[linecolor=darkblue](5.4,-0.01){0.9}
+\psline{->}(5.4,1.49)(5.4,0.97)
+\psline{->}(6.74,-0.01)(6.36,-0.01)
+\psline{->}(5.4,-1.49)(5.4,-0.97)
+\psline{->}(4.04,-0.01)(4.42,-0.01)
+\psline{->}(6.4,0.99)(6.1,0.69)
+\psline{->}(6.4,-0.99)(6.1,-0.71)
+\psline{->}(4.38,-0.97)(4.72,-0.69)
+\psline{->}(4.38,0.99)(4.7,0.67)
+\end{pspicture} 
+\caption{Wirkung der Zentrifugalkraft auf die Erdanziehung (Übertrieben
+dargestllt)}
+\end{figure}
+
+Der Einfluss ist jedoch sehr klein. Die Verzerrung, die entsteht, da die Erde
+keine perfekte Kugel ist und eine inhomogene Dichteverteilung hat, ist viel
+größer.\bsphere
+\end{bsp}
+\begin{bsp}
+Das Foucault'sche Pendel ist ein Nachweis für die Corioliskraft.\bsphere
+\end{bsp}
+
+\subsection{Starre Körper}
+Ein starrer Körper ist eine Idealisierung eines festen Körpers, wobei alle
+Abstände zwischen den Teilchen fixiert sind,
+\begin{align*}
+\abs{\vec{q}_i - \vec{q}_j} = q_{ij}  = \const. 
+\end{align*}
+Dies ist ein Spezialfall einer holonomen Zwangsbedingung.
+
+\begin{bemn}
+Die Bewegung des starren Körpers ist ausgezeichnet durch die Lage des Körpers
+(Rotation um einen Punkt) und die Bewegung dieses Punktes. Die
+Konfigurationsmannigfaltigkeit des Körpers ist
+\begin{align*}
+\R^3\times \SO(3),
+\end{align*}
+eine 6-dimensionale Hyperfläche.
+
+Wir führen daher zwei Koordinatensysteme ein. Das Laborsystem $(K,\vec{q})$ und
+das körperfeste System $(K',\vec{Q})$ im Ursprung $\vec{r}(t)$.\maphere
+\begin{figure}
+\centering
+\begin{pspicture}(0,-1.215)(3.125,1.25)
+\psline{->}(0.3,-1.21)(0.3,1.09)
+\psline{->}(0.1,-1.01)(3.12,-1.01)
+\psline{->}(1.98,0.01)(2.46,0.93)
+\psline{->}(1.94,0.19)(2.94,-0.33)
+\psline{->}(0.3,-1.01)(2.0,0.11)
+\psdots(1.76,0.87)
+\psline[linecolor=yellow]{->}(2.04,0.15)(1.82,0.77)
+\psline[linecolor=darkblue]{->}(0.3,-1.01)(1.7,0.75)
+
+\rput(1.52,-0.4){\color{gdarkgray}$r$}
+\rput(0.99,0.295){\color{gdarkgray}$q$}
+\rput(2.08,0.655){\color{gdarkgray}$Q$}
+\rput(0.14,1.075){\color{gdarkgray}$K$}
+\rput(2.62,0.895){\color{gdarkgray}$K'$}
+\end{pspicture} 
+\caption{Laborsystem und körperfestes System.}
+\end{figure}
+\end{bemn} 
+
+\subsubsection{Erhaltungsgrößen}
+
+Für einen freien starren Körper bewegt sich der Schwerpunkt gleichförmig. Die
+Bewegung des freien Körpers um den Schwerpunkt hat den Drehimpuls und die
+Energie als Erhaltungsgröße.
+
+\begin{tabular}[h]{l|l|ll}
+ & Laborsystem & Körperfestsystem\\\hline
+ Position des Teilchens $i$ & $\vec{q}_i$ & $\vec{Q}_i$ & $\vec{q}_i =
+ B\vec{Q}_i +\vec{r}$\\ Winkelgeschwindigkeit & $\vec{\omega}$ & $\vec{\Omega}$ & $\vec{\omega} =
+ B\vec{\Omega}$\\
+ Drehimpuls & $\vec{m}$ & $\vec{M}$ & $\vec{m} = B\vec{M}$
+\end{tabular}
+
+Die Geschwindigkeit ist gegeben durch,
+\begin{align*}
+\vec{v}_i = \vec{\omega}\times \left(\vec{q}_i - \vec{r}\right) + \dvec{r}.
+\end{align*}
+\begin{proof}[Beweis der Geschwindigkeitsdarstellung.]
+$\vec{v}_i = \dot{B}\vec{Q}_i + \dvec{r} + B\dvec{Q}_i$. Im starren Körper sind
+jedoch alle Teilchen fixiert, d.h. $B\dvec{Q}_i = 0$.\qedhere
+\end{proof}
+Einsetzen in die kinetische Energie ergibt,
+\begin{align*}
+T = \sum_i \frac{m_i}{2}\vec{v}_i^2 = 
+\underbrace{\sum_i \frac{m_i}{2}\dvec{r}^2}_{\frac{1}{2}M\dvec{r}^2} +
+\sum_i m_i \dvec{r} \left(\vec{\omega}\times \left(\vec{q}_i
+-\vec{r} \right) \right) + \frac{1}{2}\sum_i m_i
+\left[\vec{\omega}\times \left(\vec{q}_i - \vec{r}\right) \right]^2.
+\end{align*}
+Betrachten wir die $2$-Fälle,
+\begin{enumerate}[label=(\roman{*})]
+  \item Bewegung im Schwerpunkt, dann ist $\sum_i m_i(\vec{q}_i -\vec{r}) = 0$,
+  \item Bewegung mit $\vec{r}$ fixiert, dann ist $\dvec{r} = 0$.
+\end{enumerate}
+Somit lässt sich die kinetische Energie schreiben als,
+\begin{align*}
+T = \underbrace{\frac{1}{2}M\dvec{r}^2}_{\text{Schwerpunktsenergie}}+
+\underbrace{\frac{1}{2}\sum_i m_i \left(\vec{\Omega}\times \vec{Q}_i
+\right)^2}_{\text{Rotationsenergie}}.
+\end{align*}
+Die Rotationsenergie lässt sich schreiben als,
+\begin{align*}
+T_R &= \frac{1}{2}\sum_i m_i \left[\vec{\Omega}^2\vec{Q}_i^2 -
+\left(\vec{\Omega}\vec{Q}_i\right)^2 \right] = \frac{1}{2}
+\sum\limits_{j,k=1}^3 \Omega_j\Omega_k \underbrace{\sum_i m_i\left[ \vec{Q}_i^2
+\delta^{jk} - Q_i^k Q_i^j \right]}_{=I^{jk}}\\
+&= \frac{1}{2}\sum\limits_{j,k=1}^3 \Omega_i \Omega_k I^{jk}
+= \frac{1}{2}\vec{\Omega} I \vec{\Omega}.
+\end{align*}
+Die Elemente des Trägheitstensors $I$ haben die Form,
+\begin{align*}
+I^{jk} = \sum\limits_{i}m_i \left[\delta^{jk} Q_i^2 - Q_i^jQ_i^k \right]
+= \int\dr^3 \rho(\vec{r}) \left[\vec{r}^2 - r^jr^k\right],
+\end{align*}
+wobei $\rho(\vec{r})$ die Massendichte des starren Körper bezeichnet,
+\begin{align*}
+\rho(\vec{r}) = \sum_ i m_i \delta(\vec{r}-\vec{Q}_i).
+\end{align*}
+\begin{bemn}
+Die totale Masse ist gegeben durch,
+\begin{align*}
+M  = \int\dr^3 \rho(\vec{r}),
+\end{align*}
+der Schwerpunkt durch,
+\begin{align*}
+\vec{r}_s = \frac{1}{M}\int\dr^3 \rho(\vec{r})\vec{r}.\maphere
+\end{align*}
+\end{bemn}
+
+Der Trägheitstensor ist symmetrisch, $I^{jk} = I^{kj}$, und positiv. Er kann
+durch geeignete Wahl des Körperfesten Systems auf Diagonalgestalt gebracht
+werden,
+\begin{align*}
+I = \begin{pmatrix}
+    I_1 & 0 & 0\\
+    0 & I_2 & 0\\
+    0 & 0 & I_3
+    \end{pmatrix}.
+\end{align*}
+$I_1,I_2,I_3$ heißen \emph{Hauptträgheitsmomente}, die zugehörigen
+Basisvektoren $\vec{e}_k$ \emph{Hauptträgheitsachsen}. Die Rotationsenergie
+nimmt dann folgende Form an
+\begin{align*}
+T_R = \frac{1}{2}\sum\limits_{i=1}^3 I_i \Omega_i^2.
+\end{align*}
+
+\begin{pspicture}(0,-1.56)(3.92,1.56)
+\psframe(1.98,-0.22)(0.2,-1.0)
+\psline{->}(1.74,0.28)(1.74,1.26)
+\psline{->}(2.56,-0.06)(3.48,-0.06)
+\psline{->}(1.04,-0.56)(0.38,-1.2)
+
+\psline(0.2,-0.22)(1.5,0.74)(3.12,0.74)
+\psline(1.98,-0.22)(3.12,0.74)(3.12,0.08)(1.98,-1.0)
+
+\rput(1.98,1.365){\color{gdarkgray}$\vec{e}_3$}
+\rput(3.71,-0.035){\color{gdarkgray}$\vec{e}_2$}
+\rput(0.29,-1.395){\color{gdarkgray}$\vec{e}_1$}
+
+\rput(1.08,-1.135){\color{gdarkgray}$a$}
+\rput(0.09,-0.555){\color{gdarkgray}$b$}
+\rput(2.8,-0.395){\color{gdarkgray}$c$}
+\end{pspicture} 
+
+\begin{bemn}[Bemerkungen.]
+\begin{enumerate}[label=\arabic{*}.)]
+  \item 
+$I_1+I_2\ge I_3$, für alle Permutationen.
+\begin{proof}
+Verwende dazu die Definition des Trägheitsmoments,
+\begin{align*}
+I_1 + I_2 &= \int\dr^3 \rho(\vec{r})\left[2\vec{r}^2 - r_1^2 -r_2^2\right]
+= \int\dr^3 \rho(\vec{r})\left[r_1^2 + r_2^2 + \underbrace{2r_3^2}_{\ge
+0}\right]\\
+& \ge \int\dr^3 \rho(\vec{r})\left[r_1^2 + r_2^2 \right]
+= I_3.\qedhere\maphere
+\end{align*}
+\end{proof}
+\item $I_1 = I_2 = I_3$, Kugelkreisel,\\
+$I_1=I_2\neq I_3$, symmetrischer Kreisel,\\
+$I_1\neq I_2\neq I_3$, unsymmetrischer Kreisel.
+\end{enumerate}
+\end{bemn}
+
+\begin{bsp}
+Homogener Quader,
+\begin{align*}
+&I_1 = \frac{1}{12}m(b^2+c^2),\\
+&I_2 = \frac{1}{12}m(a^2+c^2),\\
+&I_3 = \frac{1}{12}m(a^2+b^2).\bsphere
+\end{align*}
+\end{bsp}
+\begin{bsp}
+Homogene Kugel
+\begin{align*}
+I=\frac{2}{5}mR^2.\bsphere
+\end{align*}
+\end{bsp}
+\begin{bsp}
+Homogener Zylinder (Vollzylinder der Länge $l$)
+\begin{align*}
+&I_1 = \frac{1}{2}mR^2,\\
+&I_2=I_3 = \frac{1}{4}mr^2 + \frac{1}{12}ml^2.\bsphere
+\end{align*}
+\end{bsp}
+
+\begin{propn}[Satz von Steiner]
+Es sei $I^{jk}$ der Trägheitstensor relativ zum Schwerpunkt. So gilt für den
+Trägheitstensor $\tilde{I}^{jk}$ bezügl eines um $\vec{a}$ veschobenen Punkts
+\begin{align*}
+\tilde{I}^{jk} = I^{jk} + M\left[\delta^{jk} a^2 - a^j a^k\right].\fishhere
+\end{align*}
+\end{propn}
+\begin{proof}
+Der Beweis ist eine leichte Übung.\qedhere
+\end{proof}
+
+\subsubsection{Drehimpuls}
+
+Der Drehimpuls bezüglich eines körperfesten Punktes $O$ ist gegeben durch,
+\begin{align*}
+\vec{m} = \sum_i \vec{q}_i \times \vec{v}_i m_i.
+\end{align*}
+$O$ ist fixiert im Laborsystem. Setzen wir $\vec{v}_i =
+\vec{\omega}\times\vec{q}_i$, so erhalten wir
+\begin{align*}
+\vec{m} = \sum_i m_i \vec{q}_i \times \left( \vec{\omega}\times\vec{q}_i\right).
+\end{align*}
+Im bewegten System ist
+\begin{align*}
+\vec{M} = B^{-1}\vec{m} = \sum_i m_i \vec{Q}_i \times \left(\vec{\Omega}\times
+\vec{Q}_i\right) = \sum_i m_i \left[\vec{\Omega}\left(\vec{Q}_i \right)^2 -
+\vec{Q}_i \left(\vec{\Omega}\vec{Q}_i\right)\right] = I\vec{\Omega},\tag{*}
+\end{align*}
+denn
+\begin{align*}
+M^j = \sum_i \sum_k \left[\delta^{jk} \left(\vec{Q}_i\right)^2 - Q_i^j Q_i^k
+\right]m_i \Omega_k  = \sum_k I^{jk}\Omega_k.
+\end{align*}
+\begin{bemn}[Bemerkungen.]
+\begin{enumerate}[label=\arabic{*}.)]
+  \item $T_R = \frac{1}{2}\vec{M}\vec{Q}$.
+  \item Der Drehimpuls $\vec{M}$ ist im Allgemeinen nicht parallel zur
+Drehachse $\vec{\Omega}$.
+\item Für ein freies System ist der Drehimpuls im Laborsystem erhalten
+$\vec{m}=\const.$ Der Drehimpuls im rotierenden System ist aber nicht
+zwangsläufig erhalten $\vec{M}\neq\const$.\maphere
+\end{enumerate}
+\end{bemn}
+
+Falls ein Körper nur rotiert, so ist es optimal den Ursprung des bewegten
+Koordinatensystems in den Schwerpunkt zu setzen.
+% Für einen bewegten Körper mit Ursprung des rotierenden Systems im Schwerpunkt
+% gilt für den totalen Drehimpuls,
+\begin{align*}
+&\vec{q}_i  = B\vec{Q}_i +\vec{r}_s,\\
+&\vec{v}_i = B\left(\vec{\Omega}\times \vec{Q}_i\right)+\dvec{r}_s,\\
+&\vec{J} = \sum_i m_i(\vec{Q}_i + \vec{R}_s) \times
+\left[\vec{\Omega}\times \vec{Q}_i + \vec{v}_s\right].
+\end{align*}
+Da wir uns im Schwerpunkt befinden, verschwinden die Kreuzterme und es gilt,
+\begin{align*}
+\vec{J} = \underbrace{M_\tot \vec{R}_s \times \vec{v}_s}_{\text{Bahndrehimpuls}}
++
+\underbrace{\vec{I}\vec{Q}}_{\vec{M}}.
+\end{align*}
+$\vec{M}$ ist der innere Drehimpuls (Spin). Der totale Drehimpuls im
+Laborsystem ist nun
+\begin{align*}
+\vec{j} = B\vec{J} = \underbrace{M_\tot \vec{r}_s \times
+\vec{v}_s}_{\text{Bahndrehimpuls}} +
+\underbrace{\vec{m}}_{\text{Spin}}.
+\end{align*}
+$J$ bzw. $j$ lässt sich daher aufteilen in die äußere Bewegung (z.b. Kreisbahn)
+und die innere Bewegung (Eigendrehimpuls).
+
+Unter Einfluss einer äußeren Kraft ändert sich der Drehimpuls eines Körpers mit
+seinem Drehmoment (fixiere Punkt $O$ des Körpers),
+\begin{align*}
+\frac{\diffd}{\dt}\vec{m} &= \frac{\diffd}{\dt}\sum_i
+m_i\vec{q}_i\times\dvec{q}_i
+= \sum_i m_i \vec{q}_i\times\ddvec{q}_i = \sum_i \vec{q}_i\times \vec{F_i} =
+\vec{n}.
+\end{align*}
+$\vec{n}$ ist das realtive Drehmoment zum Körperfesten Punkt $O$.
+
+Für das mitrotierende System bedeutet dies,
+\begin{align*}
+\frac{\diffd}{\dt}\vec{M} = \frac{\diffd}{\dt}B^{-1}\vec{m}
+= B^{-1}\vec{n} + \dot{B}^{-1}B\vec{M} = \vec{N} + \vec{M}\times\vec{\Omega}.
+\end{align*}
+
+Dies lässt sich in der \emph{Euler-Gleichung} zusammenfassen
+\begin{align*}
+\frac{\diffd}{\dt}\vec{M} = \vec{N} + \vec{M}\times\vec{\Omega},
+\end{align*}
+d.h. auch in Abwesenheit äußerer Kräfte $\vec{N}=0$ ist der Drehimpuls im
+rotierenden System nicht erhalten.
+
+Die Lösung des freien Kreisels lässt sich einfach geometrisch interpretieren.
+Wir haben zwei Erhaltungsgrößen
+\begin{align*}
+&E = \frac{M_1^2}{I_1} + \frac{M_2^2}{I_2} + \frac{M_3^2}{I_3} = \const.\\
+&M^2 = M_1^2+M_2^2 + M_3^2 = \const.
+\end{align*}
+Die Schnittmenge beschreibt Kurven auf einem Ellipsoiden.
+\begin{itemize}[label=\labelitem]
+  \item 6 stationäre Lösungen entlang der Hauptachsen.
+  \item 4 stabile Lösungen entlang $\vec{e}_1$ und $\vec{e}_3$ ($I_1<I_2<I_3$).
+  \item 2 instabile Lösungen entlang der mittleren Hauptachse.
+\end{itemize}
+
+\subsection{Lagrange's top}
+
+Wir betrachten nun den symmetrischen Kreisel im Schwerepotential.
+
+In diesem System sind zwei Größen erhalten:
+\begin{itemize}[label=\labelitem]
+  \item Die Energie $E = T+V$.
+  \item Der Drehimpuls $m_z$ entlang der $z$-Achse.
+\end{itemize}
+
+Für einen symmetrischen Kreisel $(I_1=I_2\neq I_3)$ ist das Problem analytisch
+lösbar. Wähle dazu geeignete Koordinaten $\ph,\psi,\th$.
+%TODO: Skizze Kreisel
+
+Das Laborsystem sei $K$ mit $\vec{e}_x$, $\vec{e}_y$, $\vec{e}_z$, das
+körperfeste System sei $K'$ mit $\vec{e}_1$, $\vec{e}_2$, $\vec{e}_3$ entlang
+der Trägheitsachsen des Kreisels. Es gilt
+\begin{align*}
+\vec{e}_N = \vec{e}_z\times \vec{e}_3.
+\end{align*}
+Um $K$ in $K'$ zu transformieren verwenden wir die 3 Transformationen,
+\begin{align*}
+&\ph: \text{Rotation um } \vec{e}_z: \vec{e}_x\mapsto \vec{e}_N\\
+&\th: \text{Rotation um } \vec{e}_N: \vec{e}_z\mapsto \vec{e}_3\\
+&\psi: \text{Rotation um } \vec{e}_3: \vec{e}_N\mapsto \vec{e}_1
+\end{align*}
+Weiter gilt,
+\begin{align*}
+&\vec{e}_N = \cos\psi \vec{e}_1 - \sin\psi \vec{e}_2\\
+&\vec{e}_z = \cos\ph \vec{e}_3 + \cos\psi \sin\th \vec{e}_2 + \sin\psi \sin\th
+\vec{e}_1
+\end{align*}
+Wir haben jetzt ein geeignetes Koordinatensystem. Der nächste Schritt ist die
+Lagrangefunktion in diesen Koordinaten aufzustellen.
+
+Potentielle Energie,
+\begin{align*}
+U = m g l \cos\th,
+\end{align*}
+wobei $l$ die Position des Schwerpunkts bezeichnet.
+
+Um die Kinetische Energie zu bestimmen, verwenden wir den Hilfsvektor
+\begin{align*}
+\vec{\Omega} &= \dot{\th}\vec{e}_N + \dot{\psi}\vec{e}_3 + \dot{\ph}\vec{e}_z =
+\Omega_1 \vec{e}_1 + \Omega_2\vec{e}_2 + \Omega_3\vec{e}_3\\
+&= \vec{e}_1\left(\dot{\th}\cos\psi + \dot{\ph}\sin\psi\sin\th \right)
++ \vec{e}_2 \left( -\dot{\th}\sin\psi + \dot{\ph}\cos\psi\sin\th \right)
++ \vec{e}_3 \left(\dot{\psi} + \dot{\ph}\cos\th\right)
+\end{align*}
+
+Für $K'$ folgt somit:
+\begin{align*}
+&\Omega_1 = \dot{\th}\cos\psi + \dot{\ph}\sin\psi\sin\th,\\
+&\Omega_2 = -\dot{\th}\sin\psi + \dot{\ph}\cos\psi\sin\th,\\
+&\Omega_3 = \dot{\psi} + \dot{\ph}\cos\th.
+\end{align*}
+
+Einsetzen in die kinetische Energie ergibt,
+\begin{align*}
+T = \frac{1}{2}\left( I_1\Omega_1^2 + I_2 \Omega_2^2 + I_3\Omega_3^2 \right)
+= \frac{I_1}{2}\left( \dot{\th}^2 + \dot{\ph}^2\sin^2\th \right) +
+\frac{I_3}{2}\left( \dot{\psi} + \dot{\ph}\cos\th\right)^2.
+\end{align*}
+
+Die Lagrangefunktion ist nun gegeben durch,
+\begin{align*}
+L &= L(\ph,\th,\psi,\dot{\ph},\dot{\th},\dot{\psi}) = T-U \\ &=
+\frac{I_1}{2}\left( \dot{\th}^2 + \dot{\ph}^2\sin^2\th \right) +
+\frac{I_3}{2}\left( \dot{\psi} + \dot{\ph}\cos\th\right)^2
+-mgl\cos\th
+\end{align*}
+Der Aufwand der durch die Einführung von Eulerkoordinaten entstand zahlt sich
+nun dadurch aus, dass in der Lagrangefunktion zwei zyklische Koordinaten
+auftreten, nämlich $\ph$ und $\psi$.
+
+Die Erhaltungsgrößen erhalten wir durch Differenzieren,
+\begin{align*}
+&\frac{\partial L}{\partial\dot{\ph}} = \dot{\ph}\left(I_1 \sin^2\th + I_3
+\cos^2\th  \right) + \dot{\psi}I_3 \cos\th = M_z = \const,\\
+&\frac{\partial L}{\partial\dot{\psi}} = \dot{\ph}I_3\cos\th + \dot{\psi}I_3 =
+M_3 = \const\\
+\Rightarrow&\dot{\ph} = \frac{M_z - M_3\cos\th}{I_1 \sin^2 \th}\\
+&\dot{\psi} = \frac{M_3}{I_3} - \cos\th \frac{M_z - M_3\cos\th}{I_1\sin^2\th}
+\end{align*}
+Dies können wir nun verwenden um die $\dot{\ph}$ und $\dot{\psi}$ Abhängigkeit
+des Lagranges zu eliminieren.
+
+Verbleibende Gleichung für die Inklination $\th$ folgt aus der
+Energieerhaltung
+\begin{align*}
+\underbrace{E - \frac{M_3^2}{2I_3}}_{E'} = \frac{I_1}{2}\dot{\th}^2 +
+\underbrace{\frac{\left(M_z - M_3\cos\th\right)^2}{2I\sin^2\th} +
+mgl\cos\th}_{U_{\text{eff}}(\th)}.
+\end{align*}
+Somit haben wir nur noch ein 1-dimensionales Problem. Ein solches ist formal
+exakt lösbar.
+
+\subsubsection{Qualitative Diskussion}
+
+Wir sind jetzt nicht daran interessiert das Problem exakt zu lösen, da dies
+sehr aufwändig ist und nicht viel zum Verständnis beiträgt.  Jedoch wollen wir
+das System qualitativ betrachten.
+
+Einführen einer neuen Kooridnaten
+\begin{align*}
+&u = \cos\th, \qquad -1\le u\le 1,
+\end{align*}
+und den Abkürzungen
+\begin{align*}
+&a \equiv  \frac{M_2}{I_1},\quad b  \equiv \frac{M_3}{I_1},
+\quad\alpha \equiv \frac{2E'}{I_1},\quad
+\beta \equiv \frac{2mgl}{I_1} \ge 0.
+\end{align*}
+Wir erhalten somit für
+\begin{align*}
+\dot{u}^2 = f(u) = \left(\alpha-\beta u \right)(1-u^2)-(a-bu)^2
+\end{align*}
+ein Polynom 3. Grades in $u$.
+\begin{align*}
+\dot{\ph} = \frac{a-bu}{1-u^2}.
+\end{align*}
+
+\begin{figure}[htbp]
+  \centering
+\begin{pspicture}(-1,-1)(4,3)
+ \psaxes[labels=none,ticks=none]{->}%
+ 	(0,0)(-0.5,-0.5)(3.5,2.5)%
+ 	[\color{gdarkgray}$u$,-90]%
+ 	[\color{gdarkgray}$f(u)$,0]
+ 	
+ \psxTick(1){\color{gdarkgray}u_1}
+ \psxTick(2){\color{gdarkgray}u_2}
+ 
+\psplot[linewidth=1.2pt,%
+	     linecolor=darkblue,%
+	     algebraic=true]%
+	     {0.5}{3.5}{(x-1)*(x-2)*(x-3)}
+
+%\rput(2,-0.4){\color{gdarkgray}$f(u)$}
+\end{pspicture} 
+  \caption{Phasendiagramm für $u$.}
+\end{figure}
+
+Die Bewegung findet zwischen $u_1$ und $u_2$ statt. D.h. die Inklination $\th$
+oszilliert zwischen den Winkeln $\th_1$ und $\th_2$ periodisch. Diese Bewegung
+wird \emph{Nutation} genannt.
+
+Der azimutale Winkel $\ph$ folgt aus
+\begin{align*}
+\dot{\ph} = \frac{a-bu}{1-u^2}.
+\end{align*}
+Folgende 3 Fälle sind möglich
+
+\begin{figure}[htbp]
+\centering
+\begin{pspicture}(0,-1.7)(2.24,1.3)
+\pscircle(0.9,-0.36){0.9}
+\psellipse[linestyle=dashed](0.9,0.34)(0.44,0.2)
+\psline{->}(0.9,0.42)(0.9,1.02)
+\psbezier(0.18,0.18)(0.18,-0.46)(1.62,-0.46)(1.62,0.16)
+\psbezier(0.04,-0.12)(0.04,-0.98)(1.76,-0.98)(1.76,-0.12)
+
+\psbezier[linecolor=darkblue]{->}(0.1,0.04)(0.14,-0.14)(0.09427359,-0.3594825)(0.16,-0.46)(0.22572641,-0.5605175)(0.32,-0.14)(0.44,-0.2)(0.56,-0.26)(0.54,-0.72)(0.68,-0.74)(0.82,-0.76)(0.94,-0.3)(1.04,-0.3)(1.14,-0.3)(1.18,-0.42)(1.26,-0.54)
+
+\rput(0.9,1.205){\color{gdarkgray}$z$}
+\rput(0.57,0.705){\color{gdarkgray}$\th'$}
+\rput(1.77,0.365){\color{gdarkgray}$\th_1$}
+\rput(2.03,-0.255){\color{gdarkgray}$\th_2$}
+
+\rput(0.9,-1.5){\color{gdarkgray}$(I)$}
+\end{pspicture}
+\begin{pspicture}(0,-1.7)(2.24,1.3)
+\pscircle(0.9,-0.36){0.9}
+\psellipse[linestyle=dashed](0.9,0.34)(0.44,0.2)
+\psline{->}(0.9,0.42)(0.9,1.02)
+\psbezier(0.18,0.18)(0.18,-0.46)(1.62,-0.46)(1.62,0.16)
+\psbezier(0.04,-0.12)(0.04,-0.98)(1.76,-0.98)(1.76,-0.12)
+
+\psbezier[linecolor=darkblue]{->}(0.1,0.04)(0.04,-0.14)(0.06,-0.38)(0.16,-0.46)(0.26,-0.54)(0.64,-0.28)(0.44,-0.2)(0.24,-0.12)(0.42,-0.72)(0.68,-0.74)(0.94,-0.76)(1.28,-0.26)(1.04,-0.3)(0.8,-0.34)(1.28,-0.98)(1.38,-0.48)
+
+\rput(0.9,1.205){\color{gdarkgray}$z$}
+\rput(0.57,0.705){\color{gdarkgray}$\th'$}
+\rput(1.77,0.365){\color{gdarkgray}$\th_1$}
+\rput(2.03,-0.255){\color{gdarkgray}$\th_2$}
+
+\rput(0.9,-1.5){\color{gdarkgray}$(II)$}
+\end{pspicture} 
+\begin{pspicture}(0,-1.7)(2.24,1.3)
+\pscircle(0.9,-0.36){0.9}
+\psellipse[linestyle=dashed](0.9,0.34)(0.44,0.2)
+\psline{->}(0.9,0.42)(0.9,1.02)
+\psbezier(0.18,0.18)(0.18,-0.46)(1.62,-0.46)(1.62,0.16)
+\psbezier(0.04,-0.12)(0.04,-0.98)(1.76,-0.98)(1.76,-0.12)
+
+\psbezier[linecolor=darkblue]{->}(0.1,0.04)(0.04,-0.14)(0.06,-0.38)(0.16,-0.46)(0.26,-0.54)(0.44,-0.22)(0.44,-0.22)(0.44,-0.22)(0.46,-0.76)(0.68,-0.74)(0.9,-0.72)(0.98,-0.32)(0.98,-0.32)(0.98,-0.32)(1.22,-1.1)(1.48,-0.38)
+
+\rput(0.9,1.205){\color{gdarkgray}$z$}
+\rput(0.57,0.705){\color{gdarkgray}$\th'$}
+\rput(1.77,0.365){\color{gdarkgray}$\th_1$}
+\rput(2.03,-0.255){\color{gdarkgray}$\th_2$}
+
+\rput(0.9,-1.5){\color{gdarkgray}$(III)$}
+\end{pspicture}
+\caption{Bewegung des Kreisels.}
+\end{figure}
+
+Falls $a=bu$ außerhalb von $(u_1,u_2)$ liegt, steigt
+$\ph$ monoton an (Fall I).
+
+Falls $u=\frac{a}{b}$ im Intervall $(u_1,u_2)$, so hat $\dot{\ph}$ einen  
+Vorzeichenwechsel, $\ph$ bewegt sich vor und zurück (Fall II).
+
+Fall III folgt, wenn wir den Kreisel mit $\dot{\ph} = 0$ fallen lassen.
+
+Die azimutale Bewegung wird \emph{Präzession} genannt.
+
+\subsubsection{Vorestellung der $SO(3)$}
+
+Die $SU(2)$, die \emph{spezielle unitäre Gruppe}, das sind die unitären
+$2\times 2$-Matritzen mit Determinante $1$, ist eine Kugel im 4-dimensionalen
+Raum mit Radius 1. Identifizieren wir jeweils zwei  Punkte der $SU(2)$, so
+erhalten wir die $SO(3)$.
+
+Kehren wir nun zum Kreis zurück.
+Durch die Einführung der Eulerwinkel wird jede Rotation im $\R^3$ durch drei
+Rotationen um die jeweiligen Achsen darstellbar.
+\begin{align*}
+T = \Omega_1^2 I_1 + \Omega_2^2 I_2 + \Omega_3^2 I_3,\\
+\vec{\Omega} = \dot{\th}\vec{e}_N + \dot{\psi}\vec{e}_3 + \dot{\ph}\vec{e}_2.
+\end{align*}
+Für $I_1 =I_2$ ist das Problem exakt lösbar,
+\begin{align*}
+&T = \frac{1}{2}I_1 \left(\dot{\th}^2 + \dot{\ph}^2\sin^2\th\right) +
+\frac{I_3}{2}\left(\dot{\psi} + \dot{\ph}\cos\th \right)^2,\\
+&V = mgl\cos\th.
+\end{align*}
+$\ph$ und $\psi$ sind zyklische Koordinaten. Wir haben daher 2 Erhaltungsgrößen.
+
+Unter Einfluss von äußeren Kräften ändert sich der Drehimpuls eines Körpers mit
+seinem Drehmoment.
+\begin{align*}
+\frac{\diffd }{\dt}\vec{m}
+&= \frac{\diffd}{\dt} \sum_i m_i \vec{q}_i \times \dvec{q}_i
+= \frac{\diffd}{\dt}
+\sum_i m_i \dvec{q}_i \times \dvec{q}_i + \vec{q}_i \times \ddvec{q}_i\\
+&= \sum_i \vec{q}_i \times m\ddvec{q}_i = \sum_i \vec{q}_i \times \vec{F}_i
+\equiv \vec{n},
+\end{align*}
+wobei wir $\vec{n}$ als \emph{Drehmoment} bezeichnen.
+
+\begin{bsp}
+Kreiselkräfte beim Fahrradfahren. Um eine Rechtskurve zu fahren, drückt man den
+Lenker rechts nach vorne, wodurch das Rad nach rechts ausweicht.\bsphere
+\end{bsp}
+
+Für das mitrotierende System ergibt sich daher,
+\begin{align*}
+\frac{\diffd}{\dt} \vec{M} &= \frac{\diffd}{\dt}\left(B^{-1}\vec{m} \right)
+= \left(\frac{\diffd}{\dt}B^{-1}\right)\vec{m} +
+B^{-1}\frac{\diffd}{\dt}\vec{m} =\left(\frac{\diffd}{\dt}B^{-1}\right)B\vec{M}
++ B^{-1}\vec{n} \\ &= \vec{M}\times \vec{\Omega} + \vec{N},
+\end{align*}
+d.h. auch ohne äußere Kräfte ist der Drehimpuls des rotierenden Systems im
+Allgeinen nicht erhalten. Eine Ausnahme bilden Rotationen um die
+Hauptträgheitsachsen.
+
+Die Lösung des freien Kreisels lässt sich einfach geometrisch interpretieren.
+Wir haben zwei Erhaltungsgrößen,
+\begin{align*}
+E = \frac{1}{2}\vec{\Omega}\cdot \underbrace{I\vec{\Omega}}_{\vec{M}} =
+\frac{1}{2}\vec{M}I^{-1}\vec{M} = \frac{M_1^2}{I_1} + \vec{M_2^2}{I_2} +
+\vec{M_3^2}{I_3} = \const,
+\end{align*}
+dies beschreibt uns einen Ellipsoid,
+\begin{align*}
+\vec{M}^2 = \left(B^{-1}\vec{m}\right)\left(B^{-1}\vec{m}\right) =
+\underbrace{B^{-1}B^{-1}}_{\Id}\left(\vec{m}\cdot\vec{m}\right) = \vec{m}^2
+= M_1^2 + M_2^2 + M_3^2 = \const,
+\end{align*}
+dies beschreibt eine Kugel. Die Schnittmenge dieses Ellipsoids mit der Kugel
+schränkt die Bewegung von $\vec{M}$ auf Linien ein.
+%TODO: Flußbild
+Rotationen um $\vec{e}_1$ und $\vec{e}_3$ sind stabile Lösungen. Insgesamt gibt
+es 6 stationäre Lösungen. Davon sind 4 stabil und 2 instabil.

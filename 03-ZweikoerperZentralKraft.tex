@@ -1,0 +1,720 @@
+\section{Zweikörper Zentralkraft Problem}
+%TODO: Bild
+Als Anwendung des Lagrange Formalismus untersuchen wir zwei Körper mit Massen
+$m_1$ und $m_2$ in einem rotationssymmetrischen Wechselwirkungspotential $V$.
+
+Das Zweikörperproblem ist exakt lösbar und von besonderem Interesse, da es die
+Bewegung der Erde um die Sonne mit hinreichender Genauigkeit beschreibt.
+Später werden wir so auch die \emph{Keplerschen Gesetze} herleiten, zunächst
+wollen wir uns jedoch allgemein mit dem Problem befassen.
+
+Zur Lösung des Zweikörperproblems werden wir die entwickelten Erhaltungsgrößen
+verwenden, durch die die exakte Lösung sehr einfach zu bestimmen ist. Die
+Lagrangefunktion hat hier die Form,
+\begin{align*}
+L(\vec{r}_1,\vec{r}_2,\dvec{r}_1,\dvec{r}_2) = \frac{m_1}{2}\dvec{r}_1^2 +
+\frac{m_2}{2}\dvec{r}_2^2 - V(\abs{\vec{r}_1-\vec{r}_2}).
+\end{align*}
+Da unsere Vektoren 3-dimensional sind, erhalten wir einen 6-dimensionalen
+Konfigurationsraum, d.h. ein System von 6 gekoppelte Differentialgleichungen.
+Mit Hilfe der Symmetrien können wir jedoch die Freiheitsgrade so reduzieren,
+dass das Problem exakt lösbar wird.
+
+\subsection{Reduktion auf 1-Teilchen Problem}
+Dank der Impulserhaltung und dem Schwerpunktsatz wissen wir, dass der
+Schwerpunkt einer trivialen Bewegung folgt. Dies können wir durch das
+Einführen von Schwerpunkts- $\vec{R}$ und Relativkoordinaten $\vec{r}$
+ausnutzen,
+\begin{align*}
+&\vec{R} = \frac{m_1\vec{r}_1+m_2\vec{r}_2}{m_1+m_2},\\
+&\vec{r} = \vec{r}_2-\vec{r}_1.
+\end{align*}
+Die bisherigen Koordinaten haben dann die Form,
+\begin{align*}
+&\vec{r}_1 = \vec{R} - \frac{m_2}{m_1+m_2}\vec{r},\\
+&\dvec{r}_1 = \dvec{R} - \frac{m_2}{m_1+m_2}\dvec{r},\\
+&\vec{r}_2 = \vec{R} + \frac{m_1}{m_1+m_2}\vec{r},\\
+&\dvec{r}_2 = \dvec{R} + \frac{m_1}{m_1+m_2}\dvec{r}.
+\end{align*}
+Dadurch erhalten wir für die kinetische Energie den Ausdruck,
+\begin{align*}
+T &= \frac{m_1}{2}\left(\dvec{R} - \frac{m_2}{m_1+m_2}\dvec{r}\right)^2
++ \frac{m_2}{2}\left(\dvec{R} + \frac{m_1}{m_1+m_2}\dvec{r}\right)^2\\
+&= \frac{1}{2}\left[(m_1+m_2)\dvec{R}^2 + \frac{m_1m_2^2}{(m_1+m_2)^2}\dvec{r}^2
++ \frac{m_2m_1^2}{(m_1+m_2)^2}\dvec{r}^2\right]\\
+&= \frac{1}{2}\left[(m_1+m_2)\dvec{R}^2 +
+\frac{m_1m_2}{m_1+m_2}\dvec{r}^2\right]\\
+&= \frac{1}{2}\left[(m_1+m_2)\dvec{R}^2 +
+\mu\dvec{r}^2\right],
+\end{align*}
+wobei wir $\mu=\dfrac{m_1m_2}{m_1+m_2}$ als \emph{reduzierte Masse} einführen.
+Die Lagrangefunktion vereinfacht sich somit zu,
+\begin{align*}
+L(\vec{R},\vec{r},\dvec{R},\dvec{r}) = \frac{1}{2}\left[(m_1+m_2)\dvec{R}^2 +
+\mu\dvec{r}^2\right] - V(\abs{\vec{r}}).
+\end{align*}
+Offensichtlich ist $\vec{R}$ eine zyklische Koordinate und es gilt,
+\begin{align*}
+\vec{p} = \frac{\partial L}{\partial \vec{R}} = (m_1+m_2)\dvec{R} =\const =
+(m_1+m_2)\vec{v}.
+\end{align*}
+Daraus ergibt sich sofort der Schwerpunktssatz,
+\begin{align*}
+\vec{R}(t) = \vec{R}_0 + \vec{v}t.
+\end{align*}
+Es genügt daher nur noch die Relativkoordinate zu betrachten. Wir erhalten ein
+effektives Einteilchenproblem mit Koordinate $\vec{r}$ und effektiver Masse
+$\mu$. Das Problem hat sich um 3 Freiheitsgrade reduziert.
+
+Im Folgenden betrachten wir somit den Lagrange 
+\begin{align*}
+L(\vec{r},\dvec{r}) = \frac{1}{2}\mu\dvec{r}^2 - V(\abs{\vec{r}}).
+\end{align*}
+\begin{bemn}[Bemerkungen.]
+Betrachten wir den Grenzafll $m_2>>m_1$, dann gilt
+\begin{align*}
+&\mu = \frac{m_1m_2}{m_1+m_2}\approx \frac{m_1m_2}{m_2} = m_1,\\
+&\vec{R} = \frac{m_1\vec{r}_1+m_2\vec{r}_2}{m_1+m_2} \approx 
+\frac{m_1}{m_2}\vec{r}_1 + \vec{r}_2\approx \vec{r}_2.
+\end{align*}
+Dies entspricht dem System Erde-Sonne, bei dem der Schwerpunkt in der Sonne
+liegt und die Erde um die Sonne kreist.
+
+Ist hingegen $m_1=m_2=m$, so gilt
+\begin{align*}
+&\mu = \frac{m_1m_2}{m_1+m_2} = \frac{m^2}{2m} = \frac{1}{2}m,\\
+&\vec{R} = \frac{m_1\vec{r}_1+m_2\vec{r}_2}{m_1+m_2} =
+\frac{1}{2}\left(\vec{r}_1+\vec{r}_2\right).
+\end{align*}
+Der Schwerpunkt liegt im Mittelpunkt der Verbindungsstrecke der Massen und die
+Massen kreisen darum.\maphere
+\end{bemn}
+
+\subsection{Integration der Bewegungsgleichung}
+Wir wollen die Bewegungsgleichung nun exakt lösen. Dazu müssen wir das 
+Potential $V$, das als rotationssymmetrisch vorausgesetzt ist, etwas genauer
+studieren. Betrachten eine Rotation im Raum,
+\begin{align*}
+&\vec{r}\mapsto \vec{M}\vec{r},\qquad \vec{M}\in\mathrm{SO}(3),\\
+&\abs{\vec{r}} = \abs{\vec{M}\vec{r}} =
+\sqrt{\lin{\vec{M}\vec{r},\vec{M}\vec{r}}} =
+\sqrt{\lin{\vec{M}\vec{M}\vec{r},\vec{r}}}
+= \sqrt{\lin{\vec{r},\vec{r}}} = \abs{r}.
+\end{align*}
+Die Länge des Vektors $\vec{r}$ ist also invariant unter Rotation. Aufgrund der
+Rotationssymmetrie des Potentials ist der Drehimpuls
+\begin{align*}
+\vec{L} = \vec{r}\times\vec{p},
+\end{align*}
+eine Erhaltungsgröße mit $\abs{\vec{L}}\equiv l = \const$. Es gilt daher
+\begin{align*}
+\lin{\vec{r},\vec{L}} = \lin{\vec{r},\vec{r}\times\vec{p}} =
+\lin{\vec{p},\vec{r}\times\vec{r}} = 0.
+\end{align*}
+Aufgrund der Konstanz von $\vec{L}$ steht somit $\vec{r}$ stets senkrecht auf
+$\vec{L}$ und daher verläuft die Kurve $t\mapsto \vec{r}(t)$ in einer Ebene.
+\begin{bemn}
+Falls $l=0$ bricht die obige Argumentation zusammen. In diesem Fall ist die
+Bewegung jedoch geradlinig und findet daher ebenfalls in einer Ebene
+statt.\maphere
+\end{bemn}
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.07)(2.4,1.07)
+\psline(0.0,-0.37)(1.6,1.05)
+\psline(0.0,-0.37)(0.8,-1.05)
+\psline(0.8,-1.05)(2.38,0.37)
+\psline(1.6,1.05)(2.38,0.37)
+
+%\psline{->}(1.06,0.01)(1.7,0.21)
+\psarc(1.08,0.07){0.2}{5}{153.43495}
+\psdots[dotsize=0.02](1.1,0.13)
+\psline{->}(1.06,0.01)(0.34,0.69)
+
+\psbezier[linecolor=darkblue]{->}(1.0658889,0.02411111)(1.4258889,0.2641111)(1.7058889,-0.2758889)(1.9658889,0.4441111)
+\psarc[linewidth=0.02]{->}(0.4558889,0.5741111){0.17}{201.0375}{127.874985}
+
+\psdots[dotsize=0.1](1.06,0.01)
+
+\rput(0.2025,0.9){\color{gdarkgray}$\vec{L}$}
+\rput(1.72,0.44){\color{gdarkgray}$\vec{r}$}
+\end{pspicture}
+  \caption{Wahl der Bewegungsebene.}
+\end{figure}
+
+Nun kann diese Ebene beliebig im Raum liegen, wir können aber ein
+Koordinatensystem so wählen, dass die $z$-Achse entlang der Drehimpulsachse
+verläuft. Die Bewegung findet dann in der $x,y$-Ebene statt. Es
+bietet sich nun die Wahl von Polarkoordianten an, wodurch der Lagrange die Form
+annimmt,
+\begin{align*}
+L(r,\ph,\dot{r},\dot{\ph}) = \frac{1}{2}\mu\left(\dot{r}^2
++r^2\dot{\ph}^2\right) - V(r).
+\end{align*}
+Die Koordinate $\ph$ ist zyklisch und die Erhaltungsgröße
+\begin{align*}
+p_\ph = \frac{\partial L}{\partial \dot{\ph}} = \mu r^2\dot{\ph} \equiv l.
+\end{align*}
+Die Drehimpulserhaltung eliminiert somit 2 Freiheitsgrade. Die Richtung des
+Drehimpulses schränkt die Bewegung auf eine Ebene ein ($r,\ph$), während der
+Betrag des Drehimpulses $\ph$ eliminiert. Es bleibt ein eindimensionales
+Problem zu lösen.
+\begin{bemn}
+Das 2. Keplersche Gesetz ist äquivalent zur Drehimpulserhaltung,
+%TODO: Skizze Keppler,
+\begin{align*}
+&\dA = \frac{1}{2}r r\dph = \frac{1}{2}r^2\dph\\
+&\frac{\dA}{\dt} = \frac{1}{2}r^2\dot{\ph} =\frac{l}{2\mu} = \const.\maphere
+\end{align*}
+\end{bemn}
+Die Bewegungsgleichung für die Koordinate $r$ reduziert sich zu
+\begin{align*}
+&\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{r}} = \frac{\partial
+L}{\partial r}\\
+\Leftrightarrow & \mu\ddot{r} = \mu r \dot{\ph}^2 - V'(r).
+\end{align*}
+Mit $\dot{\ph} = \frac{l}{\mu r^2}$ können wir die $\ph$ Abhängigkeit
+eliminieren und erhalten somit,
+\begin{align*}
+\mu\ddot{r} = \mu r \frac{l^2}{\mu^2r^4} - V'(r) = \frac{l^2}{\mu r^3} - V'(r)
+= - \frac{\diffd}{\dr}\left[\frac{1}{2\mu}\frac{l^2}{r^2} +
+V(r)\right] = -U'(r),
+\end{align*}
+wobei wir $U(r) = \frac{1}{2\mu}\frac{l^2}{r^2} + V(r)$ als \emph{effektives
+Potential} bezeichnen.
+
+Die Gleichung verhält sich nun, wie ein eindimensionales Teilchen im Potential
+$U(r)$ mit der Energie,
+\begin{align*}
+E = \frac{\mu}{2}\left(\dot{r}^2 + \dot{\ph}^2r^2 \right) + V(r)
+= \frac{\mu}{2}\dot{r}^2 + \underbrace{\frac{1}{2\mu}\frac{l^2}{r^2}  +
+V(r)}_{=U(r)}.
+\end{align*}
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-2.4)(4,2.7)
+\psline{->}(0.37,-1.6)(0.37,1.8)
+\psline{->}(0.17645577,0.6)(3.8,0.6)
+\psbezier[linecolor=yellow](1.0564557,-1.590038)(1.0564557,-1.1100379)(1.8564558,0.48996207)(3.6764557,0.5099621)
+\psbezier[linecolor=darkblue](0.79645574,1.4699621)(0.79645574,0.66996205)(0.83645576,-0.5500379)(1.2764558,-0.5500379)(1.7164558,-0.5500379)(2.0564559,0.46996206)(3.6964557,0.5099621)
+\psdots(1.2764558,-0.47003794)
+
+
+\rput{90}(0.2,1.7){\small\color{gdarkgray}Streuzustände}
+\rput(0.2,-0.9){\rput{-90}{\small\color{gdarkgray}Gebundene Zustände}}
+
+\rput(1.6,1.2){\color{gdarkgray}$U(r)=\frac{1}{r^2}$}
+\rput[l](1.4,-1.4){\color{gdarkgray} $V(r)=\frac{1}{r^\alpha},\;\alpha <2$}
+
+\end{pspicture}
+
+  \caption{Teilchenpotential und effektives Potential mit Gleichgewichtslage.}
+\end{figure}
+
+Eine formale Lösung erhalten wir aus der Energieerhaltung,
+\begin{align*}
+\dot{r}^2 = \frac{2}{\mu}\left(E - U(r) \right),
+\end{align*}
+wobei wir lediglich den auslaufenden Teil ($\dot{r}>0$) betrachten.
+\begin{align*}
+&\dot{r} = \sqrt{\frac{2}{\mu}}\sqrt{E-U(r)},\\
+\Rightarrow & \int\dt \frac{\dot{r}}{\sqrt{\frac{2}{\mu}(E-U(r))}} = \int\dr
+\sqrt{\frac{\mu}{2}}\frac{1}{\sqrt{E-U(r)}} = \int dt = t-t_0.
+\end{align*}
+Die formale Lösung ist somit,
+\begin{align*}
+&t-t_0 = \underbrace{\int\limits_{r_0}^r \dr
+\sqrt{\frac{\mu}{2}}\frac{1}{\sqrt{E-U(r)}}}_{:=F(r)}\\
+\Rightarrow & r(t) = F^{-1}(t-t_0).
+\end{align*}
+Das Integral lässt sich jedoch nur in wenigen Fällen analytisch lösen. Wir sind
+meist aber nicht an der Bewegungsgleichung selbst, sondern nur an der Form
+der Bahnkurve interessiert und erhalten für die Bahntrajektorien
+$\ph(r), r(\ph)$,
+\begin{align*}
+\frac{\dph}{\dr} = \frac{\dph}{\dt}\frac{\dt}{\dr} = \frac{l}{\mu
+r^2}\frac{1}{\dot{r}} = \frac{l}{\mu
+r^2}\sqrt{\frac{\mu}{2}}\frac{1}{\sqrt{E-U(r)}}
+\end{align*}
+\begin{align*}
+\ph-\ph_0 =  \int\dr \frac{l}{\mu
+r^2}\sqrt{\frac{\mu}{2}}\frac{1}{\sqrt{E-U(r)}} = \frac{l}{\sqrt{2\mu}}\int\dr
+\frac{1}{r^2}\frac{1}{\sqrt{E-U(r)}}.
+\end{align*}
+
+Qualitativ lässt sich durch die Analyse des effektiven Potentials bereits viel
+über die Bahn aussagen.
+\begin{itemize}[label=\labelitem]
+  \item $V(r)$ dominiert über $\frac{1}{r^2}$ für $r\to\infty$,
+  \item $\frac{1}{r^2}$ dominiert über $V(r)$ für $r\to 0$.
+\end{itemize}
+
+ Für $E = E_\text{min}$ erhalten wir eine Kreisbahn, während sich für $E<0$ i.A.
+ Rosettenbahnen mit Preiheldrehung ergeben.
+
+\begin{figure}[H]
+  \centering
+\begin{pspicture}(-0.2,-3)(5.2,3.4)
+
+\psline{->}(1.24,0.44)(1.26,3.12)
+\psline{->}(1.06,2.42)(4.86,2.42)
+\psbezier[linewidth=0.04](1.68,3.28)(1.68,2.48)(1.72,1.26)(2.16,1.26)(2.6,1.26)(2.94,2.28)(4.58,2.32)
+
+\psline[linestyle=dashed,dash=0.06cm 0.04cm,linewidth=0.02cm]%
+	   (1.06,1.96)(4.86,1.96)
+\psline[linestyle=dashed,dash=0.06cm 0.04cm,linewidth=0.02cm]%
+	   (1.06,1.26)(4.86,1.26)
+
+\psline[linestyle=dotted,dotsep=0.06cm](2.18,2.42)(2.16,-0.32)
+\psline[linestyle=dotted,dotsep=0.06cm](2.76,2.42)(2.74,-1.51)
+\psline[linestyle=dotted,dotsep=0.06cm](1.78,2.42)(1.78,-1.52)
+
+\pscircle[linecolor=yellow](1.27,-1.51){0.49}
+\pscircle[linecolor=yellow](1.27,-1.51){1.42}
+\psbezier[linecolor=darkblue](2.74,-1.16)(2.74,-0.18)(1.9,0.02)(1.12,-0.78)(0.34,-1.58)(0.88,-3.28)(1.6,-2.02)(2.32,-0.76)(0.68,0.78)(0.0,-0.7)
+
+\psdots(1.27,-1.51)
+
+\rput(2.5,3.03){\color{gdarkgray}$U(r)=\frac{1}{r^2}$}
+\rput(4.88,2.27){\color{gdarkgray}$\vec{r}$}
+\rput[l](0.4,1.96){\color{gdarkgray}$E$}
+\rput[l](0.4,1.26){\color{gdarkgray}$E_\text{min}$}
+\rput(3.0,2.55){\color{gdarkgray}\tiny$r_\text{max}$}
+\rput(2.4,2.55){\color{gdarkgray}\tiny$r_0$}
+\rput(2.0,2.55){\color{gdarkgray}\tiny$r_\text{min}$}
+\end{pspicture} 
+
+  \caption{Potential und Trajektorie.}
+\end{figure}
+Für die Oszillation erhält man im Allgemeinen keine rationalen Winkel $\ph =
+\frac{2\pi n}{m}$, d.h. im Allgemeinen sind die Trajektorien nicht geschlossen.
+Man kann analytisch beweisen, dass es genau zwei Potentiale gibt für die die
+Trajektorien geschlossen sind, nämlich $V(r) = r^2$ und $V(r) = \frac{1}{r}$.
+
+
+\subsection{Gravitationspotential}
+
+Das Potential hat die Form
+\begin{align*}
+V(r) = -\frac{k}{r},
+\end{align*}
+wobei $k= G m_1 m_2$ im Fall der Gravitation oder $k = q_1 q_2$ im Fall der
+elektrostatischen Wechselwirkung. Das effektive Potential hat die Form
+\begin{align*}
+U(r) = \frac{l^2}{2\mu r^2} - \frac{k}{r},
+\end{align*}
+und für die Bahntrajektorie gilt
+\begin{align*}
+\ph - \ph_0 = \frac{l}{\sqrt{2\mu}}\int\dr \frac{1}{r^2}\frac{1}{\sqrt{E-U(r)}}
+= \frac{l}{\sqrt{2\mu}}\int\frac{\dr}{r^2}\frac{1}{\sqrt{E-\frac{l^2}{2\mu r^2}
++ \frac{k}{r}}}.
+\end{align*}
+Substituieren wir $x = \frac{1}{r}$, dann gilt für die Differentiale $\dx =
+-\frac{1}{r^2}\dr$,
+\begin{align*}
+\ph - \ph_0 = -\frac{l}{\sqrt{2\mu}}\int\dx \frac{1}{\sqrt{E-\frac{l^2}{2\mu}x^2 +
+kx}}
+= -\int\dx \frac{1}{\sqrt{\frac{2E\mu}{l^2}-x^2 +
+\frac{2\mu k}{l^2}x}}
+\end{align*}
+Ergänzen wir quadratisch mit $-\left(x-\frac{\mu k}{l^2}\right)^2 = -x^2 +
+\frac{2\mu k}{l^2}x - \frac{\mu^2 k^2}{l^4}$, erhalten wir
+\begin{align*}
+\ph - \ph_0 &= -\int\dx \frac{1}{\sqrt{\underbrace{\frac{2E\mu}{l^2} +
+\frac{\mu^2 k^2}{l^4}}_{=a^2} +\left(x-\underbrace{\frac{\mu
+k}{l^2}}_{=b}\right)^2}}\\ 
+&= - \int\dx \frac{1}{\sqrt{a^2-(x-b)^2}}= - \int\dx \frac{1}{a}\frac{1}{\sqrt{1-\left(\frac{x}{a}-\frac{b}{a}\right)^2}}
+\\ &= - \int\dy \frac{1}{\sqrt{1-y^2}}= \arccos(y) = \arccos\left(\frac{x}{a}-\frac{b}{a} \right)
+\\ &= \arccos\left(\frac{\frac{x}{b} - 1}{\frac{a}{b}}\right)
+= \arccos\left(\frac{\frac{x}{\frac{\mu k}{l^2}} -
+1}{\frac{\sqrt{\frac{2E\mu}{l^2} + \frac{\mu^2 k^2}{l^4}}}{\frac{\mu
+k}{l^2}}}\right)\\ 
+&= \arccos\left(\frac{\frac{x}{\frac{\mu k}{l^2}} - 1}{\sqrt{1 +
+\frac{2El^2}{\mu k^2}}}\right)
+= \arccos\left(\frac{\frac{l^2x}{\mu k} - 1}{\sqrt{1+\frac{2El^2}{\mu
+k^2}}}\right) \\ &=
+\arccos\left(\frac{\frac{l^2}{\mu k}\frac{1}{r} -1}{\sqrt{1+\frac{2El^2}{\mu
+k^2}}} \right).
+\end{align*}
+Die Bahntrajektorie ist somit gegeben durch,
+\begin{align*}
+&\frac{p}{r} = 1 + \ep\cos(\ph-\ph_0),\\
+&p = \frac{l^2}{\mu k},\qquad \ep = \sqrt{1+\frac{2 E l^2}{\mu k^2}}, 
+\end{align*}
+was einem Kegelschnitt entspricht.
+
+\begin{figure}[!htbp]
+  \centering
+  
+\begin{pspicture}(0,-0.8)(3.8621874,1.42)
+\psline{->}(0.18,-0.6)(0.2,1.28)
+\psline{->}(0.0,0.58)(3.8,0.58)
+
+\psbezier[linewidth=0.04](0.58,1.4)(0.58,0.58)(0.66,-0.58)(1.1,-0.58)(1.54,-0.58)(1.88,0.44)(3.52,0.48)
+
+\psline[linestyle=dashed,dash=0.06cm 0.04cm,linewidth=0.02cm](0.0,0.24)(3.8,0.24)
+\psline[linestyle=dotted,dotsep=0.06cm](0.66,0.24)(0.66,0.66)
+\psline[linestyle=dotted,dotsep=0.06cm](2.34,0.22)(2.34,0.66)
+
+\rput(3.76,0.81){\color{gdarkgray}$r$}
+\rput(0.9,0.99){\color{gdarkgray}$\frac{p}{1+\ep}$}
+\rput(2.3,0.99){\color{gdarkgray}$\frac{p}{1-\ep}$}
+\end{pspicture} 
+
+  \caption{Trajektorie des Teilchens im effektiven Potential.}
+\end{figure}
+Der Radialteil der Trajektorie oszilliert zwischen $\frac{p}{1+\ep}$ und
+$\frac{p}{1-\ep}$.
+Wir wollen nun untersuchen wie eine Änderung von $E$ auf $\ep$ wirkt.
+
+\begin{tabular}[h]{lll}
+$E > 0 \Rightarrow \ep > 1$ & Hyperbel\\
+$E = 0 \Rightarrow \ep = 1$ & Parabel\\
+$E < 0 \Rightarrow \ep < 1$ & Ellipse\\
+$E=E_\text{\tiny min} \Rightarrow \ep = 0$ & Kreisbahn 
+\end{tabular} 
+
+\begin{figure}[!htbp]
+  \centering
+  
+\begin{pspicture}(-0.2,-1.3)(4.2,1.2)
+
+\psellipse[linewidth=0.04,dimen=outer](2.12,0)(1.58,0.8)
+
+\psdots[linecolor=yellow](1.22125,0)
+\psdots[linecolor=darkblue](0.56125,0)
+\psdots[linecolor=darkblue](3.68125,0)
+
+\psline(0.64125,0)(1.12125,0)
+\psline(1.32125,0)(3.60125,0)
+
+\psbezier(3.04125,0.055625)(3.2679167,0.695625)(3.56125,-0.024375)(3.78125,0.555625)
+\psbezier(0.10125,-0.624375)(0.32791665,0.015625)(0.62125,-0.704375)(0.84125,-0.124375)
+
+\rput(3.9257812,0.885625){\color{gdarkgray}$\frac{p}{1-\ep}$}
+\rput(0.08578125,-1){\color{gdarkgray}$\frac{p}{1+\ep}$}
+\end{pspicture}
+
+\caption{Ellipsenbahn der Erde.}
+\end{figure}
+
+\subsubsection{Repitition: Kegelschnitte}
+%TODO: Skizze Kegelschnitt
+Der Kegel kann durch
+\begin{align*}
+z = \sqrt{x^2+y^2} = r
+\end{align*}
+parametrisiert werden, die Ebene durch
+\begin{align*}
+z = z_0 - \lambda x.
+\end{align*}
+
+Die Schnittkurve der beiden Flächen ist gegeben durch,
+\begin{align*}
+&z_0-\lambda x = \sqrt{x^2+y^2}=r\\ 
+\Leftrightarrow &z_0 -\lambda r\cos\ph = r\\
+\Leftrightarrow &\frac{z_0}{r}  = 1-\lambda\cos\ph.
+\end{align*}
+und dies ist genau die Form der Trajektorie, die wir bereits berechnet haben.
+%TODO: Bildchen Kegelschnitte
+
+Man kann die Schnittkurve auch als \emph{quadratische Form} auffassen, wodurch
+wir die Ellipsengleichung erhalten,
+\begin{align*}
+r^2 = (x^2+y^2) = (p-\ep x)^2 \Rightarrow \frac{\left(x+x_0\right)^2}{a^2} +
+\frac{y^2}{b^2} = 1.
+\end{align*}
+Die \emph{große Halbachse} ist hierbei durch
+\begin{align*}
+a = \frac{p}{1-\ep^2},
+\end{align*}
+die \emph{kleine Halbachse} durch
+\begin{align*}
+b = \frac{p}{\sqrt{1-\ep^2}},
+\end{align*}
+und der \emph{Brennpunkt} durch
+\begin{align*}
+x_0 = \frac{\ep p}{1-\ep^2},
+\end{align*}
+gegeben.
+
+\subsubsection{Keplerschen Gesetze}
+
+Wir sind nun in der Lage mithilfe unserer Lösung des Zweikörper
+Zentralkraftproblems die drei Keplerschen Gesetze zu beweisen.
+\begin{propn}[1. Keplersches Gesetz]
+Die Planeten bewegen sich auf Ellipsen mit der Sonne im Brennpunkt.\fishhere
+\end{propn}
+Dieses Gesetz gilt, wenn die Masse der Planeten klein im Vergleich zur Masse
+der Sonne ist. Kepler hatte in diesem Fall Glück, da unser Sonnensystem gerade
+so beschaffen ist.
+\begin{proof}
+Ist die Masse des Planeten klein im Vergleich zur Sonne, dann liegt der
+Brennpunkt näherungsweise in der Sonne.\qedhere
+\end{proof}
+
+\begin{propn}[2. Keplersche Gesetz]
+Eine von der Sonne zu einem Planeten gezogene Strecke überstreicht in gleichen
+Zeiträumen gleiche Flächen.\fishhere
+\end{propn}
+\begin{proof}
+Wir haben bereits gezeigt, dass dieses Gesetz äquivalent zur Drehimpulserhaltung
+ist.\qedhere
+\end{proof}
+
+\begin{propn}[3. Keplersche Gesetz] Betrachtet man die Bahn eines Planetens
+mit großer Halbachse $a$ und der Umlaufzeit $T$, dann ist 
+$\dfrac{T^2}{a^3}$ unabhängig vom Planeten.\fishhere
+\end{propn}
+Auch dieses Gesetzt gilt nur für Planeten mit einer im Vergleich zur Sonne
+kleinen Masse.
+\begin{proof}
+Wir verwenden $\frac{\dA}{\dt} = \frac{l}{2\mu}$. Die Fläche einer Ellipse ist
+\begin{align*}
+&A = \frac{\dA}{\dt}T = \pi a b = T\frac{l}{2\mu}\\
+\Rightarrow & T = \frac{2\mu}{l}\pi a \frac{p}{\sqrt{1-\ep^2}}
+= \frac{2\mu}{l}\pi a\frac{\frac{l^2}{\mu k}}{\sqrt{1-1+\frac{2El^2}{\mu k^2}}}
+= 2\pi a\sqrt{\frac{\mu}{2E}}.
+\end{align*}
+Mit $a = \dfrac{p}{1-\ep^2} = \dfrac{l^2}{\mu k}\dfrac{1}{\frac{2El^2}{\mu k^2}}
+= \dfrac{k}{2E}$ erhalten wir $\dfrac{1}{2E} = \dfrac{a}{k}$, wobei
+\begin{align*}
+k = G M_s m_e,\qquad \mu = \frac{M_s m_e}{M_s+m_e}\approx m_e.
+\end{align*}
+Einsetzen ergibt nun,
+\begin{align*}
+&T = 2\pi a^{\frac{3}{2}}\frac{1}{\sqrt{G M_S}},\\
+\Leftrightarrow & T^2 = \frac{4\pi^2}{G M_s}a^3,
+\end{align*}
+und der Vorfaktor ist für das Sonnensystem konstant.\qedhere
+\end{proof}
+
+Interessant ist, dass für $E\le 0$ die Bahnkurven im Zentralpotential stets
+geschlossen sind. Verantwortlich dafür ist eine weitere
+Erhaltungsgröße, der \emph{Laplace-Runge-Lenz Vektor}.
+
+\subsubsection{Laplace-Runge-Lenz Vektor}
+
+Das Coulomb Potential $V(\abs{\vec{r}}) = -\frac{k}{\abs{\vec{r}}}$ zeichnet
+sich durch eine weitere Erhaltungsgröße aus, den Laplace-Runge-Lenz Vektor
+\begin{align*}
+\vec{A} = \vec{p}\times\vec{L} - \mu k\frac{\vec{r}}{\abs{\vec{r}}}.
+\end{align*}
+\begin{proof}
+Die Erhaltung des Vektors sieht man wie folgt ein,
+\begin{align*}
+\frac{\diffd}{\dt} \vec{A} &= \dot{\vec{p}}\times\vec{L} - \mu k\left( 
+\frac{\dvec{r}}{\abs{\vec{r}}} -
+\frac{\vec{r}}{\abs{\vec{r}}^2}\frac{\diffd}{\dt}\abs{\vec{r}} \right)\\
+&=
+-\frac{\mu k}{\abs{\vec{r}}^3}\vec{r}\times (\vec{r}\times\dvec{r}) - \frac{\mu
+k}{\abs{\vec{r}}^3}\left(\abs{\vec{r}}^2\dvec{r} -
+\vec{r}(\vec{r}\dvec{r})\right) = 0.\qedhere
+\end{align*}
+\end{proof}
+
+Dieser Vektor steht senkrecht zum Drehimpuls $L$
+\begin{align*}
+\vec{A}\cdot \vec{L} = 0.
+\end{align*}
+Zudem zeigt er in Richtung des Perihelion. Konsequenz seiner Erhaltung ist,
+dass das Perihelion sich nicht dreht.
+
+\subsection{Streuexperimente}
+
+Streuexperimente sind die Schlüsselversuche der Kern- und
+Elementarteilchenphysik. Hierbei werden leichte Teilchen auf schwere ruhende
+Teilchen geschossen und dadurch abgelenkt. Die Ablenkung kann Aufschluss über
+die Struktur der Materie geben.
+\begin{figure}[!htbp]
+  \centering
+  
+\begin{pspicture}(-0.2,-1.4)(5.8,1.5)
+
+\psline(0.0,-0.6416429)(3.92,-0.6416429)
+\psdots[linecolor=yellow](4.04,-0.6416429)
+
+\psline(4.14,-0.6416429)(5.36,-0.6416429)
+\psline(4.1,-0.54164296)(5.1,0.45835707)
+
+\psarc(4.2,-0.6416429){0.5}{0.0}{60.945396}
+
+\psline(5.38,0.35835707)(4.66,1.0783571)
+\psbezier[linecolor=darkblue]{->}(0.2,-0.061642937)(1.28,-0.061642937)(2.34,-0.061642937)(2.8,-0.061642937)(3.26,-0.061642937)(3.68,-0.08164294)(4.02,0.21835706)(4.36,0.51835704)(4.54,0.69835705)(4.66,0.8383571)
+\psline{<->}(0.86,-0.5816429)(0.86,-0.10164294)
+
+\psbezier(4.58,-0.56164294)(4.86,-0.88164294)(4.16,-0.6416429)(4.4,-1.0216429)
+\psbezier(0.6,-0.50164294)(0.56,-1.0216429)(1.02,-0.50164294)(1.04,-1.0616429)
+\psdots(0.08,-0.061642937)
+
+\rput(0.58421874,-0.31164294){\color{gdarkgray}$b$}
+\rput(0.51453125,0.34835705){\color{gdarkgray}$E=\frac{mv^2}{2}$}
+\rput(4.4085937,-0.47164294){\color{gdarkgray}$\th$}
+
+\rput{-45.56502}(0.95505434,3.9956415){\color{gdarkgray}\rput(5.2279687,0.8483571){Detektor}}
+\rput(1.0198437,-1.211643){\color{gdarkgray}Stoßparameter}
+\rput(4.465,-1.211643){\color{gdarkgray}Streuwinkel}
+\end{pspicture} 
+
+\caption{Streuexperiment.}
+\end{figure}
+
+Rutherford untersuchte 1909, wie $\alpha$-Teilchen an einer Goldfolie gestreut
+werden und entdeckte dabei, dass der Kerndurchmesser um ca. 5 Größenordnungen
+kleiner sein muss als der Atomdurchmesser. Viele sehen dies als die
+Geburtsstunde der Kernphysik.
+
+Im Folgenden untersuchen wir die Streuung von 2 Teilchen mit Zentralkraft. Wir
+arbeiten wieder im Schwerpunktsystem mit der Relativkoordinate $\vec{r}$ als
+Variable. Dabei vernachlässigen wir, dass das schwere Teilchen durch die
+Streuung kinetische Energie erhält, für sehr schwere Teilchen ist dies eine
+gute Näherung.
+
+\begin{bemn}
+Wir betrachten hier nur elastische Stöße, d.h. die Energie ist erhalten.\maphere 
+\end{bemn}
+
+\begin{defnn}
+Der \emph{Stoßparameter} $b$ ist der Abstand zwischen Einfallsachse und
+Streuzentrum,  $\th$ der \emph{Streuwinkel}.\fishhere
+\end{defnn}
+
+Betrachte einen einfallenden Teilchenstrahl mit Fluss
+$F\entspr\frac{\text{Anzahl Teilchen}}{cm^2\ s}$. Messe die Zahl
+der gestreuten Teilchen $\dN$ im Raumwinkel $\dOmega=
+\sin\th\dth\dph$. Wir können keine diskreten Winkel messen, da der Detektor
+eine endliche Ausdehnung und Auflösung hat. Es wird daher stets ein
+Winkelbereich gemessen, wobei wir daran interessiert sind, diesen möglichst
+klein zu halten, um genaue Ergebnisse zu erhalten.
+
+Dies führt zur Definition des \emph{differentiellen Wirkungsquerschnitts},
+\begin{align*}
+\frac{\dsigma}{\dOmega} = \frac{1}{F}\frac{\dN}{\dOmega}.
+\end{align*}
+Der totale Streuquerschnitt ist dann gegeben durch,
+\begin{align*}
+&\sigma = \int \dOmega \left(\frac{\dsigma}{\dOmega}\right)
+:= \int\limits_{0}^{2\pi}\dph\int\limits_{0}^\pi \dth \sin\th
+\frac{\dsigma}{\dOmega},\\
+&\left[\sigma\right] = \text{ Fläche},\quad F\sigma = \text{ Anzahl der
+gestreuten Teilchen}
+\end{align*}
+\begin{bsp}
+Im Fall einer Kugel, die von Teilchen umströmt wird, ist $\sigma = \pi
+R^2$.\bsphere
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-0.6)(4.6,0.6)
+\pscircle(2.21,-0.02){0.39}
+\psline[linewidth=0.02]{->}(0.0,0.19)(1.82,0.19)
+\psline[linewidth=0.02]{->}(0.0,-0.01)(1.76,-0.01)
+\psline[linewidth=0.02]{->}(0.0,-0.21)(1.82,-0.21)
+\psline[linewidth=0.02]{->}(0.0,-0.39)(1.96,-0.39)
+\psline[linewidth=0.02]{->}(0.0,0.37)(1.96,0.37)
+\psline[linewidth=0.02]{->}(0.0,-0.57)(3.04,-0.55)
+\psline[linewidth=0.02]{->}(0.0,0.57)(3.04,0.57)
+\psarc[linestyle=none,fillstyle=solid,fillcolor=glightgray](2.21,-0.02){0.37}{87.70939}{275.90613}
+\psbezier(2.28,-0.05)(2.82,0.47)(3.16,-0.49)(3.68,0.17)
+
+\rput(3.755,0.4){\color{gdarkgray}$\sigma=\pi R^2$}
+\end{pspicture} 
+
+\caption{Umströmte Kugel.}
+\end{figure}
+\end{bsp}
+
+Für rotationssymmetrische Potentiale hängt $\frac{\dsigma}{\dOmega}$ nur vom
+Winkel $\th$ und der Energie der einfallenden Teilchen ab. Für jedes Tupel aus
+kinetischer Energie $E_\text{\tiny kin}$ und Stoßparameter $b$ können wir die
+Trajektorie berechnen und den Wert $\th$ bestimmen. Wir haben damit das inverse
+Problem $\th(E,b)$ gelöst, welches uns auf $b(E,\th)$ führt.
+
+Aus der Energieerhaltung folgt, dass der Betrag der Geschwindigkeit für
+einfallendes und ausfallendes Teilchen gleich ist,
+\begin{align*}
+v = \sqrt{\frac{2E}{m}}.
+\end{align*}
+
+Der Drehimpuls $l=mbv$ ist ebenfalls erhalten, das ausfallende Teilchen hat
+somit auch den Stoßparameter $b$. Haben wir nun eine Lösung $\th(E,b)$, so
+können wir eine kleine Winkeländerung $\dth$ durch eine kleine Änderung des
+Stoßparameters $\db$ ausdrücken
+\begin{align*}
+\dth = \abs{\frac{\dth}{\db}}\db.
+\end{align*}
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-0.5)(5.38,1.08)
+\psline(0.0,-0.42)(3.92,-0.42)
+\psdots(4.04,-0.42)
+\psline(4.14,-0.42)(5.36,-0.42)
+\psline(4.1,-0.32)(5.1,0.68)
+\psarc(4.04,-0.42){0.64}{0.0}{178.31532}
+\psbezier[linecolor=darkblue]{->}(0.2,0.16)(1.28,0.16)(2.34,0.16)(2.8,0.16)(3.26,0.16)(3.68,0.14)(4.02,0.44)(4.36,0.74)(4.54,0.92)(4.66,1.06)
+\psline{<->}(0.86,-0.36)(0.86,0.12)
+\psdots(0.08,0.16)
+\psline[linestyle=dotted,dotsep=0.06cm](3.94,-0.3)(3.44,0.38)
+
+\rput(4.4085937,-0.25){\color{gdarkgray}$\th$}
+\rput(0.58421874,-0.09){\color{gdarkgray}$b$}
+
+\rput(0.30671874,0.57){\color{gdarkgray}$\vec{v}$}
+
+\rput(4.0285935,-0.01){\color{gdarkgray}$\ph$}
+
+\rput(3.6485937,-0.25){\color{gdarkgray}$\ph$}
+\end{pspicture} 
+
+\caption{Streuexperiment.}
+\end{figure}
+
+Für die gestreuten Teilchen gilt $\dN = b \db\dph F$, also erhalten wir
+\begin{align*}
+\frac{\dsigma}{\dOmega} &= \frac{1}{F}\frac{\dN}{\dOmega}
+= \frac{1}{F}\frac{b\db\dph F}{\sin\th\dth\dph} =
+\frac{b\db}{\sin\th\abs{\frac{\dth}{\db}}\db}\\
+&= \frac{1}{\sin\th}b\abs{\frac{\diffd}{\dth}b(\th,E)}.\tag{*}
+\end{align*}
+
+\subsubsection{Rutherfordstreuung}
+
+Wir betrachten das Potential $\dfrac{1}{r}$ im repulsiven Fall
+\begin{align*}
+V(r) = -\frac{k}{r},\qquad k = -e e',
+\end{align*}
+wobei $e,e'$ die Ladung von Streuteilchen und Target sind.
+
+Verwenden wir nun unsere Lösung
+\begin{align*}
+\frac{1}{r} = \frac{mee'}{l^2}\left(\ep\cos\ph - 1\right),
+\end{align*}
+so erhalten wir für $r\to\infty$,
+\begin{align*}
+&0 = \ep\cos\ph - 1
+\Leftrightarrow \cos \ph = \frac{1}{\ep}
+\overset{\pi = 2\ph+\th}{\Rightarrow} \sin\left(\frac{\th}{2}\right) =
+\frac{1}{\ep}\\
+&\cot\left(\frac{\th}{2}\right) =
+\frac{\cos\left(\frac{\th}{2}\right)}{\sin\left(\frac{\th}{2}\right)}
+= \frac{\sqrt{1-\frac{1}{\ep^2}}}{\frac{1}{\ep}} = \sqrt{\ep^2-1}
+\end{align*}
+Mit $\ep = \sqrt{1+\left(\dfrac{2Eb}{ee'}\right)^2}$ ergibt sich somit,
+\begin{align*}
+b(\th,E) = \cot\left(\frac{\th}{2}\right) \frac{ee'}{2\abs{E}}.
+\end{align*}
+Setzen wir dies in (*) ein, ergibt sich
+\begin{align*}
+\frac{\dsigma}{\dOmega} &= 
+\frac{\cot\left(\frac{\th}{2}\right)}{\sin\th}\frac{ee'}{2\abs{E}} \abs{\frac{\diffd}{\dth}
+\left(\cot\left(\frac{\th}{2}\right) \frac{ee'}{2\abs{E}}\right)}\\
+&=
+\abs{\frac{ee'}{2\abs{E}}\cot\left(\frac{\th}{2}\right)\frac{ee'}{2\abs{E}}
+\frac{1}{2}\frac{1}{\sin^2\left(\frac{\th}{2}\right)}\frac{1}{\sin\th}}\\
+&=
+\frac{1}{4}\left(\frac{ee'}{2E}\right)^2\frac{1}{\abs{\sin\left(\frac{\th}{2}\right)}^4}.
+\end{align*}
+Dies ist die berühmte Rutherfordsche-Streuformel mit der
+$\dfrac{1}{\sin\left(\frac{\th}{2}\right)^4}$-Abhängigkeit.

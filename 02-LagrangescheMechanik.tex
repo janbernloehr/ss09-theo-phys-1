@@ -1,0 +1,758 @@
+\section{Lagrangsche Mechanik}
+Im Folgenden wollen wir die Newtonschen Gleichungen mit Hilfe eines
+Variationsprinzips, dem so genannten ``Hamiltonschen Prinzip der kleinsten
+Wirkung'' formulieren, mit dem wir die Newtonschen Gesetze elegant und
+mathematisch exakt in beliebige Koordiantensysteme transformieren können.
+
+\subsection{Euler-Lagrange Gleichungen}
+Betrachte ein System von $N$ Teilchen mit den Koordinaten $q^i(t)$,
+$i=1,\ldots,3N$ in einem konservativen Kraftfeld.
+\begin{align*}
+F^i(q^1,\ldots,q^{3N},t) = -\frac{\partial}{\partial q^i}V(q^1,\ldots,q^{3N},t).
+\end{align*}
+
+\begin{bemn}[Bemerkung zur Notation.]
+Die Beziehung zwischen unseren bisherigen Ortsvektoren $\vec{r}_j$ und den
+Koordinaten $q^i$ ist folgende:
+\begin{align*}
+&\vec{r}_j = \begin{pmatrix}
+q^{3j-2}\\q^{3j-1}\\q^{3j}
+\end{pmatrix},
+\vec{r}_1 = \begin{pmatrix}
+q^{1}\\q^{2}\\q^{3}
+\end{pmatrix},
+\vec{r}_2 = \begin{pmatrix}
+q^{4}\\q^{5}\\q^{6}
+\end{pmatrix},
+\ldots\\
+&\vec{F}_j =
+\begin{pmatrix}
+F^{3j-2}\\F^{3j-1}\\F^{3j}
+\end{pmatrix},
+\vec{F}_1 = \begin{pmatrix}
+F^{1}\\F^{2}\\F^{3}
+\end{pmatrix},
+\vec{F}_2 = \begin{pmatrix}
+F^{4}\\F^{5}\\F^{6}
+\end{pmatrix},
+\ldots\maphere
+\end{align*}
+\end{bemn}
+
+Die Newtonschen Gleichungen haben somit die Form,
+\begin{align*}
+m_i\ddot{q}^i  = -\frac{\partial}{\partial q^i} V(q^j,t) = F^i(q^j,t)
+\end{align*}
+mit der  Kurzschreibweise $V(q^1,\ldots,q^{3N},t) = V(q^i,t)$.
+
+Wir können den linken Teil auch als partielle Ableitung der kinetischen Energie
+$T$ schreiben,
+\begin{align*}
+m_i \ddot{q}^i = \frac{\diffd}{\dt}\left(m_i \dot{q}^i\right)
+= \frac{\diffd}{\dt}\left(\frac{1}{2}m_i
+\frac{\partial}{\partial \dot{q}^i}\left(\dot{q}^i\right)^2\right)
+= \frac{\diffd}{\dt}\frac{\partial}{\partial \dot{q}^i}T,
+\end{align*}
+mit $T = \sum_i \frac{m_i}{2}\left(q^i\right)^2$.
+
+Wir definieren die \emph{Lagrange Funktion} durch,
+\begin{align*}
+L(q^i,\dot{q}^i,t) &= \sum_i \frac{m}{2} \left(\dot{q}^i\right)^2 - V(q^i,t),
+\end{align*}
+oder kurz $L=T-V$.
+
+Die Bewegungsgleichungen folgen somit aus den \emph{Euler-Lagrange
+Gleichungen},
+\begin{align*}
+&\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{q}^i} - \frac{\partial L
+}{\partial q^i} = 0 \Leftrightarrow\; \frac{\diffd}{\dt}\frac{\partial T}{\partial\dot{q}^i} +
+\frac{\partial V}{\partial q^i} = 0.
+\end{align*}
+
+\begin{bemn}[Bemerkung zur Notation.]
+\begin{align*}
+\frac{\partial L}{\partial \vec{r}_1} :=
+\begin{pmatrix}
+\frac{\partial L}{\partial q_1}\\ \frac{\partial L}{\partial q_2}\\
+\frac{\partial L}{\partial q_3}
+\end{pmatrix},\qquad 
+\frac{\partial L}{\partial \dvec{r}_1} :=
+\begin{pmatrix}
+\frac{\partial L}{\partial \dot{q}_1}\\ \frac{\partial L}{\partial \dot{q}_2}\\
+\frac{\partial L}{\partial \dot{q}_3}
+\end{pmatrix}.\maphere
+\end{align*}
+\end{bemn}
+
+\begin{bsp}
+%\begin{enumerate}[label=\arabic{*}.)]
+%  \item
+ Ein Teilchen befinde sich in einem Gravitationsfeld auf Höhe $x$. Die
+  kinetische Energie ist gegeben durch $T= \frac{m}{2}\dot{x}^2$, die
+  potentielle Energie ist $V=mgx$, wodurch sich die Kraft $F_x =
+  -\frac{\partial V}{\partial x} = -mg$ ergibt.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.1,-1.25)(2.5334375,1.2304688)
+
+\psframe[fillstyle=solid,fillcolor=glightgray,linestyle=none](2.2,-0.95)(0.1,-1.15)
+
+\psline{->}(0.05,-0.95)(2.36,-0.95)
+\psline{->}(0.25,-1.15)(0.25,1.05)
+\psline{->}(1,0.2)(1,-0.45)
+\psdots[linecolor=darkblue](1,0.2)
+
+\rput(1.2275,-0.08046875){\color{gdarkgray}$\vec{F}$}
+
+\rput(2.4032812,-1.0804688){\color{gdarkgray}$y$}
+\rput(0.085625,1.1395313){\color{gdarkgray}$x$}
+\end{pspicture} 
+  \caption{Teilchen im Gravitationspotential.}
+\end{figure} 
+
+  Die Lagrange Funktion hat nun die Form,
+\begin{align*}
+&L(x,\dot{x}) = T-V = \frac{m}{2}\dot{x}^2 - mgx,\\
+&\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{x}} - \frac{\partial
+L}{\partial x} = m\ddot{x}+ mg = 0\\
+\Rightarrow\; & \ddot{x} = -g.\bsphere
+\end{align*}
+\end{bsp}
+\begin{bsp}
+%\item
+Zwei Teilchen mit dem Wechselwirkungspotential
+$V\left(\abs{\vec{r}_1-\vec{r}_2}\right)$.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.5,-1.5)(3,1.2)
+
+\psline{->}(-0.2,-1.2)(2.8,-1.2)
+\psline{->}(0,-1.4)(0,1)
+
+\psline{->}(2.52,-0.71171874)(2.02,-0.21171875)
+\psline{->}(1.02,0.7682812)(1.52,0.26828125)
+\psline{->}(0.0,-1.2)(0.92,0.6482813)
+\psline{->}(0.0,-1.2)(2.4,-0.75171876)
+
+\psdots[linecolor=darkblue](2.52,-0.71171874)
+\psdots[linecolor=darkblue](1.0,0.78828126)
+
+\rput(1.8,0.5){\color{gdarkgray}$\vec{F}_{21}$}
+\rput(2.4,-0.1){\color{gdarkgray}$\vec{F}_{12}$}
+
+\rput(0.3,-0.08171875){\color{gdarkgray}$\vec{r}_2$}
+\rput(1.4,-0.7){\color{gdarkgray}$\vec{r}_1$}
+\end{pspicture} 
+  \caption{Zwei Teilchen mit Wechselwirkungspotential.}
+\end{figure}
+
+Kinetische Energie,
+\begin{align*}
+T = \frac{m_1}{2}\dvec{r}_1^2 + \frac{m_2}{2}\dvec{r}_2^2\entspr \sum_i
+\frac{m_i}{2} (\dot{q}^i)^2.
+\end{align*}
+Potentielle Energie,
+\begin{align*}
+V\left(\abs{\vec{r}_1-\vec{r}_2}\right).
+\end{align*}
+Die Lagrange-Funktion hat somit die Form,
+\begin{align*}
+&L(\vec{r}_1,\vec{r}_2,\dvec{r}_1,\dvec{r}_2) =  \sum_i \frac{m_i}{2} (\dot{q}^i)^2 -
+V\left(\abs{\vec{r}_1-\vec{r}_2}\right),\\
+&\frac{\partial L}{\partial \vec{r}_1} =
+-\frac{\vec{r}_1-\vec{r}_2}{\abs{\vec{r}_1-\vec{r}_2}}
+V'\left(\abs{\vec{r}_1-\vec{r}_2}\right) = \vec{F}_{21}\\
+&\frac{\partial L}{\partial \vec{r}_2} =
+-\frac{\vec{r}_2-\vec{r}_1}{\abs{\vec{r}_2-\vec{r}_1}}
+V'\left(\abs{\vec{r}_1-\vec{r}_2}\right) = \vec{F}_{12} = -\vec{F}_{21}\\
+&\frac{\partial L}{\partial \dvec{r}_1}
+= m_1\dvec{r}_1,\qquad \frac{\partial L}{\partial \dvec{r}_2}
+= m_2\dvec{r}_2\\
+\Rightarrow\; & \frac{\diffd}{\dt}\frac{\partial L}{\partial \dvec{r}_1}
+- \frac{\partial L}{\partial \vec{r}_1}
+= m_1\ddvec{r}_1 + \frac{\vec{r}_1-\vec{r}_2}{\abs{\vec{r}_1-\vec{r}_2}}
+V'\left(\abs{\vec{r}_1-\vec{r}_2}\right)
+= m_1\ddvec{r}_1 - \vec{F}_{21}.\\
+& \frac{\diffd}{\dt}\frac{\partial L}{\partial \dvec{r}_2}
+- \frac{\partial L}{\partial \vec{r}_2}
+= m_2\ddvec{r}_2 + \frac{\vec{r}_2-\vec{r}_1}{\abs{\vec{r}_2-\vec{r}_1}}
+V'\left(\abs{\vec{r}_2-\vec{r}_1}\right)
+= m_2\ddvec{r}_2 - \vec{F}_{12}.\bsphere
+\end{align*}
+%\end{enumerate}
+\end{bsp}
+
+\subsection{Variationsrechnung}
+Im Folgenden stellen wir den mathematischen Rahmen, der zum Verständnis des
+Hamilton'schen Variationsprinzips wichtig ist.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(-0.5,-1.5)(3,1.2)
+
+\psline{->}(-0.2,-1.2)(2.8,-1.2)
+\psline{->}(0,-1.4)(0,1)
+
+
+\psplot[linewidth=1.2pt,%
+	     linecolor=darkblue,%
+	     algebraic=true]%
+	     {0.2}{2.8}{(x-0.8)^3-2*(x-0.8)^2}
+
+\rput(2,-0.4){\color{gdarkgray}$f(x)$}
+\end{pspicture} 
+  \caption{Funktion $f(x)$ mit Extremstellen.}
+\end{figure}
+Um festzustellen, ob $x_0$ ein Extremum\footnote{Gemeint sind hier kritische
+Punkte von $f$.} von $f:\R\to\R,\; x\mapsto f(x)$ ist,
+betrachten wir dazu $x=x_0+\alpha$, wobei $\alpha$ eine \emph{Variation} von $x_0$ darstellt. Eine
+hinreichende Bedingung für ein Extremum ist,
+\begin{align*}
+\frac{\partial}{\partial\alpha} f(x_0+\alpha)\big|_{\alpha=0} = f'(x_0) = 0.
+\end{align*}
+
+Betrachte nun eine Kurve $\gamma$ im $\R^n$,
+\begin{align*}
+\gamma: [t_1,t_2]\to\R^n,\; t\mapsto \vec{r}(t) =
+\begin{pmatrix}
+q^1(t)\\\vdots\\ q^n(t)
+\end{pmatrix},
+\end{align*}
+mit festen Anfangs- und Endpunkten $\vec{r}_1$ und $\vec{r}_2$. Das Integral,
+\begin{align*}
+I(\gamma) := \int_{t_1}^{t_2} \dt L(q^i,\dot{q}^i,t)
+\end{align*}
+beschreibt ein Funktional, das jeder Raumkurve $\gamma$ eine Zahl zuordnet.
+Wir sind an den Bedingungen interessiert, unter denen die Kurve $\gamma$ ein
+Extremum von $I(\gamma)$ ist. Dazu betrachten wir eine kleine Variation von
+$\gamma$,
+\begin{align*}
+\gamma'(\alpha): t\mapsto &\vec{r}(t) + \alpha\vec{\eta}(t)\equiv \vec{r}'(t),\\
+&q^i(t) + \alpha\eta^i(t) \equiv \tilde{q}^i(t). 
+\end{align*}
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.2411667)(3.014111,1.2470555)
+\psline{->}(0.0,-1.0270555)(3.0,-1.0270555)
+\psline{->}(0.2,-1.2270555)(0.2,1.1729444)
+\psbezier[linestyle=dotted,dotsep=0.06cm,linecolor=darkblue](0.7546875,0.78705555)(1.4946876,1.2270555)(1.7546875,1.0670556)(1.6946875,0.64705557)(1.6346875,0.22705555)(1.5546875,0.06705555)(1.7146875,-0.23294444)
+\psbezier{->}(0.4746875,0.48705557)(0.8546875,1.0870556)(1.3546875,0.90705556)(1.5146875,0.32705554)(1.6746875,-0.25294444)(1.8946875,-0.8729445)(2.7146876,-0.45294446)
+
+\rput(2.2,0.89705557){\color{gdarkgray}$\vec{\eta}(t)$}
+
+\rput(2.5960937,-0.8){\color{gdarkgray}$\vec{\gamma}(t)$}
+\end{pspicture} 
+  \caption{Variation von $\gamma$.}
+\end{figure}
+
+Fixierte Anfangs- und Endpunkte verlangen, dass
+$\vec{\eta}(t_1)=\vec{\eta}(t_2)=0$. Dies führt uns auf eine neue Zahl,
+\begin{align*}
+I(\gamma'(\alpha)) = \int_{t_1}^{t_2} \dt L(\tilde{q}^i, \dot{\tilde{q}}^i, t).
+\end{align*}
+
+\begin{defnn}
+Die Kurve $\gamma$ heißt \emph{extremal} zu dem Funktional $I(\gamma)$, falls
+für alle Variationen $\vec{\eta}(t)$ gilt,
+\begin{align*}
+\frac{\partial}{\partial\alpha}I(\gamma'(\alpha))\bigg|_{\alpha=0} = 0.\fishhere
+\end{align*}
+\end{defnn}
+
+Wir wollen nun untersuchen, für welche $\gamma$, die Wirkung maximal wird,
+\begin{align*}
+\frac{\partial}{\partial\alpha} I(\gamma'(\alpha))
+&= \int_{t_1}^{t_2}\dt \frac{\partial}{\partial\alpha}
+L(q^i + \alpha \eta^i, \dot{q}^i + \alpha\dot{\eta}^i,t)
+\bigg|_{\alpha=0}\\
+&= \int_{t_1}^{t_2}\dt \sum_i
+\bigg[
+\frac{\partial L}{\partial q^i} L(q^i + \alpha \eta^i, \dot{q}^i +
+\alpha\dot{\eta}^i,t)\eta^i \\
+ &\qquad + \frac{\partial}{\partial \dot{q}^i}L(q^i +
+\alpha \eta^i, \dot{q}^i + \alpha\dot{\eta}^i,t)\dot{\eta}^i
+\bigg]_{\alpha=0}\\
+&= \int_{t_1}^{t_2}\dt \sum_i
+\left[
+\frac{\partial }{\partial q^i} L(q^i, \dot{q}^i, t)\eta^i +
+\frac{\partial}{\partial \dot{q}^i}L(q^i, \dot{q}^i, t)\dot{\eta}^i
+\right]\\
+&\overset{\text{\tiny part.int.}}{=}
+\int_{t_1}^{t_2}\dt \sum_i \left[
+\frac{\partial}{\partial q^i} - \frac{\diffd}{\dt}\frac{\partial}{\partial
+\dot{q}^i}\right]L\eta^i + \underbrace{\sum_i \frac{\partial}{\partial
+\dot{q}^i}L\eta^i\bigg|_{t_1}^{t_2}}_{=0\;\text{\tiny nach Vor.}}\\
+&= \int\limits_{t_1}^{t_2}
+\sum_i \left[
+\frac{\partial}{\partial q^i}L(q^i, \dot{q}^i, t) -
+\frac{\diffd}{\dt}\frac{\partial}{\partial \dot{q}^i} 
+L(q^i, \dot{q}^i, t)
+\right]\eta^i \overset{!}{=} 0
+\end{align*}
+Der Ausdruck verschwindet genau dann für jede Variation $\eta$, wenn der
+Integrand bereits verschwindet.
+\begin{proof}
+Angenommen das Integral verschwindet für einen Integrand, der an einem Punkt
+$x$ $\neq 0$ ist, dann folgt Aufgrund der Stetigkeit, dass der Integrand in
+einer Umgebung von $x$ nicht verschwindet. Wählt man nun $\eta$ so, dass es nur
+in dieser Umgebung ungleich Null ist, ist das Integral nicht
+null.\dipper\qedhere
+\end{proof}
+
+Wir haben somit folgenden Satz bewiesen.
+
+\begin{propn}
+Eine notwendige und hinreichende Bedingung, damit die Kurve $q^i(t)$ ein
+extremal zum Funktional $I(\gamma)$ ist, ist das Erfüllen der
+Euler-Lagrange-Gleichungen
+\begin{align*}
+\frac{\diffd}{\dt}\frac{\partial}{\partial \dot{q}^i}L(q^i,\dot{q}^i,t) -
+\frac{\partial}{\partial q^i}L(q^i,\dot{q}^i,t) = 0.\fishhere
+\end{align*}
+\end{propn}
+
+\begin{bemn}
+Die Funktionalableitung hat die Form,
+\begin{align*}
+\frac{\delta I}{\delta q^i(t)} = \frac{\partial L}{\partial q^i} -
+\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{q}^i}.\maphere
+\end{align*}
+\end{bemn}
+
+\subsection{Hamilton's Prinzip der kleinsten Wirkung}
+
+\begin{propn}[Hamilton's Prinzip der kleinsten Wirkung]
+Die Bewegung eines Systems von der Zeit $t_1$ nach $t_2$ ist so, dass die
+Wirkung
+\begin{align*}
+S:= \int_{t_1}^{t_2} \dt L
+\end{align*}
+mit dem Lagrange $L=T-V$ extremal wird.\fishhere
+\end{propn}
+\begin{proof}
+Die Variationsrechnung liefert, dass ein Extremum der Wirkung die
+Euler-Lagrange-Gleichungen erfüllt und diese sind äquivalent zu den Newtonschen
+Bewegungsgleichungen.\qedhere
+\end{proof}
+
+\begin{bemn}
+Die Dimension der Wirkung ist,
+\begin{align*}
+[\text{Wirkung}] = [\text{Energie}]\cdot[\text{Zeit}] =
+[\text{Impuls}]\cdot[\text{Länge}].
+\end{align*}
+Somit entspricht die Einheit der Wirkung der von $h$ bzw $\hbar$.\maphere
+\end{bemn}
+
+Durch die Variationsrechnung haben wir die lokalen Bewegungsgleichungen durch
+ein globales Konzept der extremalen Wirkung ersetzt. Dadurch ergeben sich sehr
+markante Vorteile.
+\begin{itemize}[label=\labelitem]
+  \item Der Lagrange besteht aus den experimentell zugänglichen Größen $T$
+  kinetische Energie und $V$ potentielle Energie.
+  \item Das Variationsprinzip ist invariant unter Koordinatentransformation.
+  Man erhält sehr einfach die Bewegungsgleichungen in krumlinigen Koordinaten. 
+  \item Die Größen $q^i$ können beliebige verallgemeinerte Koordinaten sein 
+ und beliebige Enheiten annehmen.
+  \item Symmetrien und Erhaltungsgrößen sind im Lagrange Formalismus sehr
+  elegant zur formulieren.
+\end{itemize}
+
+\begin{bsp}
+Betrachte ein Teilchen in der Ebene im Zentralpotential $V(r)$.
+\begin{figure}[!htbp]
+  \centering
+\begin{pspicture}(0,-1.2)(3.45,1.6)
+\psline{->}(0.2453125,-0.87457985)(3.2453125,-0.87457985)
+\psline{->}(0.4453125,-1.0745798)(0.4453125,1.3254201)
+\psline{->}(0.44,-0.8804687)(1.5,0.19953126)
+\psline[linecolor=yellow]{->}(1.56,0.25953126)(2.3,0.35953125)
+\psarc(0.6,-0.9){0.6}{2.29061}{57.380756}
+\psdots[linecolor=darkblue](1.56,0.25953126)
+
+\rput(0.9,-0.65){\color{gdarkgray}$\ph$}
+\rput(1.06,0.10953125){\color{gdarkgray}$\vec{r}$}
+\rput(2.2867188,0.58953124){\color{gdarkgray}$\vec{v}$}
+\rput(3.3054688,-1.0304687){\color{gdarkgray}$x$}
+\rput(0.2878125,1.4495312){\color{gdarkgray}$y$}
+\end{pspicture}
+  \caption{Teilchen in der Ebene.}
+\end{figure}
+
+In karthesischen Koordinaten ist
+\begin{align*}
+&T = \frac{m}{2}(\dot{x}^2+\dot{y}^2)\\
+&V=V(\sqrt{x^2+y^2})
+\end{align*}
+und die verallgeminerten Koordinaten haben die Form $q^1 = x, q^2 = y$.
+
+
+In Polarkoordinaten ist $q^1 = r\cos \ph, q^2 = r\sin \ph$.
+Die kinetische Energie hat hier die Form,
+\begin{align*}
+T&=\frac{m}{2}\left(\left(\dot{r}\cos\ph - r\sin\ph\right)^2
++ \left(\dot{r}\sin\ph + r\cos\ph\right)^2\right)\\
+&= \frac{m}{2}\left(
+\dot{r}^2 \cos^2\ph + r^2\sin^2\ph \dot{\ph} + \dot{r}^2\sin^2\ph
++ r^2\cos^2\ph\dot{\ph}^2 \right)\\
+&= \frac{m}{2}\left(\dot{r}^2 + r^2\dot{\ph}^2\right).
+\end{align*}
+Der Lagrange ist also,
+\begin{align*}
+L(r,\ph,\dot{r},\dot{\ph}) =\frac{m}{2}\left(\dot{r}^2+r^2\dot{\ph}^2\right) -
+V(r).
+\end{align*}
+Die Euler-Lagrange-Gleichung hat nun die Form,
+\begin{align*}
+&\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{r}} - \frac{\partial
+L}{\partial r}
+= m\ddot{r} - mr\dot{\ph}^2 + V'(r) = 0.\\
+&\frac{\diffd}{\dt}\frac{\partial L}{\partial \dot{\ph}} - \frac{\partial
+L}{\partial \ph}
+= \frac{\diffd}{\dt}mr^2\dot{\ph}  = 0 \Rightarrow mr^2\dot{\ph} = \const.
+\end{align*}
+Wir erhalten so sofort die Drehimpulserhaltung,
+\begin{align*}
+L_z = m(\dot{x}y-x\dot{y}) = mr^2\dot{\ph} = \const.
+\end{align*}
+\end{bsp}
+
+\begin{bemn}[Bemerkungen zu den Größen.]
+\begin{itemize}[label=\labelitem]
+  \item $q^i$: Verallgemeinerte Koordinaten.
+  \item $p_i = \frac{\partial L}{\partial \dot{q}^i}$: Verallgemeinerte
+  Impulse.\footnote{Auch generalisierter, kanonischer, kanonisch
+  konjugierter oder konjugierter Impuls.}
+  \item $\frac{\partial L}{\partial q^i}$: Verallgemeinerte Kräfte.
+\end{itemize}
+Die verallgemeinerten Größen können unter Koordinatentransformation ihre
+Dimension ändern, die $q^i$ beispielsweise müssen also in beliebigen
+krummlinigen Koordinaten nicht mehr die Einheit einer Länge haben.\maphere
+\end{bemn}
+
+\begin{defnn}
+Eine Koordinate $q^i$ heißt \emph{zyklisch}, wenn $L$ nicht von $q^i$ abhängt,
+\begin{align*}
+\frac{\partial L}{\partial q^i} = 0.\fishhere
+\end{align*}
+\end{defnn}
+
+\begin{propn}
+Für zyklische Koordinaten ist der dazugehörige kanonische Impuls
+ eine Erhaltungsgröße.
+\begin{align*}
+\frac{\partial L}{\partial q^i} = 0 \Rightarrow \frac{\diffd p_i}{\dt} =
+0 \Rightarrow p_i=\frac{\partial L}{\partial \dot{q}^i} = \const.\fishhere
+\end{align*}
+\end{propn}
+
+\begin{bsp}
+Betrachte erneut ein Teilchen in der Ebene im Zentralpotential. Der Lagrange
+hat in Polarkoordinaten die Form
+\begin{align*}
+L(r,\ph,\dot{r},\dot{\ph}) = \frac{m}{2}\left(\dot{r}^2 + r^2\dot{\ph}^2
+\right)-V(r).
+\end{align*}
+Offensichtlich ist $\ph$ zyklisch, wir erhalten so die Drehimpulserhaltung
+\begin{align*}
+L = p_\ph = \frac{\partial L}{\partial\dot{\ph}} = mr^2\dot{\ph} =
+\const.\bsphere
+\end{align*}
+\end{bsp}
+
+\begin{bemn}
+Unterscheiden sich zwei Lagrange Funktionen $L$ und $L'$ nur durch eine totale
+Ableitung,
+\begin{align*}
+L' = L + \frac{\diffd}{\dt}F,
+\end{align*}
+so führt dies auf dieselben Bewegungsgleichungen.\maphere
+\end{bemn}
+\begin{proof}
+Dies ergibt sich direkt, wenn wir die Wirkung betrachten,
+\begin{align*}
+S'(\gamma) = 
+\int\limits_{t_1}^{t_2} \dt L' =
+\int\limits_{t_1}^{t_2} \dt \left(L + \frac{\diffd}{\dt} F\right) =
+\left(\int\limits_{t_1}^{t_2} \dt L\right) + F\big|_{t_1}^{t_2}. 
+\end{align*}
+Nun hängt $F$ nicht von $\gamma$ ab und daher ist ein zu $L$ extremales
+$\gamma$ auch extremal zu $L'$.\qedhere
+\end{proof}
+
+\begin{bsp}
+Potentiale lassen sich nicht eindeutig definieren, denn zwei Potentiale, die
+sich durch eine Konstante unterscheiden
+\begin{align*}
+V(q^i),\qquad V'(q^i) = V(q^i) + V_0,
+\end{align*}
+führen zu zwei Lagrange Gleichungen, die sich lediglich durch eine totale
+Ableitung unterscheiden,
+\begin{align*}
+L' - L = V_0 = \frac{\diffd}{\dt}(t\cdot V_0).\bsphere
+\end{align*}
+\end{bsp}
+
+\subsection{Lorentz-Kraft}
+Aus Experimenten wissen wir, dass ein geladenes Teilchen im elektrischen Feld
+$\vec{E}$ und magnetischem Feld $\vec{B}$ die Lorentz-Kraft erfährt,
+\begin{align*}
+\vec{F} = q\cdot\vec{E} + \frac{q}{c}\vec{v}\times\vec{B}.
+\end{align*}
+Nun lassen sich diese Felder über Potentiale definieren,
+\begin{align*}
+&\vec{E} = -\nabla \phi - \frac{1}{c}\frac{\partial}{\partial
+t}\vec{A},\\& \vec{B} = \rot\vec{A},
+\end{align*} 
+mit einem Skalarpotential $\phi$ und einem Vektorpotential $\vec{A}$. $\vec{A}$
+und $\phi$ sind nicht eindeutig und insbesondere nicht experimentell zugänglich;
+lediglich das vom Potential erzeugte Feld lässt sich messen.
+
+Lagrange Funktion und Euler-Lagrange-Gleichung haben die Form,
+\begin{align*}
+&L(\vec{r},\dvec{r},t) = \frac{m}{2}\dvec{r}^2 - q\left[\phi(\vec{r},t) -
+\frac{\dvec{r}}{c}\vec{A}(\vec{r},t) \right],\\
+&m\ddvec{r} = \vec{F}_L = q\vec{E} + \frac{q}{c}\vec{v}\times\vec{B}.
+\end{align*}
+Der kanonische Impuls hat nun die Form,
+\begin{align*}
+\vec{p} = \frac{\partial L}{\partial \dvec{r}} = m\dvec{r} +
+\frac{q}{c}\vec{A}(\vec{r},t).
+\end{align*}
+\begin{bemn}[Übungsaufgabe:]
+Zeige, dass die Euler-Lagrange-Gleichungen die Lorentzkraft ergeben.
+\end{bemn}
+
+Da die Potentiale $\phi$ und $\vec{A}$ nicht eindeutig sind, lassen sich
+Transformationen definieren unter denen $\vec{E}$- und $\vec{B}$-Feld
+invariant sind:
+\begin{align*}
+&\vec{A}\mapsto \vec{A}' = \vec{A} + \nabla \lambda(\vec{r},t),\\
+&\phi\mapsto \phi' = \phi - \frac{1}{c}\partial_t \lambda(\vec{r},t).
+\end{align*}
+Diese Transformationen werden \emph{Eichtransformationen} genannt. Wendet man
+eine Eichtransformation an, unterscheidet sich der Lagrange wieder nur um eine
+totale Ableitung,
+\begin{align*}
+L' &= \frac{m}{2}\dvec{r}^2 - q\left[\phi - \frac{1}{c}\partial_t \lambda -
+\frac{\dvec{r}}{c}\left(\vec{A} + \nabla\lambda\right)\right]
+= L + \frac{q}{c}\left[\partial_t \lambda + \dvec{r}\nabla\lambda \right] \\ 
+&=L+ \frac{q}{c}\frac{\diffd}{\dt}\lambda.
+\end{align*}
+
+\subsection{Noether Theorem}
+
+Wir kennen bereits eine ganz spezielle Symmetrie, die zyklischen Koordinaten,
+und haben gesehen, dass diese uns stets eine Erhaltungsgröße liefert. Wir
+wollen nun einen allgemeinen Zusammenhangen zwischen Symmetrien und
+Erhaltungssätzen aufstellen.
+
+Betrachte eine kontinuierliche Schar von Koordinatentransformationen,
+\begin{align*}
+h_s^i:\; &q^i \mapsto \tilde{q}^i = h_s^i(q^j),\\
+&\dot{q}^i \mapsto \dot{\tilde{q}}^i = \sum_j \frac{\partial h_s^i}{\partial
+q^j}\dot{q}^j\\
+h_0^i:\; &q^i \mapsto q^i.
+\end{align*}
+
+\begin{bsp}
+Translationen haben so die Form,
+\begin{align*}
+&q^i \mapsto \tilde{q}^i + s\cdot a^i,\\
+&\dot{q}^i \mapsto \dot{\tilde{q}}^i  = \dot{q}^i.\bsphere
+\end{align*}
+\end{bsp}
+\begin{bsp}
+Eine Rotation um die $z$-Achse ist gegeben durch,
+\begin{align*}
+&\vec{r} \mapsto \vec{r}' = R(s)\vec{r} =
+\begin{pmatrix}
+\cos s & \sin s & 0\\
+-\sin s & \cos s & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+q^1 \\ q^2 \\ q^3 
+\end{pmatrix},\\
+&\dvec{r}\mapsto \dvec{r}' = R(s)\dvec{r}.
+\end{align*}
+Für $s=0$ ist $R=\Id$.\bsphere
+\end{bsp}
+
+Die Schar von Koordinatentransformationen ist eine \emph{Symmetrie des Systems},
+wenn sie den Lagrange nicht verändert, d.h. wenn
+\begin{align*}
+&L(\tilde{q}^i,\dot{\tilde{q}}^i,t) = L(q^i,\dot{q}^i,t), \forall s,\\
+\Leftrightarrow\; & \frac{\diffd}{\ds}L(\tilde{q}^i,\dot{\tilde{q}}^i,t) = 0.
+\end{align*}
+
+\begin{propn}[Noether Theorem]
+Für eine Symmetrie $h_s^i$ gibt es eine Erhaltungsgröße der Form,
+\begin{align*}
+I(q^i,\dot{q}^i) = \sum_i \frac{\partial L}{\partial \dot{q}^i}
+\frac{\diffd h_s^i(q^i)}{\ds} \bigg|_{s=0}.\fishhere
+\end{align*}
+\end{propn}
+
+\begin{bsp}
+$L(r,\dot{r},\ph,\dot{\ph})$ und $\ph$ ist zyklisch.
+\begin{align*}
+\left.
+\begin{aligned}
+&h_s^i: \ph\mapsto \ph+s,\\
+&\frac{\diffd h_s}{\diffd s} = 1
+\end{aligned}
+\right\}\Rightarrow \frac{\partial L}{\partial \dot{\ph}} =
+I(q^i,\dot{q}^i).\bsphere
+\end{align*}
+\end{bsp}
+
+\begin{proof}[Beweis des Noether Theorems.]
+Sei $q^i(t)$ eine Lösung der Bewegungsgleichung, dann ist $\tilde{q}^i(t) =
+h_s^i(q^i(t))$ ebenfalls eine Lösung der Bewegungsgleichung.
+\begin{align*}
+0 &= \frac{\diffd}{\ds}L(\tilde{q}^i,\dot{\tilde{q}}^i,t)
+= \sum_i \left[\frac{\partial L}{\partial q^i}\frac{\diffd}{\ds} \tilde{q}^i +
+\frac{\partial L}{\partial \dot{q}^i}\frac{\diffd}{\ds}\dot{\tilde{q}}^i
+\right]\\ &= \sum_i \left[\left(\frac{\diffd}{\dt}\frac{\partial L}{\partial
+\dot{q}^i}\right)\frac{\diffd}{\ds}\tilde{q}^i + \frac{\partial
+L}{\partial \dot{q}^i}\frac{\diffd}{\dt}\left(\frac{\diffd}{\ds}\tilde{q}^i
+\right) \right]\\
+&= \sum_i \frac{\diffd}{\dt} \left[\frac{\partial L}{\partial
+\dot{q}^i}\frac{\diffd}{\ds}\tilde{q}^i \right].
+\end{align*}
+Also ist $\sum_i\dfrac{\partial L}{\partial
+\dot{q}^i}\dfrac{\diffd}{\ds}\tilde{q}^i$ eine Erhaltungsgröße für alle $s$, also auch für $s=0$ und damit gilt,
+\begin{align*}
+\left.\frac{\diffd}{\dt} \sum_i\left[\frac{\partial L}{\partial
+\dot{q}^i}\frac{\diffd}{\ds}\tilde{q}^i \right]\right|_{s=0} = 0.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{bsp}
+%\begin{enumerate}[label=\arabic{*}.)]
+\textit{Translationssymmetrie in einem System von $N$ Teilchen.}
+\begin{align*}
+&\vec{r}_i \mapsto \vec{r}_i + s\vec{a},\\
+&\dvec{r}_i \mapsto \dvec{r}_i',
+\end{align*}
+wobei $\vec{a}$ ein beliebiger aber von $i$ unabhängiger Translationsvektor
+ist, d.h. das ganze Teilchensystem wird um $s\vec{a}$ verschoben. 
+\begin{align*}
+&\frac{\diffd}{\ds} h_s^i = \frac{\diffd}{\ds} \left(\vec{r}_i + s\vec{a}\right)
+= \vec{a}.\\
+&\frac{\partial L}{\partial \dvec{r}_i} = \vec{p}_i. 
+\end{align*}
+Wir erhalten somit die Erhaltungsgröße,
+\begin{align*}
+I(\vec{r}_i,\dvec{r}_i) = \sum_i \left(\vec{p}_i\cdot \vec{a}\right) =
+\left(\sum_i \vec{p}_i\right)\cdot\vec{a} = \vec{p}_\tot\cdot\vec{a}.
+\end{align*}
+Liegt eine Translationssymmetrie entlang allen Koordinatenachsen vor, so	 gilt
+\begin{align*}
+\vec{p}_\tot = \sum_i \vec{p}_i = \const.
+\end{align*}
+Im Schwerefeld mit Gravitation in $z$-Richtung und Translationssymmetrie in $x$-
+und $y$-Richtung wären nur $\vec{p}_x$ und $\vec{p}_y$ erhalten.\bsphere
+\end{bsp}
+\begin{bsp}
+\textit{Rotationssymmetrie.} Für kleine Winkel können wir die Rotation um
+die Achse $\vec{n}$ schreiben als,
+\begin{align*}
+\vec{r}_i \mapsto \vec{r}_i + s\vec{n}\times\vec{r}_i,\\
+\dvec{r}_i \mapsto \dvec{r}_i + s\vec{n}\times\dvec{r}_i.
+\end{align*}
+\begin{align*}
+&\frac{\diffd}{\ds} h_s^i = \frac{\diffd}{\ds}\left(\vec{r}_i +
+s\vec{n}\times\vec{r}_i\right) = \vec{n}\times\vec{r}_i,\\
+& I(\vec{r}_i,\dvec{r}_i) = \sum_i \vec{p}_i \cdot \vec{n}\times \vec{r}_i =
+\sum_i \vec{n}\cdot \vec{r}_i\times\vec{p}_i = \vec{n}\sum_i \vec{L}_i =
+\vec{n}\cdot \vec{L}_\tot.
+\end{align*}
+Bei Rotationssymmetrie entlang aller Koordinatenachsen ist der
+Gesamtdrehimpuls $\vec{L}_\tot$ erhalten.
+\end{bsp}
+\begin{bemn}[Übungsaufgabe:]
+Welcher Teil des Drehimpulses ist nicht erhalten, wenn die
+Rotationssymmetrie nur um die $z$-Achse gegeben ist?
+\end{bemn}
+\begin{bsp}
+\textit{Galilei Boost.}
+\begin{align*}
+&\vec{r}_i \mapsto \vec{r}_i + s\vec{v}t\\
+&\dvec{r}_i \mapsto \dvec{r}_i + s\vec{v}
+\end{align*}
+Die Lagrangefunktion ist nicht invariant unter dieser Operation, sondern ändert
+sich um eine totale Ableitung,
+\begin{align*}
+L\mapsto L'=L + \sum_i\left[\frac{m_i}{2}s^2\vec{v}^2 + m_i\dvec{r} \vec{v}s
+\right]= L + \frac{\diffd}{\dt}
+\left(\underbrace{\sum_i \frac{m_i}{2}s^2\vec{v}^2t + m_i
+s\vec{r}\vec{v}}_{F(q^i,\dot{q}^i)}\right).
+\end{align*}
+Jedoch gilt $\dfrac{\diffd}{\ds}L = 0$ und damit auch
+\begin{align*}
+0 = \dfrac{\diffd}{\ds}\left[L' - \frac{\diffd}{\dt}F\right]
+= \dfrac{\diffd}{\dt}\left[\sum_i\frac{\partial L}{\partial
+\dot{q}^i}\frac{\diffd h_s^i}{\ds} - \frac{\diffd}{\ds}F\right].
+\end{align*}
+Die Erhaltunsgröße hat somit die Form
+\begin{align*}
+I(q^i,\dot{q}^i) = \sum_i \frac{\partial L}{\partial q^i}\frac{\diffd
+h_s^i(q^i)}{\ds} - \frac{\diffd}{\ds} F(q^i,\dot{q}^i)\bigg|_{s=0}.
+\end{align*}
+Damit folgt der Schwerpunktssatz
+\begin{align*}
+\sum_i \vec{p}_i\vec{v}t - \sum_i m_i\vec{r}_i\vec{v} =
+\underbrace{\left(\sum_i \vec{p}_i t - \sum_i
+m\vec{r}_i\right)}_{\text{Erhaltungsgröße}}\vec{v} = \const.\bsphere
+\end{align*}
+%\end{enumerate}
+\end{bsp}
+
+\subsection{Energieerhaltung}
+Unser System ist homogen in der Zeit, d.h. kein Zeitpunkt ist ausgezeichnet.
+Betrachten wir also eine Translation der Zeit
+\begin{align*}
+&t\mapsto t' = t+a,
+\end{align*}
+so bleibt die Lagrangefunktion unverändert und ist daher nicht explizit von
+der Zeit abhängig,
+\begin{align*}
+&L = L' \quad \frac{\partial L}{\partial t} = 0.
+\end{align*}
+Sie ist natürlich implizit von der Zeit abhängig, da $q^i$ und $\dot{q}^i$ in
+$L(q^i(t),\dot{q}^i(t))$ von der Zeit abhängen. Die totale Ableitung
+$\frac{\diffd}{\dt} L$ muss daher auch nicht verschwinden, sondern es gilt
+\begin{align*}
+\frac{\diffd}{\dt} L(q^{i},\dot{q}^i) &= \sum_i \left[\frac{\partial L}{\partial
+q^{i}}\frac{\diffd}{\dt}q^{i} + \frac{\partial L}{\partial
+\dot{q}^{i}}\frac{\diffd}{\dt}\dot{q}^{i} \right] + \frac{\partial L}{\partial
+t}\\
+&= \sum_i \left[\left(\frac{\diffd}{\dt}\frac{\partial
+L}{\partial \dot{q}^i}\right)\frac{\diffd}{\dt}q^{i} + \frac{\partial
+L}{\partial \dot{q}^{i}}\frac{\diffd}{\dt}\dot{q}^{i} \right]\\
+&= \frac{\diffd}{\dt}\sum_i \frac{\partial L}{\partial\dot{q}^i}\dot{q}^i,\\
+\Rightarrow\; & \frac{\diffd}{\dt}\underbrace{\left[\sum_i \frac{\partial
+L}{\partial \dot{q}^i} \dot{q}^i - L\right]}_{:=H}=0.
+\end{align*}
+Die Energie,
+\begin{align*}
+H = \sum_i \vec{p}_i \dot{q}^i - L(q^i,\dot{q}^i),\qquad \vec{p}_i :=
+\frac{\partial L}{\partial \dot{q}^i}
+\end{align*}
+ist eine Erhaltungsgröße, die aus der Translationsinvarianz der Zeit folgt.
+
+\begin{bemn}
+Für geschwindigkeitsunabhängige Kräfte im Potential $V$ gilt,
+\begin{align*}
+&\frac{\partial L}{\partial \dot{q}^i} = \frac{\partial T}{\partial
+\dot{q}^i},\\
+&H = \sum_i \frac{\partial L}{\partial \dot{q}^i}\dot{q}^i - (T-V)  =
+T+V.\maphere
+\end{align*}
+\end{bemn}
+
+Wir haben somit für jede der 10 Symmetrien der Galilei-Gruppe eine
+Erhaltungsgröße gefunden.

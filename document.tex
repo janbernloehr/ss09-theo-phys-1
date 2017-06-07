@@ -1,0 +1,143 @@
+% =============================================================================
+% Titel:		Theoretische Physik I - Mitschrieb
+% Erstellt:	SS 09
+% Dozent:	Prof. H.P. Büchler
+% Autor:	Jan-Cornelius Molnar
+% =============================================================================
+\documentclass[paper=a5,fleqn,DIV=calc]{scrartcl}
+
+% =============================================================================
+% 					Benötigte Pakete
+% =============================================================================
+\usepackage{janmcommon}
+\usepackage{janmscript}
+
+% =============================================================================
+% 					Theorem Umgebungen
+% =============================================================================
+% Theorem Umgebungen *MIT* Numerierung
+\theoremstyle{graymarginwithblueheader}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{prop}{Satz}[section]
+\newtheorem{lem}[prop]{Lemma}
+\newtheorem{defn}[prop]{Definition}
+\newtheorem{cor}[prop]{Korollar}
+
+\theoremstyle{yellowheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bsp}{Bsp}[section]
+
+\theoremstyle{graymarginwithitblackheader}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bem}[prop]{Bemerkung.}
+
+% Theorem Umgebungen *OHNE* Numerierung
+\theoremstyle{graymarginwithblueheadern}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{propn}{Satz}
+\newtheorem{lemn}{Lemma}
+\newtheorem{corn}{Korollar}
+\newtheorem{defnn}{Definition}
+
+\theoremstyle{graymarginwithyellowheadern}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bspn}{Bsp}
+
+\theoremstyle{graymarginwithitblackheadern}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremsymbol{}
+
+\newtheorem{bemn}{Bemerkung.}
+
+
+% =============================================================================
+% 					Überschriften-Style
+% =============================================================================
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{\small\ensuremath{\blacksquare}\normalsize}
+\renewcommand\thebsp{\arabic{bsp}}
+
+\titleformat{\section}%
+  {\normalfont\bfseries\Huge\color{darkblue}}%
+  {\thesection}%
+  {0.6em}%
+  {}%
+  
+\titleformat{\subsection}%
+  {\normalfont\bfseries\Large\color{darkblue}}%
+  {\thesubsection}%
+  {0.6em}%
+  {}%
+
+\titleformat{\subsubsection}%
+  {\normalfont\bfseries\color{darkblue}}%
+  {\thesubsubsection}%
+  {0.2em}%
+  {}%
+  
+% =============================================================================
+% 					Sonstiges
+% =============================================================================
+
+% 4-er Vektoren der SRT 
+\newcommand{\rvec}[1]{\bm{\mathrm{#1}}}
+% Symplektische Notation
+\newcommand{\sym}[1]{\overline{#1}}
+
+% =============================================================================
+% 					Document-Body
+% =============================================================================
+\begin{document}
+
+% Titel
+\begin{center}
+{\huge\bf Theoretische Physik I - Mitschrieb}
+
+bei Prof. Dr. H.P. Büchler
+
+Jan-Cornelius Molnar, Version: \today\ \thistime
+\end{center}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+% Inhalt
+\newpage
+\input{01-Grundprinzipien.tex}
+
+\newpage
+\input{02-LagrangescheMechanik.tex}
+
+\newpage
+\input{03-ZweikoerperZentralKraft.tex}
+
+\newpage
+\input{04-SystemeZwangsbedingungen.tex}
+
+\newpage
+\input{05-SRT.tex}
+
+\newpage
+\input{06-StarreKoerper.tex}
+
+\newpage
+\input{07-HamiltonscheDynamik.tex}
+
+\end{document}

@@ -1,0 +1,824 @@
+\section{Hamilton'sche Dynamik}
+
+Ein Teilchen im Potential ist beschrieben durch,
+\begin{align*}
+L(q,\dot{q}) = \frac{m}{2}\dot{q}^2 - V(q).
+\end{align*}
+Hierbei sind $q$ und $\dot{q}$ nicht unabhängig von einander. Die
+Euler-Lagrange-Gleichungen, die eine Beziehung zwischen ihnen herstellen, sind
+Differentialgleichungen 2. Ordnung.
+
+Wir wollen nun zu neuen Koordinaten $q$, $p$ übergehen, so dass wir eine
+Differentialgleichung 1. Ordnung erhalten.
+
+Der Hamilton'sche Impuls $p=\frac{\partial L}{\partial \dot{q}}$ erfüllt die
+Relationen
+\begin{align*}
+&\dot{q} = \frac{p}{m},\\
+&\dot{p} = m\ddot{q} = -\frac{\partial V}{\partial q}.
+\end{align*}
+Wir wollen diese Relationen durch eine neue Funktion $H$ beschreiben,
+\begin{align*}
+&\dot{q} = \frac{p}{m} = \frac{\partial H}{\partial p},\\
+&\dot{p} = -\frac{\partial V}{\partial q} = -\frac{\partial H}{\partial q}.
+\end{align*}
+Diese Funktion heißt \emph{Hamiltonfunktion} und ist gegeben durch,
+\begin{align*}
+H(q,p) = \frac{p^2}{2m} + V(q).
+\end{align*}
+Die Gleichungen
+\begin{align*}
+&\dot{q} = \frac{p}{m} = \frac{\partial H}{\partial p},\\
+&\dot{p} = -\frac{\partial V}{\partial q} = -\frac{\partial H}{\partial q},
+\end{align*}
+heißen \emph{Hamilton'sche Bewegungsgleichungen}, $(q,p)$ sind harmonische
+Variablen.
+
+\subsection{Legendre Transformation}
+
+Wir betrachten die Funktion $f(x)$ mit Variable $x$ und definieren uns eine
+neue Funktion $g(y)$, die \emph{Legendre Transformierte} von $f(x)$, mit der
+neuen Variablen $y$ mittels,
+\begin{align*}
+&y := \frac{\diffd f}{\dx},\\
+&g(y) := [xy-f(x)](y).
+\end{align*}
+Um die ``alte" Variable $x$ durch einen von $y$ abhängigen Ausdruck ersetzen zu
+können, muss die Gleichung $y = \frac{\diffd f}{\dx}$ nach $x$ aufgelöst
+werden $x(y)$. Dies ist nur dann eindeutig, falls $\frac{\diffd^2
+f}{\dx^2}\neq 0$ für alle $x$.
+
+\begin{bsp}
+Sei $f(x) = x^2$, dann ist $y=\frac{\diffd f}{\dx} = 2x\Rightarrow
+x=\frac{1}{2}y$. Die Legendre-Transformierte $g(y)=xy-f(x)$ ist gegeben durch,
+\begin{align*}
+g(y) = \frac{y^2}{2} - x^2 = \frac{y^2}{2} - \frac{y^2}{4} =
+\frac{y^2}{4}.\bsphere
+\end{align*}
+\end{bsp}
+
+\begin{bemn}[Geometrische Deutung.]
+Die Legendre-Transformation beschreibt eine Funktion $f$ in eindeutiger
+Weise, indem sie jeder Steigung $y=\frac{\df}{\dx}$ den $y$-Achsen-Abschnitt der dort
+anliegenden Tangente zuordnet. Die Funktion $f$ wird somit vollständig durch ihre
+Einhüllenden charakterisiert.\maphere
+%TODO: Skizze
+\end{bemn}
+
+\begin{propn}[Theorem]
+Die Legendre-Transformation von $g(y)$ ergibt wieder die Funktion $f(x)$, falls
+$g(y)$ die Legendre-Transformation von $f(x)$ ist.\fishhere
+\end{propn}
+\begin{proof}
+Betrachte dazu,
+\begin{align*}
+z &= \frac{\diffd g}{\dy} = \frac{\diffd}{\dy}\left[ xy-f(x) \right](y)
+= x \frac{\diffd }{\dy}y + y \frac{\diffd}{\dy}x  - \frac{\diffd}{\dy}f(x)
+\\ &= x + y\frac{\diffd}{\dy}x - \frac{\diffd f(x)}{\dx}\frac{\dx}{\dy}
+= x + \frac{\diffd f}{\dx}\frac{\dx}{\dy} - \frac{\diffd
+f}{\dx}\frac{\dx}{\dy}.
+\end{align*}
+Die Legendre-Transformation von $g(y)$ ist
+\begin{align*}
+h(z) = zy - g(y) = zy-\left[xy-f(x)\right](y) = 
+xy - \left[xy-f(x)\right] = f(x).\qedhere
+\end{align*}
+\end{proof}
+
+\subsection{Hamilton-Funktion und Hamiltonsche Bewegungsgleichung}
+
+Wir erhalten die Hamiltonfunktion indem wir eine Legendre-Transformation auf
+die Lagrangefunktion anwenden,
+\begin{align*}
+L(q^\alpha,\dot{q}^\alpha,t).
+\end{align*}
+Dabei sei $q^\alpha$ fest und unsere neue Variable der kanonischer Impuls,
+\begin{align*}
+p^\alpha \equiv \frac{\partial L}{\partial \dot{q}^\alpha}.
+\end{align*}
+Die Legendre-Transformation hat dann die Form,
+\begin{align*}
+H(q^\alpha, p_\alpha,t) = \left[\sum_\alpha p_\alpha \dot{q}^\alpha -
+L\right]_{q^\alpha,p_\alpha,t}.
+\end{align*}
+Um die Bewegungsgleichungen zu erhalten, betrachte das Differential,
+\begin{align*}
+\diffd H &= \sum_\alpha\left[ \frac{\partial H}{\partial p_\alpha}\ddp_\alpha +
+\frac{\partial H}{\partial q^\alpha} \ddq^\alpha\right] + \frac{\partial
+H}{\partial t}\dt \overset{!}{=} \diffd\left[\sum_\alpha p_\alpha\dot{q}^\alpha - L 
+\right]\\
+&= \sum_\alpha \left[\dot{q}^\alpha\ddp_\alpha +
+p_\alpha\ddotq^\alpha  - \frac{\partial L}{\partial q^\alpha}\ddq^\alpha -
+\frac{\partial L}{\partial \dot{q}_\alpha} \diffd\dot{q}^\alpha  \right] +
+\frac{\partial L}{\partial t}\dt.
+\end{align*}
+Somit folgt für die Bewegungsgleichungen,
+\begin{align*}
+&\frac{\partial H}{\partial p_\alpha} = \dot{q}^\alpha,\\
+&\frac{\partial H}{\partial q^\alpha} = -\dot{p}_\alpha.
+\end{align*}
+Die Hamiltonfunktion und die Hamilton'schen Bewegungsgleichungen sind
+äquivalent zur Lagrangefunktion und den Euler-Lagrange-Gleichungen.
+\begin{bemn}[Alternative Herleitung.]
+Obwohl das totale Differential $\diffd H$ sehr elegant auf die Hamiltonschen
+Bewegungsgleichungen führt, wollen wir noch eine alternative Herleitung
+betrachten.
+\begin{align*}
+\frac{\partial H}{\partial p_\alpha} &= \frac{\partial}{\partial p_\alpha}\left[
+\sum_\beta \dot{q}^\beta p_\beta -L \right] = \dot{q}^\alpha + \sum_\beta
+p_\beta \frac{\partial\dot{q}^\beta}{\partial p_\alpha} - \frac{\partial
+L}{\partial p_\alpha}
+\\ &= \dot{q}^\alpha + \sum_\beta \frac{\partial \dot{q}^\beta}{\partial
+p_\alpha}\left[p_\beta - \frac{\partial L}{\partial \dot{q}^\beta}\right] =
+\dot{q}^\alpha.
+\end{align*}
+Die Rechnung für $\frac{\partial H}{\partial q^\alpha}$ funktioniert
+analog.\maphere
+\end{bemn}
+
+\begin{bsp}
+%\begin{enumerate}[label=\arabic{*}.)]
+%  \item
+ Sei $L(q,\dot{q}) = \frac{m}{2}\dot{q}^2 - V(q)$. Wir wollen die
+  Hamiltonfunktion nun mit Hilfe der Legendretransformation berechnen,
+\begin{align*}
+p &= \frac{\partial L}{\partial \dot{q}} = m\dot{q} \Rightarrow \dot{q} =
+\frac{p}{m}.\\
+H(q,p) &= \dot{q}p - L = p\left(\frac{p}{m}\right) -
+\frac{m}{2}\left(\frac{p}{m}\right)^2 + V(q) = \frac{p^2}{2m} + V(q).
+\end{align*}
+Die Hamiltonschen Bewegungsgleichungen lauten also,
+\begin{align*}
+&\dot{q} = \frac{\partial H}{\partial q} = \frac{p}{m},\\
+&\dot{p} = -\frac{\partial H}{\partial q} = - V'(q) =
+\frac{\diffd}{\dt}(m\dot{q}) = m\ddot{q}.\bsphere
+\end{align*}
+\end{bsp}
+\begin{bsp}
+%\item
+ Wir betrachten die Lagrangefunktion in Polarkoordinaten,
+\begin{align*}
+L(r,\ph,\dot{r},\dot{\ph}) = \frac{m}{2}\left(\dot{r}^2 + r^2 \dot{\ph}^2
+\right) - V(r).
+\end{align*}
+Die Impulse haben nun die Form,
+\begin{align*}
+&p_r = \frac{\partial L}{\partial \dot{r}} = m\dot{r} \Rightarrow \dot{r} =
+\frac{p_r}{m},\\
+&p_\ph = \frac{\partial L}{\partial \dot{\ph}} = mr^2\dot{\ph} \Rightarrow
+\dot{\ph} = \frac{p_\ph}{mr^2}.
+\end{align*}
+Die Hamiltonfunktion ist daher
+\begin{align*}
+H(r,\ph,p_r,p_\ph) &= p_\ph \dot{\ph} + p_r \dot{r} - L(r,\ph,\dot{r},\dot{\ph})
+\\ &= \frac{p_\ph^2}{mr^2} + \frac{p_r^2}{m} -
+\frac{m}{2}\left(\frac{p_r}{m}\right)^2 -
+\frac{m}{2}r^2\left(\frac{p_\ph}{mr^2}\right)^2 + V(r)
+\\ &= \frac{1}{2}\frac{p_\ph^2}{mr^2} + \frac{1}{2}\frac{p_r^2}{m} + V(r).
+\end{align*}
+$\ph$ ist zyklisch, d.h. $p_\ph$ ist erhalten. Im Lagrange müssten wir noch
+$\dot{\ph}$ durch $p_\ph$ ausdrücken, in der Hamiltonfunktion ist dies nicht
+mehr notwendig.\bsphere
+\end{bsp}
+\begin{bsp}
+%\item
+Teilchen im äußeren EM-Feld.
+\begin{align*}
+&L(\vec{x},\dvec{x}) = \frac{m}{2}\dvec{x}^2 - e\left(\phi(\vec{x}) -
+\frac{\dvec{x}}{c}\vec{A} \right)\\
+&\vec{p}_x = m\dvec{x} + \frac{e}{c}\vec{A}
+\end{align*}
+Die Hamiltonfunktion hat nun die Form,
+\begin{align*}
+H(\vec{x},\vec{p}_x) &= \vec{p}\dvec{x} - L =
+\frac{\vec{p}}{m}\left(\vec{p}-\frac{e}{c}\vec{A}(x) \right) -
+\frac{1}{2m}\left(\vec{p}-\frac{e}{c}\vec{A}(x) \right)^2 \\ &\quad+ e\phi(x) 
+- \frac{e}{cm}\left(\vec{p}-\frac{e}{c}\vec{A}(x) \right)\vec{A}(x)\\
+&= \left(\vec{p}-\frac{e}{c}\vec{A}(x)
+\right)\left[\frac{\vec{p}}{m}-\frac{1}{2m}\left(\vec{p}-\frac{e}{c}\vec{A}(x)
+\right) - \frac{e}{cm}\vec{A}(x)\right] \\ &\quad+ e\phi(x)\\
+&= \left(\vec{p}-\frac{e}{c}\vec{A}(x) \right)\left[\frac{\vec{p}}{2m} -
+\frac{e}{2mc}\vec{A}(x) \right] + e\phi(x)\\
+&= \frac{1}{2m}\left(\vec{p}-\frac{e}{c}\vec{A}(x) \right)^2 +
+e\phi(x).\bsphere
+\end{align*}
+%\end{enumerate}
+\end{bsp}
+
+\begin{bemn}
+Falls das Problem mit verallgemeinerten Koordinaten zeitunabhängig ist, so gilt,
+\begin{align*}
+L = T-V \Rightarrow H=T+V
+\end{align*} 
+und der Wert von $H$ ist die Energie, denn
+\begin{align*}
+H= \underbrace{\sum_\alpha \dot{p}^\alpha p_\alpha}_{2T} - \underbrace{L}_{T-V}
+= T+V.
+\end{align*}
+Die allgemeine Form der kinetischen Energie ist,
+\begin{align*}
+T = \sum_{\alpha,\beta} g_{\alpha\beta} \dot{q}^\alpha\dot{q}^\beta.\maphere
+\end{align*}
+\end{bemn}
+
+\subsection{Poisson-Klammern}
+Wir betrachten eine Messgröße $F(q,p,t)$ und berechnen ihre Zeitableitung.
+\begin{bsp}
+$L_z = xp_y - yp_x$, Drehimpuls in $z$-Richtung.\bsphere
+\end{bsp}
+\begin{align*}
+\frac{\diffd F}{\dt} &= \frac{\partial F}{\partial t} + \sum_\alpha \left[
+\frac{\partial F}{\partial q^\alpha}\frac{\diffd q^\alpha}{\dt} +
+\frac{\partial F}{\partial p_\alpha} \frac{\diffd p_\alpha}{\dt}
+\right] =
+\frac{\partial F}{\partial t} + \sum_\alpha \left[
+\frac{\partial F}{\partial q^\alpha}\frac{\partial H}{\partial p_\alpha} -
+\frac{\partial F}{\partial p_\alpha} \frac{\partial H}{\partial q^\alpha}
+\right]\\
+&\equiv \frac{\partial F}{\partial t} + \setd{F,H}.
+\end{align*}
+Dabei haben wir die \emph{Poissonklammer} eingeführt, die definiert ist als
+\begin{align*}
+\setd{A,B} := \sum_\alpha \left[
+\frac{\partial A}{\partial q^\alpha}\frac{\partial B}{\partial p_\alpha} -
+\frac{\partial A}{\partial p_\alpha} \frac{\partial B}{\partial q^\alpha}
+\right].
+\end{align*}
+\begin{bemn}[Bemerkungen.]
+\begin{enumerate}[label=\arabic{*}.)]
+  \item 
+Falls $F$ nicht explizit von der Zeit abhängig ist, d.h. $\frac{\partial
+F}{\partial t} = 0$, ist $F(q,p)$ genau dann eine Erhaltungsgröße, wenn
+$\setd{F,H} = 0$.
+\item
+Falls $H$ nicht explizit von der Zeit abhängig ist, ist $H$ erhalten,
+\begin{align*}
+\setd{H,H} = \sum_\alpha \left[
+\frac{\partial H}{\partial q^\alpha}\frac{\partial H}{\partial p_\alpha} -
+\frac{\partial H}{\partial p_\alpha} \frac{\partial H}{\partial q^\alpha}
+\right].\maphere
+\end{align*}
+\end{enumerate}
+\end{bemn}
+
+\begin{bemn}[Spezialfälle.]
+Sei $F(q^\alpha,p^\alpha)=q^\alpha$ oder $p_\alpha$, so ist $\frac{\partial
+F}{\partial t} = 0$ und,
+\begin{align*}
+\dot{q}^\alpha &= \setd{q^\alpha,H} = \sum\limits_\beta \left[ \frac{\partial
+q^\alpha}{\partial q^\beta}\frac{\partial H}{\partial p^\beta} - \frac{\partial
+q^\alpha}{\partial p_\beta}\frac{\partial H}{\partial q^\beta} \right]
+= \frac{\partial H}{\partial p^\alpha},\\
+\dot{p}_\alpha &= \setd{p_\alpha, H} = \sum_\beta \left[ 
+\frac{\partial p_\alpha}{\partial q^\beta}\frac{\partial H}{\partial p_\beta} -
+\frac{\partial p_\alpha}{\partial p_\beta}\frac{\partial H}{\partial q^\beta}
+\right]
+= -\frac{\partial H}{\partial q^\alpha}.\maphere
+\end{align*}
+\end{bemn}
+
+\begin{propn}[Eigenschaften]
+Die Poisson-Klammer ist ein bilinearer Differentialoperator mit den
+Eigenschaften,
+\begin{enumerate}[label=(\roman{*})]
+  \item $\setd{A,B+C}=\setd{A,B}+\setd{A,C}$,\qquad (\textit{Linearität}),
+  \item $\setd{A,B} = -\setd{B,A} \Rightarrow \setd{A,A} = 0$,\qquad
+  (\textit{Antisymmetrie}),
+  \item $\setd{A,c} = 0$ für $c\in\R$,
+  \item $\setd{A,\setd{B,C}} + \setd{B,\setd{C,A}} + \setd{C,\setd{A,B}} =
+  0$,\qquad (\textit{Jacobi Identität}).\fishhere
+\end{enumerate}
+\end{propn}
+
+\begin{bemn}
+$\setd{q^\alpha,p_\beta} = \delta_{\alpha\beta}$.
+\begin{proof}
+$\sum_\gamma \underbrace{\frac{\partial q^\alpha}{\partial
+q^\gamma}}_{\delta_{\alpha\gamma}}
+\underbrace{\frac{\partial p_\beta}{p_\gamma}}_{\delta_{\beta\gamma}} -
+\underbrace{\frac{\partial q^\alpha}{\partial
+p_\gamma}}_{0}\underbrace{\frac{\partial p^\beta}{\partial
+q^\gamma}}_{0}$.\qedhere\maphere
+\end{proof}
+\end{bemn}
+
+\subsubsection{Symplektische Notation}
+
+Die Hamiltonschen Bewegungsgleichungen lassen sich in einer Gleichung in
+folgender Form zusammenfassen,
+\begin{align*}
+\begin{pmatrix}
+\dot{q}\\\dot{p}
+\end{pmatrix}
+=
+\underbrace{\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}}_{\ep_{ij}}
+\begin{pmatrix}
+\frac{\partial H}{\partial q}\\
+\frac{\partial H}{\partial p}
+\end{pmatrix},
+\end{align*}
+wobei $\ep_{ij}$ den \emph{antisymmetrischen Tensor} bezeichnet.
+
+Wir definieren nun einen neuen Vektor,
+\begin{align*}
+&\sym{x} = 
+\begin{pmatrix}
+q^1\\ p^1 \\ \vdots \\ q^f\\p^f
+\end{pmatrix}
+=
+\begin{pmatrix}
+x^1\\\vdots\\ x^{2f}
+\end{pmatrix},\\
+&\frac{\partial x^i}{\partial t}
+= 
+\sum_j \ep_{ij} \frac{\partial H}{\partial x_j},
+\end{align*}
+mit dem total antisymmetrischen Tensor
+\begin{align*}
+\ep =
+\begin{pmatrix}
+\begin{matrix}
+0 & 1\\
+-1 & 0
+\end{matrix}\\
+& \ddots\\
+&& \begin{matrix}
+0 & 1\\
+-1 & 0
+\end{matrix}
+\end{pmatrix}.
+\end{align*}
+Zur Abkürzung führen wir folgende Notation ein,
+\begin{align*}
+&\frac{\diffd \sym{x}}{\dt} = \ep\frac{\partial H}{\partial \sym{x}} =
+\ep\nabla H(\sym{x})\\
+& \setd{A,B} = \sum_{i,j} \frac{\partial A}{\partial x^i} \ep_{ij}
+\frac{\partial B}{\partial x^j} = \frac{\partial A}{\partial
+\sym{x}}\ep\frac{\partial B}{\partial \sym{x}}.
+\end{align*}
+
+\subsection{Extremalprinzip}
+
+Analog zum Lagrange existiert ein Extremalprinzip zu dem die Hamiltonschen
+Bewegungsgleichungen äquivalent sind.
+
+Für die Lagrangefunktion impliziert eine Variation von $q(t)$ auch eine
+Variation von $\dot{q}(t)$. Die Euler-Lagrange-Gleichungen sind das Extremal
+der Wirkung
+\begin{align*}
+S=\int\limits_{t_1}^{t_2}\dt L(q(t),\dot{q}(t),t).
+\end{align*}
+
+Für die Hamiltonfunktion sind nun $q(t)$ und $p(t)$ voneinander unabhängige
+Größen. Übertragen wir die Wirkung für die Lagrangefunktion auf den Hamilton,
+ergibt sich,
+\begin{align*}
+S = \int\limits_{t_1}^{t_2} \dt \underbrace{\sum_\alpha p_\alpha \dot{q}^\alpha
+- H(q^\alpha,p_\alpha,t)}_{L'},
+\end{align*}
+wobei $L'$ hier für den Zahlenwert der Lagrangefunktion zum Zeitpunkt $t$
+steht.
+
+Anwendung der Euler-Lagrange-Gleichungen auf die unabhängigen Größen
+$q^\alpha$ und $p^\beta$ ergibt,
+\begin{align*}
+&\frac{\diffd}{\dt}\frac{\partial L'}{\partial \dot{q}^\alpha} - \frac{\partial
+L}{\partial q^\alpha} = 0,\\
+&\frac{\diffd}{\dt}\frac{\partial L'}{\partial \dot{p}^\alpha} - \frac{\partial
+L}{\partial p^\alpha} = 0.
+\end{align*}
+Einsetzen des Ausdrucks für $L'$ führt wieder auf die Hamiltonschen
+Bewegungsgleichungen,
+\begin{align*}
+&\frac{\partial L'}{\partial \dot{q}^\alpha} = p_\alpha\\
+\Rightarrow &\frac{\diffd}{\dt}p_\alpha = \dot{p}_\alpha = \frac{\partial
+L'}{\partial q^\alpha} = -\frac{\partial H}{\partial q^\alpha}\\
+&\frac{\partial L'}{\partial \dot{p}_\alpha} = 0\\
+\Rightarrow &0 = \frac{\partial L'}{\partial p_\alpha} = \dot{q}^\alpha -
+\frac{\partial H}{\partial p_\alpha} \Rightarrow \dot{q}^\alpha =
+\frac{\partial H}{\partial p_\alpha}.
+\end{align*}
+\begin{bemn}
+Die Wirkung entlang einer physikalischen Bahn mit $H=E$ ist gegeben durch,
+\begin{align*}
+S = \int\limits_{t_1}^{t_2} \dt \left[\sum_\alpha p_\alpha\dot{q}^\alpha -H
+\right] = 
+\sum_\alpha \int_\gamma p_\alpha \ddq^\alpha - E(t_2-t_1).\maphere
+\end{align*}
+\end{bemn}
+\begin{figure}[htbp]
+\centering
+\begin{pspicture}(0,-1.41)(3.3,1.41)
+\psline{->}(0.22,-1.19)(0.24,1.27)
+\psline{->}(0.04,-1.01)(3.2,-1.01)
+\psbezier[linecolor=darkblue]{**-**}(0.74,-0.49)(1.0719048,0.45040816)(2.1,-0.59)(2.38,0.47)
+
+\rput(3.17,-1.185){\color{gdarkgray}$q^\alpha$}
+\rput(0.05,1.255){\color{gdarkgray}$t$}
+\rput(0.68,-0.645){\color{gdarkgray}$t_1$}
+\rput(2.56,0.555){\color{gdarkgray}$t_2$}
+\end{pspicture}
+
+\caption{Wirkung entlang einer Trajektorie}
+\end{figure}
+
+\subsection{Kanonische Transformationen}
+ 
+Wir wollen nun untersuchen, welche Transformationen die Hamiltonfunktion
+invariant lasssen. Für die Newtonschen Gleichungen waren das lediglich die
+Galilei-Transformationen. Der Lagrangeformalismus hingegen ist invariant unter
+beliebigen Transformationen, d.h.
+ \begin{align*}
+ &Q^\alpha = f(q^\beta,t)\\
+ &\dot{Q}^\alpha = \frac{\diffd}{\dt}f(q^\beta,t)
+ \end{align*}
+für jede Transformation $f$ im Konfigurationsraum. Beispielsweise ließen sich
+durch das Einführen von Kugelkoordinaten zahlreiche Probleme leicht auflösen bzw. reduzieren.
+
+ Im Hamiltonformalismus sind $q^\alpha$ und $p^\alpha$ von einander unabhängig,
+ d.h. Transformationen können $p^\alpha$ ändern während sie $q^\alpha$ invariant
+ lassen und umgekehrt.
+ %Im Lagrangeformalismus waren durch die feste
+ %Verknüpfung von $q$ und $\dot{q}$ beliebige Transformationen zugelassen. 
+
+Die Klasse von Transformationen im Phasenraum ($(q,p)$-Raum), die die
+Hamiltonschen Bewegungsgleichungen
+invariant lassen heißen \emph{kanonische Transformationen}.
+
+Wir wollen uns zunächst auf die wichtigste Untergruppe dieser Transformationen
+\begin{align*}
+(q^\alpha,p^\alpha)\mapsto (Q^\alpha,P^\alpha)
+\end{align*}
+beschränken, die die folgenden Eigenschaften erfüllen:
+\begin{enumerate}[label=(\roman{*})]
+  \item zeitunabhängig,
+  \item kontinuierlich in einem Parameter $s$.
+\end{enumerate}
+
+Wir betrachten eine Messgröße $F$, die nicht explizit von der Zeit abhängt,
+entlang einer Bewegungskurve. Aufgrund der Zeitunabhängigkeit der
+Transformation ist $\frac{\diffd F}{\dt}$ invariant,
+\begin{align*}
+\frac{\diffd F}{\dt} = \setd{F,H}_{q,p} = \setd{F,H}_{Q,P},
+\end{align*}
+d.h. die Poissonklammer in neuen und alten Koordinaten ist identisch.
+Da dies für alle Hamiltonfunktionen gelten muss, folgt allgemein
+\begin{align*}
+&\setd{A,B}_{q,p} = \setd{A,B}_{Q,P},\\
+&\sum_\alpha \frac{\partial A}{\partial q^\alpha}\frac{\partial B}{\partial
+p_\alpha} - \frac{\partial A}{\partial p_\alpha}\frac{\partial B}{\partial
+q^\alpha}
+=
+\sum_\alpha \frac{\partial A}{\partial Q^\alpha}\frac{\partial B}{\partial
+P_\alpha} - \frac{\partial A}{\partial P_\alpha}\frac{\partial B}{\partial
+Q^\alpha},
+\end{align*}
+bzw. in symplektischer Schreibweise,
+\begin{align*}
+\sum_{i,j} \frac{\partial A}{\partial \sym{x}_i}\ep_{ij}\frac{\partial
+B}{\partial \sym{x}_j}
+=
+\sum_{i,j} \frac{\partial A}{\partial \sym{y}_i}\ep_{ij}\frac{\partial
+B}{\partial \sym{y}_j},
+\end{align*}
+wobei
+\begin{align*}
+\sym{x} =
+\begin{pmatrix}
+q^1\\p^1\\\vdots \\ q^f \\ p^f
+\end{pmatrix},\qquad
+\sym{y} =
+\begin{pmatrix}
+Q^1\\P^1\\\vdots \\ Q^f \\ P^f
+\end{pmatrix}.
+\end{align*}
+\begin{bemn}[Spezialfall.]
+$A=P_\alpha$, $B=Q^\beta$ $\Rightarrow$ $\setd{P_\alpha,Q^\beta}_{q,p} =
+\setd{P_\alpha, Q^\beta}_{Q,P} = \delta_{\alpha\beta}$.
+
+\begin{bsp}
+Sei $Q^\beta = \lambda q^\beta$, so folgt $P_\alpha =
+\frac{1}{\lambda}p_\alpha$, denn $\setd{Q^\alpha,P_\alpha} =
+\delta_{\alpha\beta}$.\bsphere
+\end{bsp}
+
+Seien $\sym{y}$ die neuen und $\sym{x}$ die alten Koordinaten in symplektischer
+Notation, so ergibt sich,
+\begin{align*}
+\setd{y_i,y_j}_x = \ep_{ij} = \sum_{l,m} \frac{\partial y_i}{\partial
+x_k}\ep_{lm} \frac{\partial y_j}{\partial x_m} = \ep_{ij}
+\end{align*}
+Bezeichne $M_{il}:=\frac{\partial y_i}{\partial x_l}$ die Funktionalmatrix der
+kanonischen Transformation, so gilt
+\begin{align*}
+M\ep M^\top = \ep.\maphere
+\end{align*}
+\end{bemn}
+
+\begin{defnn}
+Die \emph{Symplektische Gruppe}
+\begin{align*}
+Sp(f,\R) := \setdef{M \in \R^{2f\times 2f}}{M\ep M^\top =\ep}.
+\end{align*}
+ist die Gruppe der $2f\times 2f$-Matritzen mit $M\ep M^\top = \ep$.\fishhere
+\end{defnn}
+
+Entwickeln wir $\sym{y}$ in $s$, so ergibt sich,
+\begin{align*}
+y_i = x_i + s\cdot v_i + o(s^2),
+\end{align*}
+mit $\sym{v}_i(x) = \frac{\partial y_i}{\partial s}\bigg|_{s=0}$.
+Differentiation der Entwicklung nach $x_k$ ergibt,
+\begin{align*}
+M_{ik}  = \frac{\partial y_i}{\partial x_k} = \delta_{ik} + s
+\underbrace{\frac{\partial v_i}{\partial x_k}}_{=:m_{ik}},
+\end{align*}
+d.h. wir können die Funktionalmatrix $M$ in $s$ entwickeln,
+\begin{align*}
+M = \Id + s\ m + o(s^2).
+\end{align*}
+Einsetzen in die Bedingung für eine kanonische Transformation ergibt,
+\begin{align*}
+\ep &= M\ep M^\top = \left(\Id + s\ m + o(s^2)\right)\ep\left(\Id + s\ m +
+o(s^2) \right) \\ &= \ep + s\left[m\ep + \ep m^\top \right] + o(s^2)\\
+\Rightarrow & m\ep + \ep m^\top = 0
+\end{align*}
+Multiplikation von rechts und links mit $\ep$ unter verwendung von $\ep^2 =\Id$
+und $\ep^\top = -\ep$ ergibt,
+\begin{align*}
+\ep m \ep^2 + \ep^2 m^\top\ep = 0
+\Leftrightarrow
+\ep m -m^\top e^\top  = 0
+\Leftrightarrow
+\ep m - (\ep m)^\top = 0.\tag{*}
+\end{align*}
+Setze nun
+\begin{align*}
+\sum_j e_{ij} m_{jk} = \sum_j e_{ij}\frac{\partial v_j}{\partial x_k}
+= \frac{\partial}{\partial x_k}\underbrace{\left(\sum_j \ep_{ij}v_j
+\right)}_{=:g_i},
+\end{align*}
+so nimmt (*) die Form an,
+\begin{align*}
+\frac{\partial g_i}{\partial x_k} - \frac{\partial g_k}{\partial x_i} = 0.
+\end{align*}
+In drei Dimensionen wäre dies äquivalent damit, dass $\rot g = 0$. Hier haben
+wir die höherdimensionale Verallgemeinerung. Analog zum dreidimensionalen Fall
+existiert daher ein Skalarfeld $G$ so, dass
+\begin{align*}
+g_i = -\nabla_i G = - \frac{\partial G}{\partial x_i}(\sym{x}). 
+\end{align*}
+$G$ heißt \emph{Erzeugende} Funktion für die kanonische Transformation (bzw. den
+kanonischen Fluss).
+
+\subsubsection{Zusammenfassung}
+
+\begin{enumerate}[label=\arabic{*}.)]
+  \item $v_i = \frac{\diffd y_i}{\ds}\bigg|_{s=0} = -\sum_j \ep_{ij}g_j =
+  \sum_j \ep \frac{\partial G}{\partial y_j}$.
+  \item Zu jeder kanonischen Transformation $g$ existiert eine erzeugende
+  Funktion $G$.
+  \item Jede Funktion $G$ erzeugt eine kanonische Transformation.
+
+Insbesondere erzeugt die Hamiltonfunktion eine kanonische Transformation. Diese
+ist die Transformation im Koordinatenraum, die zu gegebenen Anfangsbedingungen
+die Hamiltonschen Bewegungsgleichungen liefert.
+\end{enumerate}
+
+\begin{bsp}
+\textit{Erzeugende für eine Drehung um die $z$-Achse}. Die Drehung ist
+charakterisiert durch,
+\begin{align*}
+\vec{y} = \vec{x} + s\vec{v}\times\vec{x}.
+\end{align*}
+Dabei ist,
+\begin{align*}
+&\frac{\diffd y_1}{\ds} = -x_2\\
+&\frac{\diffd y_2}{\ds} = x_1\\
+&\frac{\diffd y_3}{\ds} = 0.
+\end{align*}
+D.h. $G=L_3 = x_1p_2 - x_2p_1$, die $z$-Komponente des Drehimpulses, ist
+Erzeugende für die Rotation.
+
+Ananlog sieht man, dass der Impuls die Erzeugende für die Translation im Raum
+ist.\bsphere
+\end{bsp}
+
+\subsubsection{Symmetrien und Erhaltungssätze}
+
+Eine kanonische Transformation $g$ ist eine \emph{Symmetrie}, wenn sie die
+Hamiltonfunktion nicht ändert,
+\begin{align*}
+0 = \frac{\diffd H}{\ds}(\sym{y}) = \sum_i \frac{\partial H}{\partial
+y_i}\frac{\partial y_i}{\partial s} =
+\sum_{i,j} \frac{\partial H}{\partial y_i}\ep_{ij}\frac{\partial
+G}{\partial y_j} = \setd{H,G}.
+\end{align*}
+D.h. $g$ ist genau dann eine Symmetrie, wenn die Poissonklammer von $H$ und
+ihrer Erzeugenden $G$ verschwindet.
+
+Die Erzeugende einer Symmetrie ist daher stets eine Erhaltungsgröße, denn
+\begin{align*}
+\frac{\diffd G}{\dt} = \setd{G,H} = 0.
+\end{align*}
+
+\subsection{Endliche kanonische Transformationen}
+
+Die Transformation lässt die Bewegungsgleichungen
+\begin{align*}
+&\dot{q}^\alpha = \frac{\partial H}{\partial p_\alpha},\quad
+\dot{p}_\alpha = -\frac{\partial H}{\partial q^\alpha}
+\end{align*}
+invariant. In neuen Koordinaten,
+\begin{align*}
+&\dot{Q}^\alpha = \frac{\partial H'}{\partial P_\alpha},\quad
+\dot{P}_\alpha = -\frac{\partial H'}{\partial Q^\alpha}.
+\end{align*}
+Falls $H$ zeitabhängig ist, erhalten wir eine neue Hamiltonfunktion $H'$.
+
+Die Hamiltonschen Bewegungsgleichungen sind äquivalent zum Hamiltonschen
+Prinzip der kleinsten Wirkung,
+\begin{align*}
+&\delta\left(\sum_\alpha p_\alpha\dot{q}^\alpha - H\right) = 0,\\
+&\delta\left(\sum_\alpha P_\alpha\dot{Q}^\alpha - H'\right) = 0,
+\end{align*}
+d.h. $\sum_\alpha p_\alpha\dot{q}^\alpha - H$ und $\sum_\alpha
+P_\alpha\dot{Q}^\alpha - H'$ dürfen sich lediglich um eine totale
+Zeitableitung unterscheiden. Dies ergibt eine neue Funktion,
+\begin{align*}
+&\frac{\diffd F}{\dt} = \sum_\alpha p_\alpha \dot{q}^\alpha -
+P_\alpha\dot{Q}^\alpha - (H-H'),\\
+&\diffd F = \sum_\alpha p_\alpha \ddq^\alpha -
+P_\alpha\dQ^\alpha - (H-H')\dt.
+\end{align*}
+
+Wir nehmen an, dass $F(q,Q,t)$ die Form,
+\begin{align*}
+\diffd F = \sum_\alpha p_\alpha \ddq^\alpha -
+P_\alpha\dQ^\alpha - \frac{\partial F}{\partial t}\dt
+\end{align*}
+hat. Dadurch ergeben sich die Bedingungen,
+\begin{align*}
+\frac{\partial F}{\partial q^\alpha} = p_\alpha,\quad
+-\frac{\partial F}{\partial Q^\alpha} = P_\alpha,\quad
+\frac{\partial F}{\partial t} = H-H'.
+\end{align*}
+Unter diesen Bedingungen erzeugt $F$ eine kanonische Transformation.
+
+\begin{bsp}
+Betrachte den Harmonischen Oszillator mit,
+\begin{align*}
+H=\frac{p^2}{2m} + k\frac{q^2}{2},\quad \omega^2=\frac{k}{m}.
+\end{align*}
+Durch kühne Überlegung erhält man die Erzeugende,
+\begin{align*}
+F = \frac{m\omega q^2}{2}\cot(Q),
+\end{align*}
+dann ist
+\begin{align*}
+&p = \frac{\partial F}{\partial q} = m\omega q \cot Q,\\
+&P = -\frac{\partial F}{\partial Q} = -\frac{m\omega q^2}{2}\frac{1}{\sin^2 Q}.
+\end{align*}
+Auflösen der Gleichung ergibt,
+\begin{align*}
+&q = \sqrt{\frac{2P}{m\omega}}\sin Q\\
+&p = \sqrt{2Pm\omega}\cos Q.
+\end{align*}
+Die neue Hamiltonfunktion hat die Form,
+\begin{align*}
+H' &= H + \underbrace{\frac{\partial F}{\partial t}}_{=0}
+= \frac{2 Pm\omega \cos^2 Q}{2m} + \omega^2 m\frac{2P}{\omega}\frac{\sin^2
+Q}{2}\\ &= P\omega \cos^2 Q + P\omega \sin^2 Q = P\omega.
+\end{align*}
+Nach der kanonischen Transformation ist $Q$ eine zyklische Koordinate,
+\begin{align*}
+&Q = \omega t + \ph,\\
+&E = \omega P \Rightarrow P = \frac{E}{\omega}.\bsphere
+\end{align*}
+\end{bsp}
+
+\subsection{Hamilton-Jacobi Differentialgleichungen}
+
+Wir wollen nun untersuchen, welche kanonische Transformation $F_2$ zur Folge
+hat, dass
+\begin{align*}
+&H'(Q^\alpha, P_\alpha) = \const = 0,\\
+&\dot{Q}^\alpha = \frac{\partial H'}{\partial p_\alpha} = 0\\
+&\dot{P}_\alpha = -\frac{\partial H'}{\partial q^\alpha} = 0.
+\end{align*}
+Wir erhalten so eine Differentialgleichung, deren Lösung die gesuchte kanonische
+Transformation ist.
+
+Die Erzeugende dieser Transformation ist die Wirkung,
+\begin{align*}
+S = \int\limits_{t_1}^{t_2}\dt L.
+\end{align*}
+
+Betrachte nun zu festem Anfangspunkt $q^\alpha$, $S(q^\alpha,t)$ als Funktion
+des Endpunkts für \textit{physikalische Bahnen}. Für die Ortsableitung ergibt
+sich,
+\begin{align*}
+\frac{\partial S}{\partial q^\alpha} &= \frac{\partial}{\partial
+q^\alpha}\int\limits_{t_1}^{t} \dt L = 
+\int\limits_{t_1}^t \ds \frac{\partial L}{\partial q^\alpha}
++ \sum_\beta \frac{\partial L}{\partial \dot{q}^\beta}\frac{\partial
+\dot{q}^\beta}{\partial q^\alpha}
+\\ &= \underbrace{\int\limits_{t_1}^t \ds \left[\frac{\partial L}{\partial
+q^\alpha} - \frac{\diffd}{\dt}\frac{\partial L}{\partial q^\alpha}\right]}_{=0}
++ \frac{\partial L}{\partial \dot{q}^\alpha}\bigg|_{t_1}^t = p_\alpha.
+\end{align*}
+Betrachte nun $q^\alpha$ als fixiert und differenziere nach $t$,
+\begin{align*}
+&\frac{\diffd S}{\dt} =\frac{\diffd }{\dt}\int\limits_{t_1}^t \dt L = L
+= \frac{\partial S}{\partial t} + \sum_\alpha \frac{\partial S}{\partial
+q^\alpha}\frac{\partial q^\alpha}{\partial \dot{q}^\alpha}\\
+\Rightarrow & \frac{\partial S}{\partial t} = \frac{\diffd S}{\dt} -
+\sum_\alpha p_\alpha\dot{q}^\alpha =- H.
+\end{align*}
+
+Die Wirkungsfunktion $S(q^\alpha,t)$ erfüllt die folgenden
+Differentialgleichungen,
+\begin{align*}
+&\frac{\partial S}{\partial t} = -H, \quad
+\frac{\partial S}{\partial q^\alpha} = p_\alpha\\
+&\diffd S = \sum_\alpha p_\alpha \ddq^\alpha - H\dt
+\end{align*}
+Damit folgt die \emph{Hamilton-Jacobi Differentialgleichung},
+\begin{align*}
+\frac{\partial S}{\partial t} = -H(q^\alpha,p_\alpha,t) =
+-H(q^\alpha,\frac{\partial S}{\partial q^\alpha},t).
+\end{align*}
+$S(q^\alpha,t)$ ist somit durch eine partielle Differentialgleichung 1. Ordnung
+in $f+1$ Variablen bestimmt. Für partielle Differentialgleichungen existieren
+weitreichende Lösungsverfahren und -sätze, mit denen man sich in der
+Quantenelektrodynamik ausführlich beschäftigt.
+
+Die Lösung ist durch $f+1$ Integrationskonstanten bestimmt. Eine
+Integrationkonstante ist trivial,
+\begin{align*}
+S(q^\alpha,t,a^\alpha),\quad \alpha = 1,\ldots,f.
+\end{align*}
+Die Lösung dieser Differentialgleichung können wir als Erzeugende einer
+kanonische Transformation mit $p_\alpha = a^\alpha$ auffassen,
+\begin{align*}
+&F_2(q^\alpha,p_\alpha) = S(q^\alpha, t, a^\alpha).\\
+&p_\alpha = \frac{\partial S}{\partial q^\alpha}\\
+&Q^\alpha = \frac{\partial S}{\partial p_\alpha}\\
+&H' = H+\frac{\partial S}{\partial t} = 0.
+\end{align*}
+
+\begin{bsp}
+Wir betrachten erneut den harmonischen Oszillator,
+\begin{align*}
+H = \frac{p^2}{2m} + m\omega^2q^2,
+\end{align*}
+und lösen die Hamilton-Jacobi Differentialgleichungen.
+
+Separation führt auf,
+\begin{align*}
+S(q^\alpha,t) = S_0(q^\alpha) + S_1(t).
+\end{align*}
+Für den zeitabhängigen Teil ist
+\begin{align*}
+&\frac{\partial S_1}{\partial t} =
+-\frac{1}{2m}\left(\frac{\partial S_0(q)}{\partial q} \right)^2 - m\omega^2
+q^2\\
+\Rightarrow &
+\frac{\partial S_1}{\partial t} = -a^1 
+\Rightarrow  
+\frac{1}{2m}\left(\frac{\partial S_0(q)}{\partial q} \right)^2 + m\omega^2 q^2
+= a^1
+\end{align*}
+Für den Ortsanteil erhalten wir so,
+\begin{align*}
+\frac{\partial S_0}{\partial q} = \sqrt{2m}\sqrt{a^1 -m\omega^2 q^2}
+\end{align*}
+dies kann man integrieren,
+\begin{align*}
+S_0(q) = \int \ddq \sqrt{2m}\sqrt{a^1 - m\omega^2 q^2}. 
+\end{align*}
+Die Lösung hat daher die Form,
+\begin{align*}
+S(q,t) = \int \ddq \sqrt{2m}\sqrt{a^1 - m\omega^2 q^2} + a^1 t.
+\end{align*}
+Man kann hiervon eine analytische Lösung berechnen. Betrachten wir die neuen
+Koordinaten,
+\begin{align*}
+&P_\alpha = a^1,\quad Q^\alpha = \frac{\partial S}{\partial a^1}
+= \int\ddq \sqrt{\frac{m}{2}} \frac{1}{\sqrt{a^1 - m\omega^2 q^2}} - t\\
+\Rightarrow &
+Q^\alpha + t =
+\frac{1}{\omega}\arcsin\left(q\sqrt{\frac{m\omega^2}{2a^1}}\right).
+\end{align*}
+In den neuen Koordinaten $(Q^\alpha,P_\alpha)$ verschwindet die
+Hamiltonfunktion $H'=0$, d.h. $P=\const$, $Q=\const$ und daher
+\begin{align*}
+&q = \sqrt{\frac{2P}{m\omega^2}}\sin\left(\omega(t+Q) \right)\\
+&p = \ldots
+\end{align*}
+D.h. in den neuen Koordinaten ist der Impuls $P$ die Amplitude und $Q$ die
+Phase des Oszillators, beide Konstanten.\bsphere
+\end{bsp}
